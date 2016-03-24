@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>javascript面向对象编程 | myron blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x201C;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x201D;&amp;#xFF08;Object Oriented Programming&amp;#xFF0C;&amp;#x7F29;&amp;#x5199;&amp;#x4E3A;OOP&amp;#xFF09;&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x7F16;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript面向对象编程">
+<meta property="og:url" content="http://yoursite.com/2016/03/23/javscript/javascript面向对象编程/index.html">
+<meta property="og:site_name" content="myron blog">
+<meta property="og:description" content="&amp;#x201C;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x201D;&amp;#xFF08;Object Oriented Programming&amp;#xFF0C;&amp;#x7F29;&amp;#x5199;&amp;#x4E3A;OOP&amp;#xFF09;&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x7F16;&amp;#">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/javscript/javascript面向对象编程/19-21-26.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/javscript/javascript面向对象编程/19-21-43.jpg">
+<meta property="og:updated_time" content="2016-03-24T08:41:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript面向对象编程">
+<meta name="twitter:description" content="&amp;#x201C;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x201D;&amp;#xFF08;Object Oriented Programming&amp;#xFF0C;&amp;#x7F29;&amp;#x5199;&amp;#x4E3A;OOP&amp;#xFF09;&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x7F16;&amp;#">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/23/javscript/javascript面向对象编程/19-21-26.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">myron</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">myron</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">myron</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javscript/javascript面向对象编程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/23/javscript/javascript面向对象编程/" class="article-date">
+  	<time datetime="2016-03-23T11:19:00.000Z" itemprop="datePublished">2016-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript面向对象编程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x201C;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x201D;&#xFF08;Object Oriented Programming&#xFF0C;&#x7F29;&#x5199;&#x4E3A;OOP&#xFF09;&#x662F;&#x76EE;&#x524D;&#x4E3B;&#x6D41;&#x7684;&#x7F16;&#x7A0B;&#x8303;&#x5F0F;&#x3002;&#x5B83;&#x7684;&#x6838;&#x5FC3;&#x601D;&#x60F3;&#x662F;&#x5C06;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x5404;&#x79CD;&#x590D;&#x6742;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x62BD;&#x8C61;&#x4E3A;&#x4E00;&#x4E2A;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x7531;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x5206;&#x5DE5;&#x4E0E;&#x5408;&#x4F5C;&#xFF0C;&#x5B8C;&#x6210;&#x5BF9;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x6A21;&#x62DF;&#x3002;</p>
+<h2 id="&#x5BF9;&#x8C61;&#x7684;&#x7406;&#x89E3;"><a href="#&#x5BF9;&#x8C61;&#x7684;&#x7406;&#x89E3;" class="headerlink" title="&#x5BF9;&#x8C61;&#x7684;&#x7406;&#x89E3;"></a>&#x5BF9;&#x8C61;&#x7684;&#x7406;&#x89E3;</h2><p>&#x90A3;&#x4E48;&#xFF0C;&#x4EC0;&#x4E48;&#x662F;&#x5BF9;&#x8C61;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x4E24;&#x4E2A;&#x5C42;&#x6B21;&#x7406;&#x89E3;&#xFF1A;</p>
+<p><em>&#xFF08;1&#xFF09;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x662F;&#x5355;&#x4E2A;&#x5B9E;&#x7269;&#x7684;&#x62BD;&#x8C61;&#x3002;</em></p>
+<p>&#x4E00;&#x672C;&#x4E66;&#x3001;&#x4E00;&#x8F86;&#x6C7D;&#x8F66;&#x3001;&#x4E00;&#x4E2A;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x662F;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#xFF0C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x3001;&#x4E00;&#x5F20;&#x7F51;&#x9875;&#x3001;&#x4E00;&#x4E2A;&#x4E0E;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x3002;&#x5F53;&#x5B9E;&#x7269;&#x88AB;&#x62BD;&#x8C61;&#x6210;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#xFF0C;&#x5B9E;&#x7269;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4ECE;&#x800C;&#x5C31;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x73B0;&#x5B9E;&#x60C5;&#x51B5;&#xFF0C;&#x9488;&#x5BF9;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x8FDB;&#x884C;&#x7F16;&#x7A0B;&#x3002;</p>
+<p><em>&#xFF08;2&#xFF09;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x662F;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x5C01;&#x88C5;&#x4E86;&#x201C;&#x5C5E;&#x6027;&#x201D;&#xFF08;property&#xFF09;&#x548C;&#x201C;&#x65B9;&#x6CD5;&#x201D;&#xFF08;method&#xFF09;&#x3002;</em></p>
+<p>&#x6240;&#x8C13;&#x201C;&#x5C5E;&#x6027;&#x201D;&#xFF0C;&#x5C31;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#xFF1B;&#x6240;&#x8C13;&#x201C;&#x65B9;&#x6CD5;&#x201D;&#xFF0C;&#x5C31;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x884C;&#x4E3A;&#xFF08;&#x5B8C;&#x6210;&#x67D0;&#x79CD;&#x4EFB;&#x52A1;&#xFF09;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x52A8;&#x7269;&#x62BD;&#x8C61;&#x4E3A;animal&#x5BF9;&#x8C61;&#xFF0C;&#x201C;&#x5C5E;&#x6027;&#x201D;&#x8BB0;&#x5F55;&#x5177;&#x4F53;&#x662F;&#x90A3;&#x4E00;&#x79CD;&#x52A8;&#x7269;&#xFF0C;&#x201C;&#x65B9;&#x6CD5;&#x201D;&#x8868;&#x793A;&#x52A8;&#x7269;&#x7684;&#x67D0;&#x79CD;&#x884C;&#x4E3A;&#xFF08;&#x5954;&#x8DD1;&#x3001;&#x6355;&#x730E;&#x3001;&#x4F11;&#x606F;&#x7B49;&#x7B49;&#xFF09;&#x3002;</p>
+<h2 id="&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x6784;&#x9020;&#x51FD;&#x6570;</h2><p>&#x201C;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x201D;&#x7684;&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x5C31;&#x662F;&#x8981;&#x751F;&#x6210;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x3002;&#x524D;&#x9762;&#x8BF4;&#x8FC7;&#xFF0C;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x662F;&#x5355;&#x4E2A;&#x5B9E;&#x7269;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x901A;&#x5E38;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#xFF0C;&#x8868;&#x793A;&#x67D0;&#x4E00;&#x7C7B;&#x5B9E;&#x7269;&#x7684;&#x5171;&#x540C;&#x7279;&#x5F81;&#xFF0C;&#x7136;&#x540E;&#x201C;&#x5BF9;&#x8C61;&#x201D;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x751F;&#x6210;&#x3002;</p>
+<p>&#x5178;&#x578B;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#xFF08;&#x5982;&#xFF1A;c#/java&#xFF09;,&#x90FD;&#x6709; <em>&#x7C7B;</em> &#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x7528;&#x4E8E;&#x6784;&#x9020;&#x5BF9;&#x8C61;&#xFF0C; &#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x7C7B;&#x5C31;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;JavaScript&#x8BED;&#x8A00;&#x7684;&#x5BF9;&#x8C61;&#x4F53;&#x7CFB;&#xFF0C;&#x4E0D;&#x662F;&#x57FA;&#x4E8E;&#x201C;&#x7C7B;&#x201D;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x57FA;&#x4E8E;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;constructor&#xFF09;&#x548C;&#x539F;&#x578B;&#x94FE;&#xFF08;prototype&#xFF09;&#x3002;</p>
+<blockquote>
+<p>&#x5728;ES6&#x4E2D;&#x4E5F;&#x6709;&#x4E86;&#x7C7B;&#x7684;&#x6982;&#x5FF5;&#x6765;&#x6784;&#x9020;&#x5BF9;&#x8C61;</p>
+</blockquote>
+<p>&#x6784;&#x9020;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x6B63;&#x5E38;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x7684;&#x7279;&#x5F81;&#x548C;&#x7528;&#x6CD5;&#x4E0E;&#x666E;&#x901A;&#x51FD;&#x6570;&#x4E0D;&#x4E00;&#x6837;&#x3002;&#x4E0B;&#x9762;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">&apos;myron&apos;</span>;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">22</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;Person&#x5C31;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;this&#x5C5E;&#x6027;&#x6765;&#x5C01;&#x88C5;&#x81EA;&#x8EAB;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7279;&#x70B9;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;</p>
+<blockquote>
+<ol>
+<li>&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;this&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x6307;&#x5411;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;;</li>
+<li>&#x5FC5;&#x987B;&#x7528; <em>new</em> &#x547D;&#x4EE4;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#xFF1B;</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myron = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;new&#x547D;&#x4EE4;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x662F;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x53BB;&#x6389;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5B8C;&#x6210;&#x662F;&#x5B9E;&#x4F8B;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x6267;&#x884C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#x4F1A;&#x5FFD;&#x7565;&#x5230;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7684;return&#x8BED;&#x53E5;,&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x6A21;&#x62DF;new&#x547D;&#x4EE4;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span>(<span class="params"><span class="comment">/*&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x53C2;&#x6570;*/</span></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">constructor</span> = args.shift();</span><br><span class="line">    var context = Object.create(<span class="keyword">constructor</span>.prototype);//&#x6839;&#x636E;&#x539F;&#x578B;&#x94FE;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5BF9;&#x8C61;</span><br><span class="line">    var result = <span class="keyword">constructor</span>.apply(context, args); //&#x8C03;&#x7528;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span><br><span class="line">    return result;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x539F;&#x578B;"><a href="#&#x539F;&#x578B;" class="headerlink" title="&#x539F;&#x578B;"></a>&#x539F;&#x578B;</h2><p>JavaScript&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x751F;&#x6210;&#x65B0;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x89C6;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x677F;&#x3002;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.introduce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;my name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;, &apos;</span> + <span class="keyword">this</span>.age + <span class="string">&apos; years old&apos;</span> );</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> myron = <span class="keyword">new</span> Person(<span class="string">&apos;myron&apos;</span>, <span class="number">22</span>);</span><br><span class="line"><span class="keyword">var</span> ling = <span class="keyword">new</span> Person(<span class="string">&apos;&#x82E5;&#x7EEB;&apos;</span>, <span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myron.introduce === ling.introduce);<span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x521B;&#x5EFA;&#x4E86;&#x4E24;&#x4E2A;&#x5B9E;&#x4F8B;, &#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x7684; <em>introduce</em> &#x65B9;&#x6CD5;&#x5374;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x5199;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x548C;&#x5C5E;&#x6027;&#x5728;&#x6BCF;&#x6B21;&#x5B9E;&#x4F8B;&#x5316;&#x5F97;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x3002;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x516C;&#x7528;&#x7684;&#x8D44;&#x6E90;&#xFF08;&#x51FD;&#x6570;/&#x5C5E;&#x6027;&#xFF09;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x65E2;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#xFF0C;&#x53C8;&#x6D6A;&#x8D39;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x7684;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A; prototype(&#x539F;&#x578B;)&#x5C5E;&#x6027;,&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;,&#x5B83;&#x7684;&#x7528;&#x9014;&#x662F;<br>&#x5305;&#x542B;&#x53EF;&#x4EE5;&#x7531;&#x7279;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5171;&#x4EAB;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x903B;&#x8F91;&#x4E0A;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x7406;&#x89E3;: prototype &#x901A;&#x8FC7; &#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x800C;&#x521B;&#x5EFA;&#x7684;&#x90A3;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61; &#x3002;&#x4F7F;&#x7528;&#x539F;&#x578B;&#x7684;&#x597D;&#x5904;&#x53EF;&#x4EE5;&#x8BA9;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5171;&#x4EAB;&#x5B83;&#x6240; &#x5305;&#x542B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;,&#x4E0D;&#x5FC5;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x4FE1;&#x606F; ,&#x800C;&#x662F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5C06;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F; &#x6DFB;&#x52A0;&#x5230;&#x539F;&#x578B;&#x4E2D;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">}</span><br><span class="line">Person.prototype.introduce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;my name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;, &apos;</span> + <span class="keyword">this</span>.age + <span class="string">&apos; years old&apos;</span> );</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> myron = <span class="keyword">new</span> Person(<span class="string">&apos;myron&apos;</span>, <span class="number">22</span>);</span><br><span class="line"><span class="keyword">var</span> ling = <span class="keyword">new</span> Person(<span class="string">&apos;&#x82E5;&#x7EEB;&apos;</span>, <span class="number">20</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myron.introduce === ling.introduce);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x4E3A;&#x4E86;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x4E86;&#x89E3;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x5F0F;&#x548C;&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x5F0F; ,&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x56FE;&#x793A;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;:</p>
+<p><img src="/2016/03/23/javscript/javascript&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;/19-21-26.jpg" alt=""></p>
+<p><img src="/2016/03/23/javscript/javascript&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;/19-21-43.jpg" alt=""></p>
+<p>&#x5728;&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x58F0;&#x660E;&#x4E2D;,&#x591A;&#x4E86;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;,&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x65F6;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x3002;<strong>proto</strong> &#x5C5E;&#x6027;&#x662F;&#x5B9E;&#x4F8B;&#x6307;&#x5411;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x6307;&#x9488;,&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5C5E;&#x6027; constructor&#x3002; &#x901A;&#x8FC7;&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;,&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;&#x539F;&#x578B;&#x91CC;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x4E86;&#x3002;</p>
+<p>&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x7684;&#x6267;&#x884C;&#x6D41;&#x7A0B;:<br>1.&#x5148;&#x67E5;&#x627E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5B9E;&#x4F8B;&#x91CC;&#x7684;&#x5C5E;&#x6027;&#x6216;&#x65B9;&#x6CD5;,&#x5982;&#x679C;&#x6709;,&#x7ACB;&#x523B;&#x8FD4;&#x56DE;;<br>2.&#x5982;&#x679C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5B9E;&#x4F8B;&#x91CC;&#x6CA1;&#x6709;,&#x5219;&#x53BB;&#x5B83;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x91CC;&#x627E;,&#x5982;&#x679C;&#x6709;,&#x5C31;&#x8FD4;&#x56DE;;</p>
+<h2 id="&#x7EE7;&#x627F;"><a href="#&#x7EE7;&#x627F;" class="headerlink" title="&#x7EE7;&#x627F;"></a>&#x7EE7;&#x627F;</h2><p>javascript&#x6CA1;&#x6709; <em>&#x7C7B;</em> &#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x81EA;&#x7136;&#x4E5F;&#x6CA1;&#x6709;&#x7C7B;&#x7684;&#x7EE7;&#x627F;(ES6&#x9664;&#x5916;),&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x72EC;&#x7279;&#x7684;&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x7EE7;&#x627F;&#x64CD;&#x4F5C;.</p>
+<h3 id="&#x5C5E;&#x6027;&#x62F7;&#x8D1D;"><a href="#&#x5C5E;&#x6027;&#x62F7;&#x8D1D;" class="headerlink" title="&#x5C5E;&#x6027;&#x62F7;&#x8D1D;"></a>&#x5C5E;&#x6027;&#x62F7;&#x8D1D;</h3><p>&#x8FD9;&#x662F;&#x6700;&#x7B80;&#x5355;&#x4E5F;&#x6700;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x7684;&#x7EE7;&#x627F;&#x65B9;&#x6CD5;&#xFF0C;&#x4FBF;&#x5229;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x7136;&#x540E;&#x8BBE;&#x7F6E;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = {</span><br><span class="line">    a: <span class="string">&apos;aa&apos;</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> b = {</span><br><span class="line">    b: <span class="string">&apos;bb&apos;</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> a){</span><br><span class="line">    b[key] = a[key]</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E0A;&#x8FF0;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#x53EA;&#x9488;&#x5BF9;Object&#x7EE7;&#x627F;&#xFF0C;&#x53EA;&#x662F;&#x5BF9;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x6709;&#x7528;&#xFF0C;&#x53C8;&#x6709;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x7EE7;&#x627F;a&#x5219;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x904D;&#x5386;&#x4E00;&#x6B21;,&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x51FD;&#x6570;&#x518D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0A;&#x52A8;&#x624B;&#x811A;&#x5427;</p>
+<h3 id="&#x6784;&#x9020;&#x7EE7;&#x627F;"><a href="#&#x6784;&#x9020;&#x7EE7;&#x627F;" class="headerlink" title="&#x6784;&#x9020;&#x7EE7;&#x627F;"></a>&#x6784;&#x9020;&#x7EE7;&#x627F;</h3><p>&#x518D;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7528;this&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65B9;&#x6CD5;&#xFF0C;&#x5B8C;&#x6210;&#x5B50;&#x7C7B;&#x5BF9;&#x7236;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">this</span>.weight = <span class="string">&apos;50kg&apos;</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>{</span><br><span class="line">    Animal.call(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.age === <span class="number">10</span> ? <span class="string">&apos;&#x5B8C;&#x6210;&#x7EE7;&#x627F;&#x5566;&apos;</span> : <span class="string">&apos;&apos;</span>);</span><br></pre></td></tr></table></figure></p>
+<p>&#x4F46;&#x662F;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x80FD;&#x7EE7;&#x627F;&#x7236;&#x7C7B;&#x4E2D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5728;&#x539F;&#x578B;&#x4E2D;&#x5219;&#x65E0;&#x6CD5;&#x7EE7;&#x627F;;</p>
+<h3 id="&#x539F;&#x578B;&#x7EE7;&#x627F;"><a href="#&#x539F;&#x578B;&#x7EE7;&#x627F;" class="headerlink" title="&#x539F;&#x578B;&#x7EE7;&#x627F;"></a>&#x539F;&#x578B;&#x7EE7;&#x627F;</h3><p>&#x4E4B;&#x524D;&#x5C31;&#x8BF4;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x6709;prototype&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E8E;&#x5171;&#x4EAB;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x540C;&#x540C;&#x65F6;&#x5B83;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;prototype,&#x8FD9;&#x6837;&#x4E00;&#x6765;&#x5C31;&#x5F62;&#x6210;&#x4E00;&#x6761;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x94FE;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">this</span>.weight = <span class="string">&apos;50kg&apos;</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name  = name; <span class="comment">//&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;</span></span><br><span class="line">}</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();<span class="comment">//&#x7EE7;&#x627F;animal&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</span></span><br><span class="line">Cat.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{  <span class="comment">//&#x65B0;&#x589E;&#x4E00;&#x4E9B;&#x539F;&#x578B;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;&#x55B5;~&apos;</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x5229;&#x7528;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x505A;&#x7236;&#x7C7B;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x7684;&#x7EE7;&#x627F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x5B50;&#x7C7B;&#x7279;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;.<br>&#x63A8;&#x8350;&#x4E00;&#x4E0B;jQuery&#x4F5C;&#x8005;&#x5199;&#x7684;&#x7C7B;&#x5DE5;&#x5382;&#x7684;&#x5B9E;&#x73B0; <a href="http://ejohn.org/blog/simple-javascript-inheritance/" target="_blank" rel="external">&#x70B9;&#x8FD9;&#x91CC;</a></p>
+<p>&#x5B83;&#x901A;&#x8FC7; <em>Class.create</em> &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x7EE7;&#x627F;&#x5219;&#x8C03;&#x7528; <em>extend</em> &#x51FD;&#x6570;&#xFF0C;&#x53E6;&#x5916;&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;this._super&#x6307;&#x5411;&#x7236;&#x7C7B;&#x7684;&#x540C;&#x540D;&#x65B9;&#x6CD5;.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = Class.extend({</span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params">isDancing</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.dancing = isDancing;</span><br><span class="line">  },</span><br><span class="line">  dance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.dancing;</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Ninja = Person.extend({</span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>._super( <span class="literal">false</span> );</span><br><span class="line">  },</span><br><span class="line">  dance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">// Call the inherited version of dance()</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._super();</span><br><span class="line">  },</span><br><span class="line">  swingSword: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="literal">true</span>);</span><br><span class="line">p.dance(); <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> Ninja();</span><br><span class="line">n.dance(); <span class="comment">// =&gt; false</span></span><br><span class="line">n.swingSword(); <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Should all be true</span></span><br><span class="line">p <span class="keyword">instanceof</span> Person &amp;&amp; p <span class="keyword">instanceof</span> Class &amp;&amp;</span><br><span class="line">n <span class="keyword">instanceof</span> Ninja &amp;&amp; n <span class="keyword">instanceof</span> Person &amp;&amp; n <span class="keyword">instanceof</span> Class</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6DF7;&#x5408;"><a href="#&#x6DF7;&#x5408;" class="headerlink" title="&#x6DF7;&#x5408;"></a>&#x6DF7;&#x5408;</h2><p>Mixin&#x662F;JavaScript&#x4E2D;&#x7528;&#x7684;&#x6700;&#x666E;&#x904D;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x6D41;&#x884C;&#x7C7B;&#x5E93;&#x90FD;&#x4F1A;&#x6709;Mixin&#x7684;&#x5B9E;&#x73B0;&#x3002;<br>Mixin&#x662F;&#x63BA;&#x5408;&#xFF0C;&#x6DF7;&#x5408;&#xFF0C;&#x7CC5;&#x5408;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x5373;&#x53EF;&#x4EE5;&#x5C31;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5168;&#x90E8;&#x6216;&#x90E8;&#x5206;&#x5C5E;&#x6027;&#x62F7;&#x8D1D;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;/&#x7C7B;&#x4E0A;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x57FA;&#x672C;&#x7684;&#x6DF7;&#x5408;&#x5B9E;&#x73B0;</span></span><br><span class="line"><span class="keyword">var</span> mixin = {</span><br><span class="line">    say : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.sayMsg);</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name  = name; <span class="comment">//&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;</span></span><br><span class="line">    <span class="keyword">this</span>.sayMsg = <span class="string">&apos;&#x55B5;~&apos;</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.sayMsg = <span class="string">&apos;&#x6C6A;!&#x6C6A;!&#x6C6A;!&apos;</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x628A;mixin&#x52A0;&#x5165;&#x5230;&#x4E24;&#x4E2A;&#x7C7B;&#x4E2D;</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> mixin){</span><br><span class="line">    Cat.prototype[key] = mixin[key];</span><br><span class="line">    Dog.prototype[key] = mixin[key];</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">&apos;&#x5C0F;&#x9EC4;&apos;</span>);</span><br><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> Dog(<span class="string">&apos;&#x65FA;&#x8D22;&apos;</span>);</span><br><span class="line">cat.say();</span><br><span class="line">dog.say();</span><br></pre></td></tr></table></figure></p>
+<p>&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x67D0;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6765;&#x907F;&#x514D;&#x91CD;&#x590D;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5982;&#x679C;&#x7528;&#x7EE7;&#x627F;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;&#x4EE3;&#x4EF7;&#x5C31;&#x592A;&#x5927;&#x4E86;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x591A;&#x6B21;&#x7EE7;&#x627F;&#x4E4B;&#x540E;&#xFF0C;&#x5B50;&#x7C7B;&#x65B9;&#x6CD5;&#x5F88;&#x53EF;&#x80FD;&#x5199;&#x4F1A;&#x4E0D;&#x7ECF;&#x610F;&#x8986;&#x76D6;&#x6389;&#x4E86;&#x7956;&#x7C7B;&#xFF08;&#x7236;&#x7C7B;&#x7684;&#x7236;&#x7C7B;&#x3002;&#x3002;&#x3002;&#xFF09;&#x7684;&#x65B9;&#x6CD5;&#x5BFC;&#x81F4;&#x5BF9;&#x8C61;&#x6709;&#x4E9B;&#x64CD;&#x4F5C;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E24;&#x7EA7;&#x6216;&#x8005;&#x4E09;&#x7EA7;&#x7EE7;&#x627F;&#xFF0C;&#x5C06;&#x4E00;&#x4E9B;&#x516C;&#x7528;&#x7684;&#x529F;&#x80FD;&#x6216;&#x662F;&#x51FD;&#x6570;&#x90FD;&#x62BD;&#x51FA;&#x6765;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;object&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x8FD9;&#x4E9B;&#xFF0C;&#x5C31;&#x5229;&#x7528;&#x6DF7;&#x5408;&#x7684;&#x65B9;&#x6CD5;&#x52A0;&#x5165;&#x5230;&#x7C7B;&#x4E2D;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x6781;&#x5927;&#x7684;&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x7684;&#x590D;&#x7528;&#x6027;&#x3002;<br>&#x6211;&#x81EA;&#x5DF1;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;<a href="https://github.com/aa953788477/itools/blob/master/src/class/class.js" target="_blank" rel="external">&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x548C;&#x6DF7;&#x5408;&#x7684;&#x7C7B;&#x5DE5;&#x5382;</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/21/javscript/javascript模块化编程(二)--commonjs,AMD,CMD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript模块化编程(二)--commonjs,AMD,CMD</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javscript/javascript面向对象编程" data-title="javascript面向对象编程" data-url="http://yoursite.com/2016/03/23/javscript/javascript面向对象编程/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 myron
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

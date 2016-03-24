@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>javascript模块化编程(一) | myron blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x968F;&amp;#x7740;web&amp;#x5F00;&amp;#x53D1;&amp;#x9010;&amp;#x6E10;&amp;#x6F14;&amp;#x53D8;&amp;#x6210;web application&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x5C24;&amp;#x5176;&amp;#x662F;&amp;#x5728;web2.0&amp;#x4F9D;&amp;#x8D56;&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x7684;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript模块化编程(一)">
+<meta property="og:url" content="http://yoursite.com/2016/03/21/javscript/javascript模块化编程(一)/index.html">
+<meta property="og:site_name" content="myron blog">
+<meta property="og:description" content="&amp;#x968F;&amp;#x7740;web&amp;#x5F00;&amp;#x53D1;&amp;#x9010;&amp;#x6E10;&amp;#x6F14;&amp;#x53D8;&amp;#x6210;web application&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x5C24;&amp;#x5176;&amp;#x662F;&amp;#x5728;web2.0&amp;#x4F9D;&amp;#x8D56;&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x7684;">
+<meta property="og:updated_time" content="2016-03-21T15:52:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript模块化编程(一)">
+<meta name="twitter:description" content="&amp;#x968F;&amp;#x7740;web&amp;#x5F00;&amp;#x53D1;&amp;#x9010;&amp;#x6E10;&amp;#x6F14;&amp;#x53D8;&amp;#x6210;web application&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x5C24;&amp;#x5176;&amp;#x662F;&amp;#x5728;web2.0&amp;#x4F9D;&amp;#x8D56;&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x7684;">
+  
+    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">myron</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">myron</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">myron</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javscript/javascript模块化编程(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/21/javscript/javascript模块化编程(一)/" class="article-date">
+  	<time datetime="2016-03-21T15:30:00.000Z" itemprop="datePublished">2016-03-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript模块化编程(一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x968F;&#x7740;web&#x5F00;&#x53D1;&#x9010;&#x6E10;&#x6F14;&#x53D8;&#x6210;web application&#x4E4B;&#x540E;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5728;web2.0&#x4F9D;&#x8D56;&#x9875;&#x9762;&#x4E0A;&#x7684;javascript&#x811A;&#x672C;&#x9010;&#x6E10;&#x53D8;&#x591A;&#xFF0C;&#x5D4C;&#x5165;&#x7F51;&#x9875;&#x7684;JavaiScript&#x4EE3;&#x7801;&#x8D8A;&#x6765;&#x8D8A;&#x5E9E;&#x5927;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x590D;&#x6742;&#x3002;&#x7F51;&#x9875;&#x8D8A;&#x6765;&#x8D8A;&#x50CF;&#x684C;&#x9762;&#x7A0B;&#x5E8F;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x56E2;&#x961F;&#x5206;&#x5DE5;&#x534F;&#x4F5C;&#x3001;&#x8FDB;&#x5EA6;&#x7BA1;&#x7406;&#x3001;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7B49;&#x7B49;&#x2026;&#x2026;&#x5F00;&#x53D1;&#x8005;&#x9700;&#x8981;&#x5206;&#x6A21;&#x5757;&#xFF0C;&#x6765;&#x7BA1;&#x7406;&#x524D;&#x7AEF;&#x4EE3;&#x7801;&#x5F00;&#x53D1;&#x3002;</p>
+<h2 id="&#x539F;&#x59CB;&#x5199;&#x6CD5;"><a href="#&#x539F;&#x59CB;&#x5199;&#x6CD5;" class="headerlink" title="&#x539F;&#x59CB;&#x5199;&#x6CD5;"></a>&#x539F;&#x59CB;&#x5199;&#x6CD5;</h2><p>&#x6A21;&#x5757;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x7279;&#x5B9A;&#x529F;&#x80FD;&#x7684;&#x4E00;&#x7EC4;&#x65B9;&#x6CD5;&#x3002;&#x53EA;&#x8981;&#x628A;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x4EE5;&#x53CA;&#x8BB0;&#x5F55;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x91CF;&#xFF09;&#x7B80;&#x5355;&#x5730;&#x653E;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x5C31;&#x7B97;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> state = <span class="string">&apos;&apos;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">method1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">//do somethings</span></span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mehtod2</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">//do somthings</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E0A;&#x9762;&#x5427;state&#x548C;&#x65B9;&#x6CD5;&#x653E;&#x5728;&#x4E00;&#x8D77;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x5426;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x7F3A;&#x70B9;&#x4E5F;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x5427;&#xFF0C;&#x53D8;&#x91CF;&#x548C;&#x65B9;&#x6CD5;&#x90FD;&#x653E;&#x5728;&#x4E86;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x91CC;&#xFF0C;&#x9020;&#x6210;&#x4E86;&#x5168;&#x5C40;&#x6C61;&#x67D3;&#xFF0C;&#x4E00;&#x4F46;&#x6A21;&#x5757;&#x6570;&#x91CF;&#x53D8;&#x591A;&#xFF0C;&#x540E;&#x9762;&#x76F8;&#x540C;&#x540D;&#x79F0;&#x65B9;&#x6CD5;&#x6216;&#x662F;&#x53D8;&#x91CF;&#x5C31;&#x4F1A;&#x8986;&#x76D6;&#x4E4B;&#x524D;&#x7684;&#xFF0C;&#x4EA7;&#x751F;&#x4E00;&#x4E9B;&#x5947;&#x602A;&#x7684;bug.<br>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x7684;&#x7F3A;&#x70B9;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x6A21;&#x5757;&#x5199;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#x6210;&#x5458;&#x90FD;&#x653E;&#x5230;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x91CC;&#x9762;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> module1 = {</span><br><span class="line">    state : <span class="string">&apos;&apos;</span>,</span><br><span class="line">    method1 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    },</span><br><span class="line">    mehtod2 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x5C06;&#x65B9;&#x6CD5;&#x548C;&#x53D8;&#x91CF;&#x90FD;&#x5C01;&#x88C5;&#x5230;&#x4E86;module1&#x91CC;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5; <strong>&#x5BF9;&#x8C61;.&#x65B9;&#x6CD5;&#x540D;</strong> &#x5C31;&#x53EF;&#x4EE5;&#x4E86;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module1.mehtod1();</span><br></pre></td></tr></table></figure></p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x5199;&#x6CD5;&#x4F1A;&#x66B4;&#x9732;&#x6240;&#x6709;&#x6A21;&#x5757;&#x6210;&#x5458;&#xFF0C;&#x5185;&#x90E8;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x88AB;&#x5916;&#x90E8;&#x6539;&#x5199;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5916;&#x90E8;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;state&#x7684;&#x503C;&#x3002;</p>
+<h2 id="&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5C01;&#x88C5;&#x79C1;&#x6709;&#x5BF9;&#x8C61;"><a href="#&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5C01;&#x88C5;&#x79C1;&#x6709;&#x5BF9;&#x8C61;" class="headerlink" title="&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5C01;&#x88C5;&#x79C1;&#x6709;&#x5BF9;&#x8C61;"></a>&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5C01;&#x88C5;&#x79C1;&#x6709;&#x5BF9;&#x8C61;</h2><p>&#x5229;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5C01;&#x88C5;&#x79C1;&#x6709;&#x5BF9;&#x8C61;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ModuleClass</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> hello = <span class="string">&apos;hello world&apos;</span>;</span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(hello);</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = <span class="keyword">new</span> ModuleClass();</span><br><span class="line"><span class="built_in">module</span>.sayHello();</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x6837;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x5728;&#x5916;&#x90E8;&#x5C31;&#x4E0D;&#x4F1A;&#x88AB;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x8FD9;&#x79CD;&#x628A;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x5199;&#x5728;&#x5199;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x6BCF;&#x6B21;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x975E;&#x5E38;&#x8017;&#x8D39;&#x5185;&#x5B58;&#x3002;<br>&#x5229;&#x7528;prototype(&#x539F;&#x578B;)&#x6539;&#x5199;&#x4E0A;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x5982;&#x4E0B;:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ModuleClass</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.hello = <span class="string">&apos;hello world&apos;</span>;</span><br><span class="line">}</span><br><span class="line">ModuleClass.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.hello);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x6539;&#x5199;&#x4E4B;&#x540E;&#xFF0C;&#x5C06;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x653E;&#x5165;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x597D;&#x5904;&#x662F;&#x770B;&#x4E0A;&#x53BB;&#x66F4;&#x81EA;&#x7136;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x7684;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x4ECE;&#x5916;&#x90E8;&#x8BFB;&#x5199;&#x3002;</p>
+<h2 id="&#x5229;&#x7528;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x5199;&#x6CD5;&#x5199;&#x6A21;&#x5757;"><a href="#&#x5229;&#x7528;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x5199;&#x6CD5;&#x5199;&#x6A21;&#x5757;" class="headerlink" title="&#x5229;&#x7528;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x5199;&#x6CD5;&#x5199;&#x6A21;&#x5757;"></a>&#x5229;&#x7528;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x5199;&#x6CD5;&#x5199;&#x6A21;&#x5757;</h2><p>&#x4F7F;&#x7528;&#x201D;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x201D;&#xFF08;Immediately-Invoked Function Expression&#xFF0C;IIFE&#xFF09;&#xFF0C;&#x5C06;&#x76F8;&#x5173;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x5C01;&#x88C5;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x91CC;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x4E0D;&#x66B4;&#x9732;&#x79C1;&#x6709;&#x6210;&#x5458;&#x7684;&#x76EE;&#x7684;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> hello = <span class="string">&apos;hello world&apos;</span>;</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        sayHello : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(hello);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x5916;&#x90E8;&#x5C31;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x5230;&#x79C1;&#x6709;&#x7684;hello&#x53D8;&#x91CF;&#x4E86;&#x3002;<br>&#x66F4;&#x591A;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x6A21;&#x5757;&#x9700;&#x8981;&#x4E00;&#x6765;&#x53E6;&#x4E00;&#x4E9B;&#x6A21;&#x5757;&#x6216;&#x8005;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x5019;&#x6302;&#x8F7D;&#x518D;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E0A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, $</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> hello = <span class="string">&apos;hello world&apos;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span> (<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f3</span> (<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//&#x8FD9;&#x91CC;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x5F15;&#x5165;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x6269;&#x5C55;</span></span><br><span class="line">    $.fn.test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">window</span>.module1 = {</span><br><span class="line">        sayHello : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(hello);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">})(<span class="built_in">window</span>, jQuery);</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x9700;&#x8981;&#x8BA9;&#x5916;&#x90E8;&#x8C03;&#x7528;&#x54EA;&#x4E9B;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x7528;&#x6302;&#x8F7D;&#x5230;module1&#x4E0A;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;,&#x540C;&#x65F6;&#xFF0C;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x5F15;&#x5165;&#x5BF9;&#x8C61;&#xFF08;&#x4F8B;&#x5982;jQuery&#xFF0C;&#x505A;&#x6269;&#x5C55;&#x64CD;&#x4F5C;&#x3002;&#x4EE5;&#x4FDD;&#x8BC1;&#x5185;&#x90E8;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x53D8;&#x91CF;&#x90FD;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5916;&#x9762;</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/21/javscript/javascript模块化编程(二)--commonjs,AMD,CMD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          javascript模块化编程(二)--commonjs,AMD,CMD
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/04/css/css布局-BFC和IFC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css布局-BFC和IFC</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javscript/javascript模块化编程(一)" data-title="javascript模块化编程(一)" data-url="http://yoursite.com/2016/03/21/javscript/javascript模块化编程(一)/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 myron
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

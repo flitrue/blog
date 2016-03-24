@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>前端代码规范(YaHoo军规) | myron blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.&amp;#x5C3D;&amp;#x53EF;&amp;#x80FD;&amp;#x51CF;&amp;#x5C11;HTTP&amp;#x8BF7;&amp;#x6C42;&amp;#x6570;&amp;#xFF08;&amp;#x8BF7;&amp;#x6C42;&amp;#x8017;&amp;#x65F6;&amp;#xFF09;2.&amp;#x4F7F;&amp;#x7528;CDN&amp;#xFF08;&amp;#x5185;&amp;#x5BB9;&amp;#x5206;&amp;#x53D1;&amp;#x7F51;&amp;#x7EDC;&amp;#xFF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端代码规范(YaHoo军规)">
+<meta property="og:url" content="http://yoursite.com/2015/11/24/移动web/Yahoo军规/index.html">
+<meta property="og:site_name" content="myron blog">
+<meta property="og:description" content="1.&amp;#x5C3D;&amp;#x53EF;&amp;#x80FD;&amp;#x51CF;&amp;#x5C11;HTTP&amp;#x8BF7;&amp;#x6C42;&amp;#x6570;&amp;#xFF08;&amp;#x8BF7;&amp;#x6C42;&amp;#x8017;&amp;#x65F6;&amp;#xFF09;2.&amp;#x4F7F;&amp;#x7528;CDN&amp;#xFF08;&amp;#x5185;&amp;#x5BB9;&amp;#x5206;&amp;#x53D1;&amp;#x7F51;&amp;#x7EDC;&amp;#xFF">
+<meta property="og:updated_time" content="2015-11-24T13:44:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端代码规范(YaHoo军规)">
+<meta name="twitter:description" content="1.&amp;#x5C3D;&amp;#x53EF;&amp;#x80FD;&amp;#x51CF;&amp;#x5C11;HTTP&amp;#x8BF7;&amp;#x6C42;&amp;#x6570;&amp;#xFF08;&amp;#x8BF7;&amp;#x6C42;&amp;#x8017;&amp;#x65F6;&amp;#xFF09;2.&amp;#x4F7F;&amp;#x7528;CDN&amp;#xFF08;&amp;#x5185;&amp;#x5BB9;&amp;#x5206;&amp;#x53D1;&amp;#x7F51;&amp;#x7EDC;&amp;#xFF">
+  
+    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">myron</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">myron</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">myron</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-移动web/Yahoo军规" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/24/移动web/Yahoo军规/" class="article-date">
+  	<time datetime="2015-11-24T13:43:00.000Z" itemprop="datePublished">2015-11-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端代码规范(YaHoo军规)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.&#x5C3D;&#x53EF;&#x80FD;&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;&#x6570;&#xFF08;&#x8BF7;&#x6C42;&#x8017;&#x65F6;&#xFF09;<br>2.&#x4F7F;&#x7528;CDN&#xFF08;&#x5185;&#x5BB9;&#x5206;&#x53D1;&#x7F51;&#x7EDC;&#xFF09;<br>3.&#x6DFB;&#x52A0;Expire/Cache-Control&#x5934;&#xFF08;&#x7F13;&#x5B58;&#x8BBE;&#x7F6E;&#xFF09;<br>4.&#x542F;&#x7528;Gzip&#x538B;&#x7F29;&#xFF08;&#x538B;&#x7F29;css&#x548C;js&#x4EE3;&#x7801;&#xFF0C;&#x6DF7;&#x6DC6;js&#x4EE3;&#x7801;&#xFF09;<br>5.&#x628A;css&#x653E;&#x5728;&#x9875;&#x9762;&#x6700;&#x4E0A;&#x9762;&#xFF08;&#x65B9;&#x4FBF;&#x52A0;&#x8F7D;&#x6E32;&#x67D3;&#xFF09;<br>6.&#x628A;script&#x653E;&#x5728;&#x9875;&#x9762;&#x6700;&#x4E0B;&#x9762;&#xFF08;&#x9632;&#x6B62;script&#x4EE3;&#x7801;&#x5F71;&#x54CD;&#x9875;&#x9762;&#x5C55;&#x793A;&#xFF09;<br>7.&#x907F;&#x514D;&#x5728;css&#x4E2D;&#x4F7F;&#x7528;Expression<br>8.&#x628A;JavaScript&#x548C;css&#x653E;&#x5728;&#x5916;&#x90E8;&#x5206;&#x6587;&#x4EF6;&#x4E2D;&#xFF08;js&#x548C;css&#x6587;&#x4EF6;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x81EA;&#x52A8;&#x7F13;&#x5B58;&#x7684;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;&#x52A0;&#x8F7D;&#xFF09;<br>9.&#x51CF;&#x5C11;DNS&#x67E5;&#x8BE2;<br>10.&#x907F;&#x514D;&#x91CD;&#x5B9A;&#x5411;</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/24/移动web/前端seo优化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          前端seo优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/16/前端工具/sublime常用的插件介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sublime常用的插件介绍</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="移动web/Yahoo军规" data-title="前端代码规范(YaHoo军规)" data-url="http://yoursite.com/2015/11/24/移动web/Yahoo军规/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 myron
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
