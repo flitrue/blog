@@ -6,16 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>css布局-BFC和IFC | myron blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Formatting Contexts&amp;#x662F;W3C CSS2.1&amp;#x89C4;&amp;#x8303;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x5B83;&amp;#x662F;&amp;#x9875;&amp;#x9762;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x5757;&amp;#x6E32;&amp;#x67D3;&amp;#x533A;&amp;#x">
+  <meta name="description" content="Formatting Contexts是W3C CSS2.1规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。
+BFCBFC(Block Formatting Contexts)直译为”块级格式化上下文”。Block Formatting Contexts就是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css布局-BFC和IFC">
 <meta property="og:url" content="http://yoursite.com/2016/03/04/css/css布局-BFC和IFC/index.html">
 <meta property="og:site_name" content="myron blog">
-<meta property="og:description" content="Formatting Contexts&amp;#x662F;W3C CSS2.1&amp;#x89C4;&amp;#x8303;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x5B83;&amp;#x662F;&amp;#x9875;&amp;#x9762;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x5757;&amp;#x6E32;&amp;#x67D3;&amp;#x533A;&amp;#x">
+<meta property="og:description" content="Formatting Contexts是W3C CSS2.1规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。
+BFCBFC(Block Formatting Contexts)直译为”块级格式化上下文”。Block Formatting Contexts就是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面">
 <meta property="og:updated_time" content="2016-03-24T07:38:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css布局-BFC和IFC">
-<meta name="twitter:description" content="Formatting Contexts&amp;#x662F;W3C CSS2.1&amp;#x89C4;&amp;#x8303;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x5B83;&amp;#x662F;&amp;#x9875;&amp;#x9762;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x5757;&amp;#x6E32;&amp;#x67D3;&amp;#x533A;&amp;#x">
+<meta name="twitter:description" content="Formatting Contexts是W3C CSS2.1规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。
+BFCBFC(Block Formatting Contexts)直译为”块级格式化上下文”。Block Formatting Contexts就是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面">
   
     <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
   
@@ -78,7 +81,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -230,41 +233,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Formatting Contexts&#x662F;W3C CSS2.1&#x89C4;&#x8303;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#x3002;&#x5B83;&#x662F;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x4E00;&#x5757;&#x6E32;&#x67D3;&#x533A;&#x57DF;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x4E00;&#x5957;&#x6E32;&#x67D3;&#x89C4;&#x5219;&#xFF0C;&#x5B83;&#x51B3;&#x5B9A;&#x4E86;&#x5176;&#x5B50;&#x5143;&#x7D20;&#x5C06;&#x5982;&#x4F55;&#x5B9A;&#x4F4D;&#xFF0C;&#x4EE5;&#x53CA;&#x548C;&#x5176;&#x4ED6;&#x5143;&#x7D20;&#x7684;&#x5173;&#x7CFB;&#x548C;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x3002;</p>
-<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>BFC(Block Formatting Contexts)&#x76F4;&#x8BD1;&#x4E3A;&#x201D;&#x5757;&#x7EA7;&#x683C;&#x5F0F;&#x5316;&#x4E0A;&#x4E0B;&#x6587;&#x201D;&#x3002;Block Formatting Contexts&#x5C31;&#x662F;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x9694;&#x79BB;&#x7684;&#x6E32;&#x67D3;&#x533A;&#x57DF;&#xFF0C;&#x5BB9;&#x5668;&#x91CC;&#x9762;&#x7684;&#x5B50;&#x5143;&#x7D20;&#x4E0D;&#x4F1A;&#x5728;&#x5E03;&#x5C40;&#x4E0A;&#x5F71;&#x54CD;&#x5230;&#x5916;&#x9762;&#x7684;&#x5143;&#x7D20;,&#x53CD;&#x4E4B;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;</p>
-<h3 id="BFC&#x5F62;&#x6210;"><a href="#BFC&#x5F62;&#x6210;" class="headerlink" title="BFC&#x5F62;&#x6210;"></a>BFC&#x5F62;&#x6210;</h3><blockquote>
+        <p>Formatting Contexts是W3C CSS2.1规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。</p>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>BFC(Block Formatting Contexts)直译为”块级格式化上下文”。Block Formatting Contexts就是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面的元素,反之也是如此。</p>
+<h3 id="BFC形成"><a href="#BFC形成" class="headerlink" title="BFC形成"></a>BFC形成</h3><blockquote>
 <ul>
-<li>float &#x7684;&#x503C;&#x4E0D;&#x4E3A; none</li>
-<li>position &#x7684;&#x503C;&#x4E0D;&#x4E3A; static &#x6216; relative</li>
-<li>display&#x5C5E;&#x6027;&#x4E3A;inline-boxs&#x3001;table-cells&#x3001;table-captions&#x7684;&#x4E0D;&#x662F;&#x5757;&#x76D2;&#x7684;&#x5757;&#x5BB9;&#x5668;(&#x9664;&#x975E;&#x8FD9;&#x4E2A;&#x503C;&#x5DF2;&#x7ECF;&#x88AB;&#x4F20;&#x64AD;&#x5230;&#x89C6;&#x53E3;),</li>
-<li>overflow&#x4E0D;&#x4E3A;visible&#x7684;&#x5757;&#x76D2;&#x624D;&#x4F1A;&#x4E3A;&#x5B83;&#x7684;&#x5185;&#x5BB9;&#x521B;&#x5EFA;&#x65B0;&#x7684;BFC&#x3002;</li>
-<li>body&#x5143;&#x7D20;</li>
+<li>float 的值不为 none</li>
+<li>position 的值不为 static 或 relative</li>
+<li>display属性为inline-boxs、table-cells、table-captions的不是块盒的块容器(除非这个值已经被传播到视口),</li>
+<li>overflow不为visible的块盒才会为它的内容创建新的BFC。</li>
+<li>body元素</li>
 </ul>
 </blockquote>
-<h3 id="BFC&#x6E32;&#x67D3;&#x89C4;&#x5219;"><a href="#BFC&#x6E32;&#x67D3;&#x89C4;&#x5219;" class="headerlink" title="BFC&#x6E32;&#x67D3;&#x89C4;&#x5219;"></a>BFC&#x6E32;&#x67D3;&#x89C4;&#x5219;</h3><blockquote>
+<h3 id="BFC渲染规则"><a href="#BFC渲染规则" class="headerlink" title="BFC渲染规则"></a>BFC渲染规则</h3><blockquote>
 <ol>
-<li>&#x5185;&#x90E8;&#x7684;Box&#x4F1A;&#x5728;&#x5782;&#x76F4;&#x65B9;&#x5411;&#xFF0C;&#x4E00;&#x4E2A;&#x63A5;&#x4E00;&#x4E2A;&#x5730;&#x653E;&#x7F6E;&#x3002;</li>
-<li>Box&#x5782;&#x76F4;&#x65B9;&#x5411;&#x7684;&#x8DDD;&#x79BB;&#x7531;margin&#x51B3;&#x5B9A;&#x3002;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;BFC&#x7684;&#x4E24;&#x4E2A;&#x76F8;&#x90BB;Box&#x7684;margin&#x4F1A;&#x53D1;&#x751F;&#x91CD;&#x53E0;</li>
-<li>&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x7684;margin box&#x7684;&#x5DE6;&#x8FB9;&#xFF0C; &#x4E0E;&#x5305;&#x542B;&#x5757;border box&#x7684;&#x5DE6;&#x8FB9;&#x76F8;&#x63A5;&#x89E6;(&#x5BF9;&#x4E8E;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x7684;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x5426;&#x5219;&#x76F8;&#x53CD;)&#x3002;&#x5373;&#x4F7F;&#x5B58;&#x5728;&#x6D6E;&#x52A8;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;</li>
-<li>BFC&#x7684;&#x533A;&#x57DF;&#x4E0D;&#x4F1A;&#x4E0E;float box&#x91CD;&#x53E0;&#xFF0C;&#x5E38;&#x7528;&#x6765;&#x6E05;&#x9664;&#x6D6E;&#x52A8;&#x548C;&#x5E03;&#x5C40;&#x3002;</li>
-<li>BFC&#x5C31;&#x662F;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x9694;&#x79BB;&#x7684;&#x72EC;&#x7ACB;&#x5BB9;&#x5668;&#xFF0C;&#x5BB9;&#x5668;&#x91CC;&#x9762;&#x7684;&#x5B50;&#x5143;&#x7D20;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5916;&#x9762;&#x7684;&#x5143;&#x7D20;&#x3002;&#x53CD;&#x4E4B;&#x4E5F;&#x5982;&#x6B64;&#x3002;</li>
-<li>&#x8BA1;&#x7B97;BFC&#x7684;&#x9AD8;&#x5EA6;&#x65F6;&#xFF0C;&#x6D6E;&#x52A8;&#x5143;&#x7D20;&#x4E5F;&#x53C2;&#x4E0E;&#x8BA1;&#x7B97;</li>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠</li>
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box重叠，常用来清除浮动和布局。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
 </ol>
 </blockquote>
-<h2 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h2><p>IFC(Inline Formatting Contexts)&#x76F4;&#x8BD1;&#x4E3A;&#x201D;&#x5185;&#x8054;&#x683C;&#x5F0F;&#x5316;&#x4E0A;&#x4E0B;&#x6587;&#x201D;&#xFF0C;IFC&#x7684;line box&#xFF08;&#x7EBF;&#x6846;&#xFF09;&#x9AD8;&#x5EA6;&#x7531;&#x5176;&#x5305;&#x542B;&#x884C;&#x5185;&#x5143;&#x7D20;&#x4E2D;&#x6700;&#x9AD8;&#x7684;&#x5B9E;&#x9645;&#x9AD8;&#x5EA6;&#x8BA1;&#x7B97;&#x800C;&#x6765;&#xFF08;&#x4E0D;&#x53D7;&#x5230;&#x7AD6;&#x76F4;&#x65B9;&#x5411;&#x7684;padding/margin&#x5F71;&#x54CD;)</p>
-<h3 id="IFC&#x6E32;&#x67D3;&#x89C4;&#x5219;"><a href="#IFC&#x6E32;&#x67D3;&#x89C4;&#x5219;" class="headerlink" title="IFC&#x6E32;&#x67D3;&#x89C4;&#x5219;"></a>IFC&#x6E32;&#x67D3;&#x89C4;&#x5219;</h3><blockquote>
+<h2 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h2><p>IFC(Inline Formatting Contexts)直译为”内联格式化上下文”，IFC的line box（线框）高度由其包含行内元素中最高的实际高度计算而来（不受到竖直方向的padding/margin影响)</p>
+<h3 id="IFC渲染规则"><a href="#IFC渲染规则" class="headerlink" title="IFC渲染规则"></a>IFC渲染规则</h3><blockquote>
 <ol>
-<li>&#x6846;&#x4F1A;&#x4ECE;&#x5305;&#x542B;&#x5757;&#x7684;&#x9876;&#x90E8;&#x5F00;&#x59CB;&#xFF0C;&#x4E00;&#x4E2A;&#x63A5;&#x4E00;&#x4E2A;&#x5730;&#x6C34;&#x5E73;&#x6446;&#x653E;&#x3002;</li>
-<li>&#x6446;&#x653E;&#x8FD9;&#x4E9B;&#x6846;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4EEC;&#x5728;&#x6C34;&#x5E73;&#x65B9;&#x5411;&#x4E0A;&#x7684;&#x5916;&#x8FB9;&#x8DDD;&#x3001;&#x8FB9;&#x6846;&#x3001;&#x5185;&#x8FB9;&#x8DDD;&#x6240;&#x5360;&#x7528;&#x7684;&#x7A7A;&#x95F4;&#x90FD;&#x4F1A;&#x88AB;&#x8003;&#x8651;&#x5728;&#x5185;&#x3002;&#x5728;&#x5782;&#x76F4;&#x65B9;&#x5411;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E9B;&#x6846;&#x53EF;&#x80FD;&#x4F1A;&#x4EE5;&#x4E0D;&#x540C;&#x5F62;&#x5F0F;&#x6765;&#x5BF9;&#x9F50;&#xFF1A;&#x5B83;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x628A;&#x5E95;&#x90E8;&#x6216;&#x9876;&#x90E8;&#x5BF9;&#x9F50;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x628A;&#x5176;&#x5185;&#x90E8;&#x7684;&#x6587;&#x672C;&#x57FA;&#x7EBF;&#x5BF9;&#x9F50;&#x3002;&#x80FD;&#x628A;&#x5728;&#x4E00;&#x884C;&#x4E0A;&#x7684;&#x6846;&#x90FD;&#x5B8C;&#x5168;&#x5305;&#x542B;&#x8FDB;&#x53BB;&#x7684;&#x4E00;&#x4E2A;&#x77E9;&#x5F62;&#x533A;&#x57DF;&#xFF0C;&#x88AB;&#x79F0;&#x4E3A;&#x8BE5;&#x884C;&#x7684;&#x884C;&#x6846;&#x3002;&#x6C34;&#x5E73;&#x7684;margin&#x3001;padding&#x3001;border&#x6709;&#x6548;&#xFF0C;&#x5782;&#x76F4;&#x65E0;&#x6548;&#x3002;&#x4E0D;&#x80FD;&#x6307;&#x5B9A;&#x5BBD;&#x9AD8;&#x3002;</li>
-<li>&#x884C;&#x6846;&#x7684;&#x5BBD;&#x5EA6;&#x662F;&#x7531;&#x5305;&#x542B;&#x5757;&#x548C;&#x5B58;&#x5728;&#x7684;&#x6D6E;&#x52A8;&#x6765;&#x51B3;&#x5B9A;&#x3002;</li>
+<li>框会从包含块的顶部开始，一个接一个地水平摆放。</li>
+<li>摆放这些框的时候，它们在水平方向上的外边距、边框、内边距所占用的空间都会被考虑在内。在垂直方向上，这些框可能会以不同形式来对齐：它们可能会把底部或顶部对齐，也可能把其内部的文本基线对齐。能把在一行上的框都完全包含进去的一个矩形区域，被称为该行的行框。水平的margin、padding、border有效，垂直无效。不能指定宽高。</li>
+<li>行框的宽度是由包含块和存在的浮动来决定。</li>
 </ol>
 </blockquote>
-<h3 id="IFC-&#x2018;line-height&#x2019;-&#x4E0E;-&#x2018;vertical-align&#x2019;-&#x5C5E;&#x6027;"><a href="#IFC-&#x2018;line-height&#x2019;-&#x4E0E;-&#x2018;vertical-align&#x2019;-&#x5C5E;&#x6027;" class="headerlink" title="IFC  &#x2018;line-height&#x2019; &#x4E0E; &#x2018;vertical-align&#x2019; &#x5C5E;&#x6027;"></a>IFC  &#x2018;line-height&#x2019; &#x4E0E; &#x2018;vertical-align&#x2019; &#x5C5E;&#x6027;</h3><blockquote>
+<h3 id="IFC-‘line-height’-与-‘vertical-align’-属性"><a href="#IFC-‘line-height’-与-‘vertical-align’-属性" class="headerlink" title="IFC  ‘line-height’ 与 ‘vertical-align’ 属性"></a>IFC  ‘line-height’ 与 ‘vertical-align’ 属性</h3><blockquote>
 <ol>
-<li>&#x8BA1;&#x7B97;&#x884C;&#x6846;&#x91CC;&#x7684;&#x5404;&#x884C;&#x5185;&#x7EA7;&#x6846;&#x7684;&#x9AD8;&#x5EA6;&#x3002;&#x5BF9;&#x4E8E;&#x7F6E;&#x6362;&#x5143;&#x7D20;&#x3001;&#x884C;&#x5185;&#x5757;&#x5143;&#x7D20;&#x3001;&#x884C;&#x5185;&#x8868;&#x683C;&#x5143;&#x7D20;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x662F;&#x8FB9;&#x754C;&#x6846;&#x7684;&#x9AD8;&#x5EA6;&#xFF0C;&#x5BF9;&#x4E8E;&#x884C;&#x5185;&#x6846;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x662F;&#x5176; &#x2018;line-height&#x2019;&#x3002;</li>
-<li><p>&#x884C;&#x5185;&#x7EA7;&#x5143;&#x7D20;&#x6839;&#x636E;&#x5176; &#x2018;vertical-align&#x2019; &#x5C5E;&#x6027;&#x5782;&#x76F4;&#x5BF9;&#x9F50;&#x3002;&#x5728;&#x8FD9;&#x4E9B;&#x6846;&#x4F7F;&#x7528; &#x2018;top&#x2019; &#x6216; &#x2018;bottom&#x2019; &#x5BF9;&#x9F50;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;user-agent&#x5FC5;&#x987B;&#x4EE5;&#x6700;&#x5C0F;&#x5316;&#x884C;&#x6846;&#x7684;&#x9AD8;&#x4E3A;&#x76EE;&#x6807;&#x5BF9;&#x9F50;&#x8FD9;&#x4E9B;&#x6846;&#x3002;&#x82E5;&#x8FD9;&#x4E9B;&#x6846;&#x591F;&#x9AD8;&#xFF0C;&#x5219;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x89E3;&#x800C; CSS 2.1 &#x4E0D;&#x5B9A;&#x4E49;&#x884C;&#x6846;&#x57FA;&#x7EBF;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<li>计算行框里的各行内级框的高度。对于置换元素、行内块元素、行内表格元素来说，这是边界框的高度，对于行内框来说，这是其 ‘line-height’。</li>
+<li><p>行内级元素根据其 ‘vertical-align’ 属性垂直对齐。在这些框使用 ‘top’ 或 ‘bottom’ 对齐的情况下，user-agent必须以最小化行框的高为目标对齐这些框。若这些框够高，则存在多个解而 CSS 2.1 不定义行框基线的位置。</p>
 </li>
-<li><p>&#x884C;&#x6846;&#x7684;&#x9AD8;&#x662F;&#x6700;&#x9876;&#x7AEF;&#x6846;&#x7684;&#x9876;&#x8FB9;&#x5230;&#x6700;&#x5E95;&#x7AEF;&#x6846;&#x7684;&#x5E95;&#x8FB9;&#x7684;&#x8DDD;&#x79BB;&#x3002;</p>
+<li><p>行框的高是最顶端框的顶边到最底端框的底边的距离。</p>
 </li>
 </ol>
 </blockquote>
