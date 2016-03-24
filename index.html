@@ -99,13 +99,9 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="#" title="github">github</a>
+								<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+								<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
 					        
 						</div>
 					</nav>
@@ -114,7 +110,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
 					</div>
 				</section>
 				
@@ -182,13 +178,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+						<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
 			        
 				</div>
 			</nav>
@@ -197,6 +189,79 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-hexo-coding搭建自己的博客" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/24/hexo-coding搭建自己的博客/" class="article-date">
+  	<time datetime="2016-03-24T14:39:24.000Z" itemprop="datePublished">2016-03-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/24/hexo-coding搭建自己的博客/">hexo+coding搭建自己的博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>毕业以来，尝试过用各种手段写博客，先是csdn的博客专栏谢了几篇文章之后，就懒了，只到去年，学习了markdown语法写博客，觉得非常好用，于是也开始用farbox写博客，最近接触一个hexo加上github的pages服务搭建博客，于是尝试下，犹豫github在国内的访问速度实在是不太好，我用coding代替.</p>
+<h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><h3 id="1-NODE"><a href="#1-NODE" class="headerlink" title="1.NODE"></a>1.<a href="http://nodejs.cn/" target="_blank" rel="external">NODE</a></h3><p>犹豫hexo是基于node开发的，所以node环境是必须的</p>
+<h3 id="2-git"><a href="#2-git" class="headerlink" title="2.git"></a>2.<a href="https://git-scm.com/download/" target="_blank" rel="external">git</a></h3><p>node的包管理都是需要使用git来down包的，我们提交文章和代码也需要用到git</p>
+<h3 id="3-coding账号"><a href="#3-coding账号" class="headerlink" title="3.coding账号"></a>3.<a href="https://coding.net/" target="_blank" rel="external">coding</a>账号</h3><p>我们需要使用到 <em>coding</em> 的pages服务搭建博客，如果觉得coding的逼格不够的话，可以看下这篇文章<a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a></p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p><em>NODE</em> 和 <em>GIT</em> 都安装好了之后就可以下载安装 <em>hexo</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>国内的访问外网会有点慢，最好把npm仓库源设置为淘宝镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist</span><br></pre></td></tr></table></figure></p>
+<p>安装完成之后新建一个文件夹，进入文件夹内执行 <em>init</em> 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir blog</span><br><span class="line">cd blog</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>init之后会看到文件下有了如下结构的文件<br><img src="http://blog.fens.me/wp-content/uploads/2014/05/hexo-folder.png" alt=""></p>
+<h2 id="生成静态文件，本地启服务器调试"><a href="#生成静态文件，本地启服务器调试" class="headerlink" title="生成静态文件，本地启服务器调试"></a>生成静态文件，本地启服务器调试</h2><p>上面图片中的source目录就是存在我们文章地址的地方，文章用markdown语法编写，hexo还会自动解析，并进行分类和归档；执行以下命令可以生成静态文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>本地启动服务器调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
+<p>启动成功之后访问<a href="http://localhost:4000就可以看到你的主页啦，到此搭建工作就算基本完成了" target="_blank" rel="external">http://localhost:4000就可以看到你的主页啦，到此搭建工作就算基本完成了</a><br><img src="http://blog.fens.me/wp-content/uploads/2014/05/hexo-web.png" alt=""></p>
+<h2 id="部署博客到coding上"><a href="#部署博客到coding上" class="headerlink" title="部署博客到coding上"></a>部署博客到coding上</h2><p>再coding上新建一个仓库，保证你的项目名称和用户名（个性后缀）一致，不然加载资源文件可能会有问题</p>
+<p><img src="11-11.png" alt=""><br><img src="11-13.png" alt=""></p>
+<p>更改 <em>_config.yml</em> 文件中的配置,一般在最后一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://git.coding.net/liuyy/liuyy.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>执行deploy命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>如果出现报错，先检查你的配置git地址是否正确，”:”号后面一定要跟一个空格,如果都没有问题则再安装一个包，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git  --save</span><br></pre></td></tr></table></figure></p>
+<p>执行完成之后，去coding的项目目录项，开启pages服务,开启之后访问<a href="http://[user_name].coding.me,好了，大功告成。" target="_blank" rel="external">http://[user_name].coding.me,好了，大功告成。</a></p>
+<h2 id="关于hexo的图片处理"><a href="#关于hexo的图片处理" class="headerlink" title="关于hexo的图片处理"></a>关于hexo的图片处理</h2><p>我从farbox中把原来的文章迁移过来，发现好多的图片都显示，再hexo中你要现先设置</p>
+<p>post_asset_folder: true</p>
+<p>设置完成之后，每一个markdown文件都有一个相同的名称的文件夹（迁移过来的文章是没有的需要自己创建）用来存储使用到的图片，再文章中，url只用写文件名称即可<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](11-11.png)</span><br></pre></td></tr></table></figure></p>
+<h2 id="关于markdown编辑"><a href="#关于markdown编辑" class="headerlink" title="关于markdown编辑"></a>关于markdown编辑</h2><p>markdown的语法，大家看这篇文档就可以了，我就不多介绍了 <a href="http://wowubuntu.com/markdown/index.html" target="_blank" rel="external">Markdown语法说明</a><br>如果喜欢sublime编辑器的朋友我推荐使用下面两个markdown编辑的插件<br><em>MarkdownEditing</em> 它可以提供markdown文件很漂亮的语法高亮<br><em>Markdown Preview</em> markdown文件实时预览插件</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-javscript/javascript面向对象编程" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -273,6 +338,10 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
       
 
       
@@ -359,6 +428,10 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
       
 
       
@@ -422,6 +495,10 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
       
 
       
@@ -629,6 +706,10 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
       
 
       
@@ -802,72 +883,6 @@
 <li>less   less的环境高亮</li>
 <li>saas    sass的语法环境高亮，以及代码提示<br>….</li>
 </ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javscript/javascript异步处理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/15/javscript/javascript异步处理/" class="article-date">
-  	<time datetime="2015-11-14T16:26:00.000Z" itemprop="datePublished">2015-11-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/15/javscript/javascript异步处理/">javascript异步处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>javascript是单线程语言，所谓”单线程”，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。<br>这种方式比较好控制，不会存在像java那个多线程死锁等等复杂的问题，缺点也很明显，当一个任务执行较长时间时，后续的任务需要等待，会拖延整个程序的执行，使浏览器卡死。<br>为了解决这个问题，javascript将任务分为两种：同步（Synchronous）和异步（Asynchronous）;<br>在浏览器端，如果需要执行比较耗时的任务，为了避免浏览器卡死，就需要异步执行，不影响其他任务，最常见的例子是ajax操作。<br>但是一旦使用异步，还要保证有些任务再异步任务之后执行，这个时候就需要特殊的处理了，以下介绍四中常见的处理异步的方法</p>
-<h2 id="一、回调函数"><a href="#一、回调函数" class="headerlink" title="一、回调函数"></a>一、回调函数</h2><p>这个是最常见的处理方式，假设一个ajax请求，设定一个success方法再请求成功时回调<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(</span><br><span class="line">    url :<span class="string">'test'</span>,</span><br><span class="line">    success : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>这样ajax请求不会阻塞其他程勋的正常运行<br>回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。</p>
-<h2 id="二、事件监听"><a href="#二、事件监听" class="headerlink" title="二、事件监听"></a>二、事件监听</h2><p>事件驱动模式。success任务在请求成功事件发生时执行。还是以ajax为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'the ajax successed'</span>);</span><br><span class="line">&#125;</span><br><span class="line">$.on(<span class="string">'success'</span>, success);<span class="comment">//监听事件 如果发生执行success方法</span></span><br><span class="line">$.ajax(</span><br><span class="line">    url : <span class="string">'test'</span>,</span><br><span class="line">    success : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $.trigger(<span class="string">'success'</span>);<span class="comment">//出发success 事件</span></span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>这种方法的优点是比较容易理解，可以绑定多个事件，每个事件可以指定多个回调函数，而且可以去耦合（Decoupling），有利于实现模块化。缺点是整个程序都要变成事件驱动型，运行流程会变得很不清晰。</p>
-<h2 id="三、发布-订阅"><a href="#三、发布-订阅" class="headerlink" title="三、发布/订阅"></a>三、发布/订阅</h2><p>基于观察者模式，可以用新闻的方式来理解，例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.subscribe(<span class="string">'news'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我来看新闻"</span>);</span><br><span class="line">&#125;); <span class="comment">//订阅新闻</span></span><br><span class="line">$.ajax(</span><br><span class="line">    url : <span class="string">'getNews'</span>,</span><br><span class="line">    success : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $.publish(<span class="string">"news"</span>);<span class="comment">//发布新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>当ajax请求完成之后会发布信号告诉所有的订阅者“我已经执行完了”，订阅者接收到后，会执行相应的操作<br>这种方法的性质与”事件监听”类似，但是明显优于后者。因为我们可以通过查看”消息中心”，了解存在多少信号、每个信号有多少订阅者，从而监控程序的运行。</p>
-<h2 id="四、Promise对象"><a href="#四、Promise对象" class="headerlink" title="四、Promise对象"></a>四、Promise对象</h2><p>Promises对象是CommonJS工作组提出的一种规范，目的是为异步编程提供统一接口。<br>简单说，每一个异步任务返回一个Promise对象，该对象有一个then方法，允许指定回调函数。就像下面这样:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start().then(step1).then(step2)</span><br></pre></td></tr></table></figure></p>
-<p>这样写的优点在于，回调函数变成了链式写法，程序的流程可以看得很清楚，而且有一整套的配套方法，可以实现许多强大的功能。<br>实现代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Promise.js</span><br><span class="line"> * 异步处理的Promise对象</span><br><span class="line"> */</span></span><br><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">Global, factory</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">module</span> === <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">module</span>.exports === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="built_in">module</span>.export = factory();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (define &amp;&amp; <span class="keyword">typeof</span> define === <span class="string">'function'</span>) &#123;</span><br><span class="line">        define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> factory();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">window</span>.Promise) <span class="built_in">window</span>.Promise = factory();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">Promise</span> = <span class="function"><span class="keyword">function</span>(<span class="params">startFunc</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.state = <span class="string">'pending'</span>;</span><br><span class="line">        <span class="keyword">this</span>.thenables = []; <span class="comment">//存储接下来的步骤</span></span><br><span class="line">        <span class="keyword">if</span>(startFunc &amp;&amp; <span class="keyword">typeof</span> startFunc === <span class="string">'function'</span>)&#123;</span><br><span class="line">            startFunc(<span class="keyword">this</span>.resolve, <span class="keyword">this</span>.reject);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 改变状态为已完成</span><br><span class="line">     * @param  &#123;[type]&#125; value 传递的值</span><br><span class="line">     * @return &#123;[type]&#125;       [description]</span><br><span class="line">     */</span></span><br><span class="line">    <span class="built_in">Promise</span>.prototype.resolve = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.state != <span class="string">'pending'</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">this</span>.state = <span class="string">'fulfilled'</span>;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">        <span class="keyword">this</span>._handleThen();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 改变状态为有异常</span><br><span class="line">     * @param  &#123;[type]&#125; reason [description]</span><br><span class="line">     * @return &#123;[type]&#125;        [description]</span><br><span class="line">     */</span></span><br><span class="line">    <span class="built_in">Promise</span>.prototype.reject = <span class="function"><span class="keyword">function</span>(<span class="params">reason</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.state != <span class="string">'pending'</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">this</span>.state = <span class="string">'rejected'</span>;</span><br><span class="line">        <span class="keyword">this</span>.reason = reason;</span><br><span class="line">        <span class="keyword">this</span>._handleThen();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">Promise</span>.prototype.then = <span class="function"><span class="keyword">function</span>(<span class="params">onFulfilled, onRejected</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> thenable = &#123;&#125;;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> onFulfilled == <span class="string">'function'</span>) &#123;</span><br><span class="line">            thenable.fulfill = onFulfilled;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> onRejected == <span class="string">'function'</span>) &#123;</span><br><span class="line">            thenable.reject = onRejected;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 如果状态不是pending就立即执行</span><br><span class="line">         */</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.state != <span class="string">'pending'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (setImmediate) &#123;</span><br><span class="line">                setImmediate(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">this</span>._handleThen();</span><br><span class="line">                &#125;.bind(<span class="keyword">this</span>));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">this</span>._handleThen();</span><br><span class="line">                &#125;.bind(<span class="keyword">this</span>), <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        thenable.promise = <span class="keyword">new</span> <span class="built_in">Promise</span>();</span><br><span class="line">        <span class="keyword">this</span>.thenables.push(thenable);</span><br><span class="line">        <span class="keyword">return</span> thenable.promise;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">Promise</span>.prototype._handleThen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.state === <span class="string">'pending'</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.thenables.length) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.thenables.length; i++) &#123;</span><br><span class="line">                <span class="keyword">var</span> thenPromise = <span class="keyword">this</span>.thenables[i].promise;</span><br><span class="line">                <span class="keyword">var</span> returnedVal;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">switch</span> (<span class="keyword">this</span>.state) &#123;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'fulfilled'</span>:</span><br><span class="line">                            <span class="keyword">if</span> (<span class="keyword">this</span>.thenables[i].fulfill) &#123;</span><br><span class="line">                                returnedVal = <span class="keyword">this</span>.thenables[i].fulfill(<span class="keyword">this</span>.value);</span><br><span class="line">                            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                thenPromise.resolve(<span class="keyword">this</span>.value);</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'rejected'</span>:</span><br><span class="line">                            <span class="keyword">if</span> (<span class="keyword">this</span>.thenables[i].reject) &#123;</span><br><span class="line">                                returnedVal = <span class="keyword">this</span>.thenables[i].reject(<span class="keyword">this</span>.reason);</span><br><span class="line">                            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                thenPromise.reject(<span class="keyword">this</span>.reason);</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (returnedVal === <span class="literal">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">this</span>.thenables[i].promise.resolve(returnedVal);</span><br><span class="line">                    <span class="comment">/*判断返回值是否是Promise对象，如果值那么下个promise执行要绑定在返回值的then方法上*/</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (returnedVal <span class="keyword">instanceof</span> <span class="built_in">Promise</span> || <span class="keyword">typeof</span> returnedVal.then === <span class="string">'function'</span>) &#123;</span><br><span class="line">                        returnedVal.then(thenPromise.resolve.bind(thenPromise), thenPromise.reject.bind(thenPromise));</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">this</span>.thenables[i].promise.resolve(returnedVal);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                    thenPromise.reject(e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.thenables = [];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><ol>
-<li>异步回调函数都是在主任务执行完毕后执行,如果主任务卡死，那么回调函数将不会执行;</li>
-<li>ajax的同步方法最好不要轻易使用，程序需要等待请求成功才会继续向下执行，如果请求时间过长浏览器会卡死；</li>
-<li>如果你想保证你的某些函数再主函数执行完后再执行可以使用setTimout(function(){}，0);</li>
-</ol>
 
       
     </div>
