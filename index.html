@@ -190,6 +190,83 @@
 
       <div class="body-wrap">
   
+    <article id="post-javscript/javascript数据驱动页面" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/29/javscript/javascript数据驱动页面/" class="article-date">
+  	<time datetime="2016-03-29T07:21:00.000Z" itemprop="datePublished">2016-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/29/javscript/javascript数据驱动页面/">javascript数据驱动页面</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2005 <em>Ajax</em> 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 <em>spring</em> 的分层的思想，将业务逻辑和ui逻辑分开。</p>
+<h2 id="MVC-backbone-）"><a href="#MVC-backbone-）" class="headerlink" title="MVC( backbone ）"></a>MVC( <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> ）</h2><p>MVC是一个架构设计模式，它通过分离关注点的方式来支持改进应用组织方式。它促成了业务数据(Model)从用户界面(View)中分离出来，还有第三个组成部分(Controller)负责管理传统意义上的业务逻辑和用户输入。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
+<blockquote>
+<p>Model 数据模型一般以json对象的形式展现<br>View表示表现层，也就是用户界面，对于网页来说，就是用户看到的网页HTML代码。<br>Controller 表示控制层，用来对原始数据（Model）进行加工，传送到View。</p>
+</blockquote>
+<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em><br>）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
+<p>在项目中往往采用更加灵活的方式，以 <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> 为例：</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020108.png" alt=""></p>
+<p>用户可以向 <em>View</em> 发送指令（<em>DOM</em> 事件），再由 <em>View</em> 直接要求 <em>Model</em> 改变状态</p>
+<p>用户也可以直接向 <em>Controller</em> 发送指令（改变 <em>URL</em> 触发 <em>hashChange</em> 事件），再由 <em>Controller</em> 发送给 <em>View</em>。</p>
+<p><em>Controller</em> 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 <em>View</em>。所以，<em>Backbone</em> 索性取消了 <em>Controller</em>，只保留一个 <em>Router（路由器）</em> 。</p>
+<h2 id="MVP（React）"><a href="#MVP（React）" class="headerlink" title="MVP（React）"></a>MVP（<a href="http://reactjs.cn/" target="_blank" rel="external">React</a>）</h2><p><strong>MVP</strong> 是基于 <strong>MVC</strong> 模式一种演变， P代表的是 Presenter（展示器），其模式如下图所示：</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
+<p>我们可以看到 view和model是通过展示器做联系，当view中发生了动作（Dom事件)会先传递给展示器，由展示进行逻辑处理，改变model，同时展示其还监控了model的变化，当model发生改变的时候展示其会做相应的逻辑处理并重新渲染页面。</p>
+<p>这种做法 <strong>View</strong> 非常薄，不部署任何业务逻辑，称为”被动视图”（ <strong>Passive View</strong> ），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</p>
+<p>实际使用中以 <strong>react</strong> 为例:<br>在react中 以 <strong>virtual dom</strong> 就是展示器，而组件的状态 就是model, 当页面上产生事件的时候，会先传递到 <strong>virtual dom</strong> dom触发组件中的事件，组件中进行逻辑处理，改变调用 <strong>setState</strong> 方法改变状态， 组件会重新监控状态改变，调用 <strong>render</strong> 方法产生新的 <strong>virtual dom</strong>，再通过 <strong>virtual dom</strong> 的对比，得出哪些节点发生改变，然后更新改变的节点的真实dom;</p>
+<h2 id="MVVM-angular-angular2-vue"><a href="#MVVM-angular-angular2-vue" class="headerlink" title="MVVM( angular angular2 vue)"></a>MVVM( <a href="http://www.ngnice.com/" target="_blank" rel="external">angular</a> <a href="https://angular.io/" target="_blank" rel="external">angular2</a> <a href="http://cn.vuejs.org/" target="_blank" rel="external">vue</a>)</h2><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
+<p>唯一的区别是，它采用双向绑定（data-binding）; viewModel会观察 model的变化，当model发生改变的时候，viewModel会改变绑定了这个 model 的dom，同时 viewModel也会监控view的变化，当view发生改变的时候，其绑定的model也会发生改变</p>
+<p>angular,vue等框架都是基于mvvm模式的一种实现</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo-coding搭建自己的博客" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -810,80 +887,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1.尽可能减少HTTP请求数（请求耗时）<br>2.使用CDN（内容分发网络）<br>3.添加Expire/Cache-Control头（缓存设置）<br>4.启用Gzip压缩（压缩css和js代码，混淆js代码）<br>5.把css放在页面最上面（方便加载渲染）<br>6.把script放在页面最下面（防止script代码影响页面展示）<br>7.避免在css中使用Expression<br>8.把JavaScript和css放在外部分文件中（js和css文件浏览器是自动缓存的不会重复加载）<br>9.减少DNS查询<br>10.避免重定向</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端工具/sublime常用的插件介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/16/前端工具/sublime常用的插件介绍/" class="article-date">
-  	<time datetime="2015-11-16T00:06:00.000Z" itemprop="datePublished">2015-11-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/16/前端工具/sublime常用的插件介绍/">sublime常用的插件介绍</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h2><p>包管理器，安装这个插件之后可以管理sublime的所有的扩展包的安装和卸载<br>安装方法如下，打开console窗口（CTRL+`/views&gt;show console）将下面这段代码copy进去敲enter即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure></p>
-<p>接下来得插件安装，<br>1.打开命令面板ctrl+shift+p<br>2.输入ip,enter<br>3.输入插件名称敲击enter</p>
-<h2 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a><a href="http://docs.emmet.io" target="_blank" rel="external">Emmet</a></h2><p>前身事大名鼎鼎的zen coding，仅仅需要一行代码就能快速生成html代码。简单的语法既可以生成负责html css代码(点击标题，可以学习emmet语法)，</p>
-<h2 id="SideBar-Enhancements"><a href="#SideBar-Enhancements" class="headerlink" title="SideBar Enhancements"></a>SideBar Enhancements</h2><p>这个插件改进了侧边栏，增加了许多功能：将文件移入回收站，在浏览器中浏览，将文件复制到剪切板。<br><img src="15-31-34.jpg" alt=""></p>
-<h2 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h2><p>文件名称自动补全插件<br><img src="15-32-45.jpg" alt=""></p>
-<h2 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h2><p>css3的语言环境，也会对一些css3的属性惊醒提示</p>
-<h2 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a>DocBlockr</h2><p>文本注释插件，再js方法上敲击/**+ enter即可变成下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * [ description]</span><br><span class="line"> * @param  &#123;[type]&#125; item [description]</span><br><span class="line"> * @return &#123;[type]&#125;      [description]</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>
-<h2 id="JsFormat"><a href="#JsFormat" class="headerlink" title="JsFormat"></a>JsFormat</h2><p>javascript格式化插件，安装之后选择文本ctrl+alt+f可以格式化指定文本</p>
-<h2 id="SublimeCodeIntel"><a href="#SublimeCodeIntel" class="headerlink" title="SublimeCodeIntel"></a>SublimeCodeIntel</h2><p>多种语言提示，代码自动补齐，快速跳转到变量定义，在状态栏显示函数快捷信息等<br>它支持的语言有：PHP, Python, RHTML, JavaScript, Smarty, Mason, Node.js, XBL, Tcl, HTML, HTML5, TemplateToolkit, XUL, Django, Perl, Ruby, Python3.</p>
-<h2 id="SublimeLinter"><a href="#SublimeLinter" class="headerlink" title="SublimeLinter"></a>SublimeLinter</h2><p>代码检查插件，可以提示你的编码错误，但是需要安装子包，例如<br>1.javascript语法检查 SublimeLinter-jshint这个包是必须得；<br>2.css语法检查 sublimeLinter-csslint<br><img src="15-43-40.jpg" alt=""></p>
-<h2 id="SublimeLinter-csslint"><a href="#SublimeLinter-csslint" class="headerlink" title="SublimeLinter-csslint"></a>SublimeLinter-csslint</h2><p>配置sublimelinter，的css语法检查插件</p>
-<h2 id="SublimeLinter-jshint"><a href="#SublimeLinter-jshint" class="headerlink" title="SublimeLinter-jshint"></a>SublimeLinter-jshint</h2><p>配置sublimelinter，的js语法检查插件</p>
-<h2 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h2><p>HTML/XML 标签缩进、补全和校验；</p>
-<h2 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h2><p>打开控制台插件，安装后配置上下面的快捷键即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;keys&quot;: [&quot;command+shift+m&quot;], &quot;command&quot;: &quot;open_terminal&quot; &#125;,`</span><br></pre></td></tr></table></figure></p>
-<h2 id="TrailingSpaces"><a href="#TrailingSpaces" class="headerlink" title="TrailingSpaces"></a>TrailingSpaces</h2><p>多余空格标记插件，会标记每行多余的空格，加入下边的快捷键配置即可一次删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;keys&quot;: [&quot;command+shift+t&quot;], &quot;command&quot;: &quot;delete_trailing_spaces&quot; &#125;,</span><br></pre></td></tr></table></figure></p>
-<h2 id="主题包"><a href="#主题包" class="headerlink" title="主题包"></a>主题包</h2><p>sublime本身的外表就已经很好看了，如果大家对颜值有特殊要求的，可以<a href="http://www.techug.com/9-best-sublime-text-themes" target="_blank" rel="external">点击这里</a></p>
-<h2 id="各种framework包"><a href="#各种framework包" class="headerlink" title="各种framework包"></a>各种framework包</h2><ul>
-<li>jQuery jquery的代码补全包；</li>
-<li>Angular angular的代码补全及常用指令提示；</li>
-<li>less   less的环境高亮</li>
-<li>saas    sass的语法环境高亮，以及代码提示<br>….</li>
-</ul>
 
       
     </div>

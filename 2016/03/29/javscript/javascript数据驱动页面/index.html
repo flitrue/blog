@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>javascript数据驱动页面 | myron blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。
+MVC( backbone ）MVC是一个架构设计模式，它通过分离关注点的方式来支持改进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript数据驱动页面">
+<meta property="og:url" content="http://yoursite.com/2016/03/29/javscript/javascript数据驱动页面/index.html">
+<meta property="og:site_name" content="myron blog">
+<meta property="og:description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。
+MVC( backbone ）MVC是一个架构设计模式，它通过分离关注点的方式来支持改进">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020108.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
+<meta property="og:updated_time" content="2016-03-29T07:22:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript数据驱动页面">
+<meta name="twitter:description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。
+MVC( backbone ）MVC是一个架构设计模式，它通过分离关注点的方式来支持改进">
+<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+  
+    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">myron</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">myron</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">myron</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javscript/javascript数据驱动页面" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/29/javscript/javascript数据驱动页面/" class="article-date">
+  	<time datetime="2016-03-29T07:21:00.000Z" itemprop="datePublished">2016-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript数据驱动页面
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2005 <em>Ajax</em> 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 <em>spring</em> 的分层的思想，将业务逻辑和ui逻辑分开。</p>
+<h2 id="MVC-backbone-）"><a href="#MVC-backbone-）" class="headerlink" title="MVC( backbone ）"></a>MVC( <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> ）</h2><p>MVC是一个架构设计模式，它通过分离关注点的方式来支持改进应用组织方式。它促成了业务数据(Model)从用户界面(View)中分离出来，还有第三个组成部分(Controller)负责管理传统意义上的业务逻辑和用户输入。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
+<blockquote>
+<p>Model 数据模型一般以json对象的形式展现<br>View表示表现层，也就是用户界面，对于网页来说，就是用户看到的网页HTML代码。<br>Controller 表示控制层，用来对原始数据（Model）进行加工，传送到View。</p>
+</blockquote>
+<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em><br>）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
+<p>在项目中往往采用更加灵活的方式，以 <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> 为例：</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020108.png" alt=""></p>
+<p>用户可以向 <em>View</em> 发送指令（<em>DOM</em> 事件），再由 <em>View</em> 直接要求 <em>Model</em> 改变状态</p>
+<p>用户也可以直接向 <em>Controller</em> 发送指令（改变 <em>URL</em> 触发 <em>hashChange</em> 事件），再由 <em>Controller</em> 发送给 <em>View</em>。</p>
+<p><em>Controller</em> 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 <em>View</em>。所以，<em>Backbone</em> 索性取消了 <em>Controller</em>，只保留一个 <em>Router（路由器）</em> 。</p>
+<h2 id="MVP（React）"><a href="#MVP（React）" class="headerlink" title="MVP（React）"></a>MVP（<a href="http://reactjs.cn/" target="_blank" rel="external">React</a>）</h2><p><strong>MVP</strong> 是基于 <strong>MVC</strong> 模式一种演变， P代表的是 Presenter（展示器），其模式如下图所示：</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
+<p>我们可以看到 view和model是通过展示器做联系，当view中发生了动作（Dom事件)会先传递给展示器，由展示进行逻辑处理，改变model，同时展示其还监控了model的变化，当model发生改变的时候展示其会做相应的逻辑处理并重新渲染页面。</p>
+<p>这种做法 <strong>View</strong> 非常薄，不部署任何业务逻辑，称为”被动视图”（ <strong>Passive View</strong> ），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</p>
+<p>实际使用中以 <strong>react</strong> 为例:<br>在react中 以 <strong>virtual dom</strong> 就是展示器，而组件的状态 就是model, 当页面上产生事件的时候，会先传递到 <strong>virtual dom</strong> dom触发组件中的事件，组件中进行逻辑处理，改变调用 <strong>setState</strong> 方法改变状态， 组件会重新监控状态改变，调用 <strong>render</strong> 方法产生新的 <strong>virtual dom</strong>，再通过 <strong>virtual dom</strong> 的对比，得出哪些节点发生改变，然后更新改变的节点的真实dom;</p>
+<h2 id="MVVM-angular-angular2-vue"><a href="#MVVM-angular-angular2-vue" class="headerlink" title="MVVM( angular angular2 vue)"></a>MVVM( <a href="http://www.ngnice.com/" target="_blank" rel="external">angular</a> <a href="https://angular.io/" target="_blank" rel="external">angular2</a> <a href="http://cn.vuejs.org/" target="_blank" rel="external">vue</a>)</h2><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
+<p>唯一的区别是，它采用双向绑定（data-binding）; viewModel会观察 model的变化，当model发生改变的时候，viewModel会改变绑定了这个 model 的dom，同时 viewModel也会监控view的变化，当view发生改变的时候，其绑定的model也会发生改变</p>
+<p>angular,vue等框架都是基于mvvm模式的一种实现</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/24/hexo-coding搭建自己的博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo+coding搭建自己的博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javscript/javascript数据驱动页面" data-title="javascript数据驱动页面" data-url="http://yoursite.com/2016/03/29/javscript/javascript数据驱动页面/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 myron
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
