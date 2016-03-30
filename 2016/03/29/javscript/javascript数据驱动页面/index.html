@@ -18,7 +18,7 @@ MVC( backbone ）MVC是一个架构设计模式，它通过分离关注点的方
 <meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020108.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
-<meta property="og:updated_time" content="2016-03-29T07:22:06.000Z">
+<meta property="og:updated_time" content="2016-03-29T07:26:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript数据驱动页面">
 <meta name="twitter:description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。
@@ -240,7 +240,7 @@ MVC( backbone ）MVC是一个架构设计模式，它通过分离关注点的方
 <blockquote>
 <p>Model 数据模型一般以json对象的形式展现<br>View表示表现层，也就是用户界面，对于网页来说，就是用户看到的网页HTML代码。<br>Controller 表示控制层，用来对原始数据（Model）进行加工，传送到View。</p>
 </blockquote>
-<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em><br>）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
+<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em> ）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
 <p>在项目中往往采用更加灵活的方式，以 <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> 为例：</p>
 <p><img src="http://image.beekka.com/blog/2015/bg2015020108.png" alt=""></p>
 <p>用户可以向 <em>View</em> 发送指令（<em>DOM</em> 事件），再由 <em>View</em> 直接要求 <em>Model</em> 改变状态</p>
@@ -263,6 +263,15 @@ MVC( backbone ）MVC是一个架构设计模式，它通过分离关注点的方
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/03/30/javscript/javascript作用域和闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          javascript作用域与闭包
+        
+      </div>
+    </a>
   
   
     <a href="/2016/03/24/hexo-coding搭建自己的博客/" id="article-nav-older" class="article-nav-link-wrap">

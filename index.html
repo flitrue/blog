@@ -190,6 +190,90 @@
 
       <div class="body-wrap">
   
+    <article id="post-javscript/javascript作用域和闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/30/javscript/javascript作用域和闭包/" class="article-date">
+  	<time datetime="2016-03-30T04:24:00.000Z" itemprop="datePublished">2016-03-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/30/javscript/javascript作用域和闭包/">javascript作用域与闭包</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>在编程语言中，作用域控制着变量的与参数的可见性和生命周期。在javascript中并不像其他编程语言一样拥有块级作用域，在if中定义的变量再外面也可以直接调用,这点是值得注意的;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a= <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+<p>在块中定义的变量，再外边也可以直接调用到，也可以覆盖该作用域内同名的变量;</p>
+<p>javascript中最外层是再window(浏览器环境中)下的全局作用域；每个函数内部都会产生一个函数作用域，我们在访问一个变量的时候，会本着就近原则，从所在的函数作用域逐层向上查找，如果没有找到，就会抛出undefined异常<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'window'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">'func'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this test a:'</span> +a);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'this window a:'</span> + a);</span><br><span class="line"><span class="comment">// this test a:func</span></span><br><span class="line"><span class="comment">// this test a:window</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>关于变量提升</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'window'</span>；</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this test a:'</span> +a);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">'func'</span>;</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'this window a:'</span> + a);</span><br><span class="line"><span class="comment">// this test a:undefined</span></span><br><span class="line"><span class="comment">// this test a:window</span></span><br></pre></td></tr></table></figure></p>
+<p>很奇怪吧，再方法中输出a的时候，应该是全局变量中的a变量才对,javascript执行函数式，会先创建变量，然后执行语句赋值，所以在执行 <strong>console.log</strong> 之前已经定义了变量 <strong>a</strong> 但是并未赋值，这个时候 <strong>a=undefined</strong>,然后执行 <strong>console.log</strong>自然就输出undefined；</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>作用域的好处是内部函数可以访问和定义他们的外部函数的参数和变量，而函数外部是无法直接访问无法直接访问到函数内部的变量的。那么我们怎么访问到函数内部的变量呢, 通常在函数内部再创建一个函数，再返回这个函数再外部调用;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> test = <span class="string">'这是个私有变量'</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(test);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = f1();</span><br><span class="line">result(); <span class="comment">// “这是个私有变量”=</span></span><br></pre></td></tr></table></figure></p>
+<p>这里的f2就是闭包，我对闭包的定义呢，<strong>闭包就是能够读取到函数内部变量的函数；</strong></p>
+<p>在上面的代码中我们看到使用闭包可以访问都函数内部的变量，再实际运用中闭包还有一个好处就是可以使得函数内部变量常驻在内存中;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> count = f1();</span><br><span class="line"><span class="built_in">console</span>.log(count()); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(count()); <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(count()); <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(count()); <span class="comment">//4</span></span><br></pre></td></tr></table></figure></p>
+<p>我们在封装一些类库的时候，需要有一些私有变量不给外部直接调用，这个时候就需要使用到闭包；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//缓存信息的库</span></span><br><span class="line"><span class="keyword">var</span> cache = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> map = &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        get : <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> map[key];</span><br><span class="line">        &#125;,</span><br><span class="line">        set : <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>)</span>&#123;</span><br><span class="line">            map[key] = value;</span><br><span class="line">        &#125;,</span><br><span class="line">        remove : <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(map[key]) <span class="keyword">delete</span> map[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">cache.set(<span class="string">'test'</span>, <span class="string">'this is test case'</span>);</span><br><span class="line">cache.get(<span class="string">'test'</span>); <span class="comment">//this is test case</span></span><br><span class="line">cache.remove(<span class="string">'test'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>这里我们封装了一个简单cache对象用于缓存一些信息， 使用内部变量 <strong>map</strong> 存储，外部无法直接访问 <strong>map</strong> 变量，但是可以通过 <strong>set</strong> <strong>get</strong> <strong>remove</strong> 完成对 <strong>map</strong> 增删改查的操作;</p>
+<p>使用闭包需要注意的：</p>
+<blockquote>
+<ol>
+<li>闭包会是函数作用域中所有的变量常驻在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</li>
+<li>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（ <strong>object</strong> ）使用，把闭包当作它的公用方法（ <strong>Public Method</strong>），把内部变量当作它的私有属性（<strong>private value</strong>），这时一定要小心，不要随便改变父函数内部变量的值。</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> TEST = <span class="string">'11111'</span><span class="comment">//我是一个常亮，不要改变;</span></span><br><span class="line">    <span class="keyword">var</span> nouse = <span class="string">'aaa'</span>; <span class="comment">//这是一个没有使用到的变量再f1执行完成前要释放掉</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//通过TEST做一些操作</span></span><br><span class="line">        <span class="built_in">console</span>.log(TEST);<span class="comment">//非要条件，不要轻易改变父函数内部变量的值；</span></span><br><span class="line">    &#125;</span><br><span class="line">    nouse = <span class="literal">null</span>; <span class="comment">//要吧这些不用的释放掉</span></span><br><span class="line">    <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>每一个函数内部都有两个固定的变量 <strong>this</strong> 和 <strong>arguments</strong>, <strong>arguments</strong> 是调用函数是传入参数的集合; <strong>this</strong> 指向调用函数的对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  test = &#123;</span><br><span class="line">    fun : <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">test.fun(); <span class="comment">// test, []</span></span><br><span class="line">test.fun(<span class="number">1</span>,<span class="number">2</span>); <span class="comment">// test, [1,2]</span></span><br><span class="line">test.fun(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// test, [1,2,3]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>函数中的this 永远指向调用它的对象,如果没有指定对象调用，那么this指向全局对象</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var  test = &#123;</span><br><span class="line">    fun : function (func)&#123;</span><br><span class="line">        console.log(this === test, arguments);</span><br><span class="line">        func();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">test.fun(function ()&#123;</span><br><span class="line">    console.log(this === window);</span><br><span class="line">&#125;);</span><br><span class="line">//true</span><br><span class="line">//true</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码中 <strong>test</strong> 中的 <strong>fun</strong> 函数是通过 <strong>test</strong> 对象调用的，所以 <strong>fun</strong> 中的 <strong>this</strong> 指向test, 而传入到fun中的方法 <strong>func</strong> 并没有通过 <strong>对象名.方法名</strong> 调用,所以是使用的默认的全局对象（ <strong>window</strong> ）调用的 <strong>func</strong> 方法。</p>
+<h2 id="call、apply和bind"><a href="#call、apply和bind" class="headerlink" title="call、apply和bind"></a>call、apply和bind</h2><p>在javascript中调用一个方法，除了常用的 <strong>对象名.方法名</strong> 的调用方式外，还可以种用 <strong>Function</strong> 对象自带的 <strong>call</strong> 和 <strong>apply</strong> 方法调用, 调用时需要指定 用哪个对象调用和传入参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = &#123;</span><br><span class="line">    msg : <span class="string">'test msg'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> msg = <span class="string">'window msg'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.msg);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//没有指定对象 默认就是window</span></span><br><span class="line">say.call();         <span class="comment">// window msg</span></span><br><span class="line">say.call(<span class="literal">null</span>);     <span class="comment">// window msg</span></span><br><span class="line">say.call(<span class="keyword">this</span>);     <span class="comment">// window msg</span></span><br><span class="line"></span><br><span class="line">say.call(test);     <span class="comment">// test msg</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>apply</strong> 方法和 <strong>call</strong> 方法都可以动态执行this的指向对象，只是在调用上有区别</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apply(obj, [arg1, arg2, arg3]);</span><br><span class="line">call(obj, arg1, arg2, arg3);</span><br></pre></td></tr></table></figure>
+<p><strong>bind</strong> 方法在 <strong>function</strong> 定义的时候使用，给 <strong>function</strong> 指定 <strong>this</strong> 指向, 当一个函数使用 <strong>bind</strong> 方法指定了 this指向后，那么在调用的时候 <strong>call</strong> 和 <strong>apply</strong> 执行的 <strong>this</strong> 指向都将无效</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = &#123;</span><br><span class="line">    msg :<span class="string">'test msg'</span>,</span><br><span class="line">    fun: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.msg);</span><br><span class="line">    &#125;.bind(<span class="built_in">window</span>); <span class="comment">//强制指定 window 为 this;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> msg = <span class="string">'window msg'</span>;</span><br><span class="line">test.fun(); <span class="comment">// window.msg</span></span><br><span class="line">test.fun.call(test); <span class="comment">// window.msg</span></span><br><span class="line">test.fun.apply(test); <span class="comment">// window.msg</span></span><br></pre></td></tr></table></figure>
+<p><strong>bind</strong> 方法是 ES5中新增的，ie8 上不支持，我们可以自定义bind来hack</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="built_in">Function</span>.prototype.bind)&#123;</span><br><span class="line">    <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _self = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> _self.apply(context, <span class="built_in">arguments</span>)</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-javscript/javascript数据驱动页面" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -222,7 +306,7 @@
 <blockquote>
 <p>Model 数据模型一般以json对象的形式展现<br>View表示表现层，也就是用户界面，对于网页来说，就是用户看到的网页HTML代码。<br>Controller 表示控制层，用来对原始数据（Model）进行加工，传送到View。</p>
 </blockquote>
-<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em><br>）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
+<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em> ）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
 <p>在项目中往往采用更加灵活的方式，以 <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> 为例：</p>
 <p><img src="http://image.beekka.com/blog/2015/bg2015020108.png" alt=""></p>
 <p>用户可以向 <em>View</em> 发送指令（<em>DOM</em> 事件），再由 <em>View</em> 直接要求 <em>Model</em> 改变状态</p>
@@ -834,59 +918,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">核心心法：让小蜘蛛最快找到有用信息</span><br><span class="line">1. &lt;p&gt;&lt;br/&gt;&lt;/p&gt;很赞的写法 &lt;br/&gt;写在p内部</span><br><span class="line">2.外链 要加上 rel=“nofollow” 避免搜索引擎爬网爬跑掉其他网页去了</span><br><span class="line">3.&lt;a&gt;标签加title描述</span><br><span class="line">4.&lt;img&gt;标签加alt描述</span><br><span class="line">5.标签中的内容就是内容，不要加的代码，&amp;nbsp尽量设置padding/margin/缩进来实现效果</span><br><span class="line">a. &lt;title&gt; 关键词放前面；不重复；每个title不同；</span><br><span class="line">b. &lt;meta keywords&gt; 列出关键词即可，不需太多；</span><br><span class="line">c. &lt;meta description&gt; 高度概括网页内容，不需太多，每个页面不同；</span><br><span class="line">d. 语义化代码：</span><br><span class="line">aa. H1-H6 用于标题；</span><br><span class="line">bb. UL无序列表；</span><br><span class="line">cc. OL有序列表；</span><br><span class="line">dd. DL定义数据列表</span><br><span class="line">ee. em,strong 强调</span><br><span class="line">e. 优化：</span><br><span class="line">aa. &lt;a&gt; title/rel/</span><br><span class="line">bb. &lt;h1&gt; 正文标题一定用H1，副标题H2；</span><br><span class="line">cc. &lt;p&gt; &lt;br&gt;是文本内的换行；</span><br><span class="line">dd. &lt;caption&gt;表格标题；</span><br><span class="line">ee. &lt;img&gt; 加alt说明；</span><br><span class="line">ff. &lt;strong&gt;（高度重视） &lt;em&gt; （仅次于strong）&amp; &lt;b&gt;（不推荐） &lt;i&gt;</span><br><span class="line">gg. 重要HTML放在最前面；</span><br><span class="line">hh. 重要内容不用JS输出；</span><br><span class="line">ii. 少使用iframe框架；</span><br><span class="line">JJ. 谨慎使用display:none（使用z-index）;</span><br><span class="line">kk. 精简代码；</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-移动web/Yahoo军规" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/24/移动web/Yahoo军规/" class="article-date">
-  	<time datetime="2015-11-24T13:43:00.000Z" itemprop="datePublished">2015-11-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/24/移动web/Yahoo军规/">前端代码规范(YaHoo军规)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.尽可能减少HTTP请求数（请求耗时）<br>2.使用CDN（内容分发网络）<br>3.添加Expire/Cache-Control头（缓存设置）<br>4.启用Gzip压缩（压缩css和js代码，混淆js代码）<br>5.把css放在页面最上面（方便加载渲染）<br>6.把script放在页面最下面（防止script代码影响页面展示）<br>7.避免在css中使用Expression<br>8.把JavaScript和css放在外部分文件中（js和css文件浏览器是自动缓存的不会重复加载）<br>9.减少DNS查询<br>10.避免重定向</p>
 
       
     </div>
