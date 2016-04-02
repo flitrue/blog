@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/11/15/javscript/javascript异步处理/index.html">
 <meta property="og:site_name" content="myron blog">
 <meta property="og:description" content="javascript是单线程语言，所谓”单线程”，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。这种方式比较好控制，不会存在像java那个多线程死锁等等复杂的问题，缺点也很明显，当一个任务执行较长时间时，后续的任务需要等待，会拖延整个程序的执行，使浏览器卡死。为了解决这个问题，javascript将任务分为两种：同步（Synchronous">
-<meta property="og:updated_time" content="2016-03-24T14:40:26.000Z">
+<meta property="og:updated_time" content="2016-04-02T10:15:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript异步处理">
 <meta name="twitter:description" content="javascript是单线程语言，所谓”单线程”，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。这种方式比较好控制，不会存在像java那个多线程死锁等等复杂的问题，缺点也很明显，当一个任务执行较长时间时，后续的任务需要等待，会拖延整个程序的执行，使浏览器卡死。为了解决这个问题，javascript将任务分为两种：同步（Synchronous">
@@ -41,6 +41,8 @@
 		  <h1 class="header-author"><a href="/">myron</a></h1>
 		</hgroup>
 
+		
+		<p class="header-subtitle">低头努力，剩下的交给时光</p>
 		
 
 		
@@ -113,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jquery/" style="font-size: 10px;">javascript,jquery</a>
+						<a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jquery/" style="font-size: 10px;">javascript jquery</a> <a href="/tags/前端工具-sublime/" style="font-size: 16.67px;">前端工具 sublime</a>
 					</div>
 				</section>
 				
@@ -167,6 +169,8 @@
 			<hgroup>
 			  <h1 class="header-author">myron</h1>
 			</hgroup>
+			
+			<p class="header-subtitle">低头努力，剩下的交给时光</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -230,7 +234,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>javascript是单线程语言，所谓”单线程”，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。<br>这种方式比较好控制，不会存在像java那个多线程死锁等等复杂的问题，缺点也很明显，当一个任务执行较长时间时，后续的任务需要等待，会拖延整个程序的执行，使浏览器卡死。<br>为了解决这个问题，javascript将任务分为两种：同步（Synchronous）和异步（Asynchronous）;<br>在浏览器端，如果需要执行比较耗时的任务，为了避免浏览器卡死，就需要异步执行，不影响其他任务，最常见的例子是ajax操作。<br>但是一旦使用异步，还要保证有些任务再异步任务之后执行，这个时候就需要特殊的处理了，以下介绍四中常见的处理异步的方法</p>
+        <p>javascript是单线程语言，所谓”单线程”，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。<br>这种方式比较好控制，不会存在像java那个多线程死锁等等复杂的问题，缺点也很明显，当一个任务执行较长时间时，后续的任务需要等待，会拖延整个程序的执行，使浏览器卡死。<br>为了解决这个问题，javascript将任务分为两种：同步（Synchronous）和异步（Asynchronous）;<br><a id="more"></a><br>在浏览器端，如果需要执行比较耗时的任务，为了避免浏览器卡死，就需要异步执行，不影响其他任务，最常见的例子是ajax操作。<br>但是一旦使用异步，还要保证有些任务再异步任务之后执行，这个时候就需要特殊的处理了，以下介绍四中常见的处理异步的方法</p>
 <h2 id="一、回调函数"><a href="#一、回调函数" class="headerlink" title="一、回调函数"></a>一、回调函数</h2><p>这个是最常见的处理方式，假设一个ajax请求，设定一个success方法再请求成功时回调<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(</span><br><span class="line">    url :<span class="string">'test'</span>,</span><br><span class="line">    success : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>这样ajax请求不会阻塞其他程勋的正常运行<br>回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。</p>
 <h2 id="二、事件监听"><a href="#二、事件监听" class="headerlink" title="二、事件监听"></a>二、事件监听</h2><p>事件驱动模式。success任务在请求成功事件发生时执行。还是以ajax为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'the ajax successed'</span>);</span><br><span class="line">&#125;</span><br><span class="line">$.on(<span class="string">'success'</span>, success);<span class="comment">//监听事件 如果发生执行success方法</span></span><br><span class="line">$.ajax(</span><br><span class="line">    url : <span class="string">'test'</span>,</span><br><span class="line">    success : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $.trigger(<span class="string">'success'</span>);<span class="comment">//出发success 事件</span></span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>

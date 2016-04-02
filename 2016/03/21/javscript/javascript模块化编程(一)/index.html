@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>javascript模块化编程(一) | myron blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。
-原始写法模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个">
+  <meta name="description" content="随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript模块化编程(一)">
 <meta property="og:url" content="http://yoursite.com/2016/03/21/javscript/javascript模块化编程(一)/index.html">
 <meta property="og:site_name" content="myron blog">
-<meta property="og:description" content="随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。
-原始写法模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个">
-<meta property="og:updated_time" content="2016-03-24T14:40:32.000Z">
+<meta property="og:description" content="随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。">
+<meta property="og:updated_time" content="2016-04-02T10:15:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript模块化编程(一)">
-<meta name="twitter:description" content="随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。
-原始写法模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个">
+<meta name="twitter:description" content="随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。">
   
     <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
   
@@ -44,6 +41,8 @@
 		  <h1 class="header-author"><a href="/">myron</a></h1>
 		</hgroup>
 
+		
+		<p class="header-subtitle">低头努力，剩下的交给时光</p>
 		
 
 		
@@ -116,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jquery/" style="font-size: 10px;">javascript,jquery</a>
+						<a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jquery/" style="font-size: 10px;">javascript jquery</a> <a href="/tags/前端工具-sublime/" style="font-size: 16.67px;">前端工具 sublime</a>
 					</div>
 				</section>
 				
@@ -170,6 +169,8 @@
 			<hgroup>
 			  <h1 class="header-author">myron</h1>
 			</hgroup>
+			
+			<p class="header-subtitle">低头努力，剩下的交给时光</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -233,7 +234,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。</p>
+        <p>随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。<br><a id="more"></a></p>
 <h2 id="原始写法"><a href="#原始写法" class="headerlink" title="原始写法"></a>原始写法</h2><p>模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> state = <span class="string">''</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">method1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do somethings</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mehtod2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do somthings</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>上面吧state和方法放在一起组成一个模块，要使用的是否，直接调用方法即可。但是这种做法缺点也很明显，吧，变量和方法都放在了全局变量里，造成了全局污染，一但模块数量变多，后面相同名称方法或是变量就会覆盖之前的，产生一些奇怪的bug.<br>为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> module1 = &#123;</span><br><span class="line">    state : <span class="string">''</span>,</span><br><span class="line">    method1 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mehtod2 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这种写法将方法和变量都封装到了module1里，调用的时候直接 <strong>对象.方法名</strong> 就可以了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module1.mehtod1();</span><br></pre></td></tr></table></figure></p>
