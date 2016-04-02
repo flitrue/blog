@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jquery/" style="font-size: 10px;">javascript jquery</a> <a href="/tags/前端工具-sublime/" style="font-size: 16.67px;">前端工具 sublime</a>
+						<a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/前端工具-sublime/" style="font-size: 16.67px;">前端工具 sublime</a>
 					</div>
 				</section>
 				
@@ -235,7 +235,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-jquery/">javascript jquery</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
 	</div>
 
       
@@ -408,29 +408,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>毕业以来，尝试过用各种手段写博客，先是csdn的博客专栏谢了几篇文章之后，就懒了，只到去年，学习了markdown语法写博客，觉得非常好用，于是也开始用farbox写博客，最近接触一个hexo加上github的pages服务搭建博客，于是尝试下，犹豫github在国内的访问速度实在是不太好，我用coding代替.</p>
-<h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><h3 id="1-NODE"><a href="#1-NODE" class="headerlink" title="1.NODE"></a>1.<a href="http://nodejs.cn/" target="_blank" rel="external">NODE</a></h3><p>犹豫hexo是基于node开发的，所以node环境是必须的</p>
-<h3 id="2-git"><a href="#2-git" class="headerlink" title="2.git"></a>2.<a href="https://git-scm.com/download/" target="_blank" rel="external">git</a></h3><p>node的包管理都是需要使用git来down包的，我们提交文章和代码也需要用到git</p>
-<h3 id="3-coding账号"><a href="#3-coding账号" class="headerlink" title="3.coding账号"></a>3.<a href="https://coding.net/" target="_blank" rel="external">coding</a>账号</h3><p>我们需要使用到 <em>coding</em> 的pages服务搭建博客，如果觉得coding的逼格不够的话，可以看下这篇文章<a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a></p>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p><em>NODE</em> 和 <em>GIT</em> 都安装好了之后就可以下载安装 <em>hexo</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
-<p>国内的访问外网会有点慢，最好把npm仓库源设置为淘宝镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist</span><br></pre></td></tr></table></figure></p>
-<p>安装完成之后新建一个文件夹，进入文件夹内执行 <em>init</em> 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir blog</span><br><span class="line">cd blog</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
-<p>init之后会看到文件下有了如下结构的文件<br><img src="http://blog.fens.me/wp-content/uploads/2014/05/hexo-folder.png" alt=""></p>
-<h2 id="生成静态文件，本地启服务器调试"><a href="#生成静态文件，本地启服务器调试" class="headerlink" title="生成静态文件，本地启服务器调试"></a>生成静态文件，本地启服务器调试</h2><p>上面图片中的source目录就是存在我们文章地址的地方，文章用markdown语法编写，hexo还会自动解析，并进行分类和归档；执行以下命令可以生成静态文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
-<p>本地启动服务器调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
-<p>启动成功之后访问<a href="http://localhost:4000就可以看到你的主页啦，到此搭建工作就算基本完成了" target="_blank" rel="external">http://localhost:4000就可以看到你的主页啦，到此搭建工作就算基本完成了</a><br><img src="http://blog.fens.me/wp-content/uploads/2014/05/hexo-web.png" alt=""></p>
-<h2 id="部署博客到coding上"><a href="#部署博客到coding上" class="headerlink" title="部署博客到coding上"></a>部署博客到coding上</h2><p>再coding上新建一个仓库，保证你的项目名称和用户名（个性后缀）一致，不然加载资源文件可能会有问题</p>
-<p><img src="11-11.png" alt=""><br><img src="11-13.png" alt=""></p>
-<p>更改 <em>_config.yml</em> 文件中的配置,一般在最后一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://git.coding.net/liuyy/liuyy.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>执行deploy命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>如果出现报错，先检查你的配置git地址是否正确，”:”号后面一定要跟一个空格,如果都没有问题则再安装一个包，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git  --save</span><br></pre></td></tr></table></figure></p>
-<p>执行完成之后，去coding的项目目录项，开启pages服务,开启之后访问<a href="http://[user_name].coding.me,好了，大功告成。" target="_blank" rel="external">http://[user_name].coding.me,好了，大功告成。</a></p>
-<h2 id="关于hexo的图片处理"><a href="#关于hexo的图片处理" class="headerlink" title="关于hexo的图片处理"></a>关于hexo的图片处理</h2><p>我从farbox中把原来的文章迁移过来，发现好多的图片都显示，再hexo中你要现先设置</p>
-<p>post_asset_folder: true</p>
-<p>设置完成之后，每一个markdown文件都有一个相同的名称的文件夹（迁移过来的文章是没有的需要自己创建）用来存储使用到的图片，再文章中，url只用写文件名称即可<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](11-11.png)</span><br></pre></td></tr></table></figure></p>
-<h2 id="关于markdown编辑"><a href="#关于markdown编辑" class="headerlink" title="关于markdown编辑"></a>关于markdown编辑</h2><p>markdown的语法，大家看这篇文档就可以了，我就不多介绍了 <a href="http://wowubuntu.com/markdown/index.html" target="_blank" rel="external">Markdown语法说明</a><br>如果喜欢sublime编辑器的朋友我推荐使用下面两个markdown编辑的插件<br><em>MarkdownEditing</em> 它可以提供markdown文件很漂亮的语法高亮<br><em>Markdown Preview</em> markdown文件实时预览插件</p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>特别鸣谢，<a href="http://www.devzeng.com/" target="_blank" rel="external">曾老师</a> 对我搭建博客上的帮助；</p>
-
+        <p>毕业以来，尝试过用各种手段写博客，先是csdn的博客专栏谢了几篇文章之后，就懒了，只到去年，学习了markdown语法写博客，觉得非常好用，于是也开始用farbox写博客，最近接触一个hexo加上github的pages服务搭建博客，于是尝试下，犹豫github在国内的访问速度实在是不太好，我用coding代替.<br>
       
     </div>
     
@@ -443,6 +421,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/24/hexo-coding搭建自己的博客/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
