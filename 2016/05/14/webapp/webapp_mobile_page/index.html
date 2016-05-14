@@ -15,7 +15,7 @@ viewport简单来说viewport就是浏览器用来显示网页的部分(也可能
 <meta property="og:description" content="去年的时候有写过一篇关于移动web开发的文章，经过一年的webapp开发，对于移动端页面的开发又有了一个新的看法。总结一下怎么做好一个webapp，首先我们从移动端页面开始吧。
 viewport简单来说viewport就是浏览器用来显示网页的部分(也可能是一个app中的webview)，但是viewport的大小并不局限于浏览器可视区域，一般来说viewport的大小要比浏览器可视区域要大，这是因">
 <meta property="og:image" content="http://images.cnitblog.com/blog/130623/201407/300958470402077.png">
-<meta property="og:updated_time" content="2016-05-14T13:26:57.000Z">
+<meta property="og:updated_time" content="2016-05-14T13:28:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于webapp开发——移动端页面">
 <meta name="twitter:description" content="去年的时候有写过一篇关于移动web开发的文章，经过一年的webapp开发，对于移动端页面的开发又有了一个新的看法。总结一下怎么做好一个webapp，首先我们从移动端页面开始吧。
@@ -85,7 +85,7 @@ viewport简单来说viewport就是浏览器用来显示网页的部分(也可能
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -242,6 +242,7 @@ viewport简单来说viewport就是浏览器用来显示网页的部分(也可能
         <p>去年的时候有写过一篇关于移动web开发的文章，经过一年的webapp开发，对于移动端页面的开发又有了一个新的看法。总结一下怎么做好一个webapp，首先我们从移动端页面开始吧。</p>
 <h2 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h2><p>简单来说viewport就是浏览器用来显示网页的部分(也可能是一个app中的webview)，但是viewport的大小并不局限于浏览器可视区域，一般来说viewport的大小要比浏览器可视区域要大，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。下图列出了一些设备上浏览器的默认viewport的宽度。</p>
 <p><img src="http://images.cnitblog.com/blog/130623/201407/300958470402077.png" alt=""></p>
+<a id="more"></a>
 <h2 id="meta设置"><a href="#meta设置" class="headerlink" title="meta设置"></a>meta设置</h2><p>既然浏览器是用过 <strong>viewport</strong> 展示网页，所以我们要让手机端的网页不用通过缩放的方式来浏览，我们把viewport的大小设置同浏览器可是区域一样，并且禁止缩放网页。这些再 <strong>head</strong> 中加入 <strong>meta</strong> 设置完成。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
