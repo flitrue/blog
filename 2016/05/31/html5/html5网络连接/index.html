@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>html5网络连接 | myron blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="XMLHttpRequest Level 2XMLHttpRequest Level 2 对于 老版本的XMLHttpRequest对象 功能的一个补全，这里我们先看下老版本的XMLHttpRequest对象的缺点
+
+
+只支持文本数据的传送，无法用来读取和上传二进制文件。
+传送和接收数据时，没有进度信息，只能提示有没有完成。
+受到”同域限制”（Same Origin Policy），只能向同一域名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5网络连接">
+<meta property="og:url" content="http://yoursite.com/2016/05/31/html5/html5网络连接/index.html">
+<meta property="og:site_name" content="myron blog">
+<meta property="og:description" content="XMLHttpRequest Level 2XMLHttpRequest Level 2 对于 老版本的XMLHttpRequest对象 功能的一个补全，这里我们先看下老版本的XMLHttpRequest对象的缺点
+
+
+只支持文本数据的传送，无法用来读取和上传二进制文件。
+传送和接收数据时，没有进度信息，只能提示有没有完成。
+受到”同域限制”（Same Origin Policy），只能向同一域名">
+<meta property="og:updated_time" content="2016-05-31T04:05:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5网络连接">
+<meta name="twitter:description" content="XMLHttpRequest Level 2XMLHttpRequest Level 2 对于 老版本的XMLHttpRequest对象 功能的一个补全，这里我们先看下老版本的XMLHttpRequest对象的缺点
+
+
+只支持文本数据的传送，无法用来读取和上传二进制文件。
+传送和接收数据时，没有进度信息，只能提示有没有完成。
+受到”同域限制”（Same Origin Policy），只能向同一域名">
+  
+    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/uicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">myron</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">低头努力，剩下的交给时光</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:953788477@qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/HTML5/" style="font-size: 17.5px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 15px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 12.5px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 15px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 15px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com/">曾静的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是个阳光帅气的男孩纸…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">myron</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/uicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">myron</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">低头努力，剩下的交给时光</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:953788477@qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-html5/html5网络连接" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/html5/html5网络连接/" class="article-date">
+  	<time datetime="2016-05-31T04:05:05.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html5网络连接
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="XMLHttpRequest-Level-2"><a href="#XMLHttpRequest-Level-2" class="headerlink" title="XMLHttpRequest Level 2"></a>XMLHttpRequest Level 2</h2><p>XMLHttpRequest Level 2 对于 老版本的XMLHttpRequest对象 功能的一个补全，这里我们先看下老版本的XMLHttpRequest对象的缺点</p>
+<blockquote>
+<ul>
+<li>只支持文本数据的传送，无法用来读取和上传二进制文件。</li>
+<li>传送和接收数据时，没有进度信息，只能提示有没有完成。</li>
+<li>受到”同域限制”（Same Origin Policy），只能向同一域名的服务器请求数据</li>
+</ul>
+</blockquote>
+<p>而新版的 XMLHttpRequest 增加了更多的功能</p>
+<blockquote>
+<ul>
+<li>可以设置HTTP请求的时限。</li>
+<li>可以使用FormData对象管理表单数据。</li>
+<li>可以上传文件。</li>
+<li>可以请求不同域名下的数据（跨域请求）。</li>
+<li>可以获取服务器端的二进制数据。</li>
+<li>可以获得数据传输的进度信息。</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h3 id="设置请求时限"><a href="#设置请求时限" class="headerlink" title="设置请求时限"></a>设置请求时限</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">　　xhr.timeout = <span class="number">3000</span>;</span><br><span class="line">xhr.ontimeout = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">　　　　alert(<span class="string">'请求超时！'</span>);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>目前，Opera、Firefox和IE 10支持该属性，IE 8和IE 9的这个属性属于XDomainRequest对象，而Chrome和Safari还不支持。</p>
+<h3 id="FormData-上传文件"><a href="#FormData-上传文件" class="headerlink" title="FormData 上传文件"></a>FormData 上传文件</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">accept</span>=<span class="string">"video/*"</span> <span class="attr">onchange</span>=<span class="string">"fileUpload(this.files[0])"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fileUpload</span>(<span class="params">file</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        <span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line">        formData.append(<span class="string">"glbh"</span>, params.key);</span><br><span class="line">        formData.append(<span class="string">"fileName"</span>, file.name);</span><br><span class="line">        <span class="comment">//文件大小</span></span><br><span class="line">        formData.append(<span class="string">"fileSize"</span>, file.size);</span><br><span class="line">        formData.append(<span class="string">"file"</span>, file);</span><br><span class="line">        xhr.open(<span class="string">'post'</span>, <span class="string">'/uploadFile'</span>);</span><br><span class="line">        xhr.send(formData);</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="更多的事件监听"><a href="#更多的事件监听" class="headerlink" title="更多的事件监听"></a>更多的事件监听</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">xhr.addEventListener(<span class="string">'progress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">oEvent</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//监听上传进度</span></span><br><span class="line">&#125; , <span class="literal">false</span>);</span><br><span class="line">xhr.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//上传完成</span></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">xhr.addEventListener(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//上传出错</span></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>HTTP协议是一种无状态协议，服务器端本身不具有识别客户端的能力，必须借助外部机制，比如session和cookie，才能与特定客户端保持对话。这多多少少带来一些不便，尤其在服务器端与客户端需要持续交换数据的场合（比如网络聊天），更是如此。为了解决这个问题，HTML5提出了浏览器的WebSocket API。</p>
+<p>WebSocket的主要作用是，允许服务器端与客户端进行全双工（full-duplex）的通信。举例来说，HTTP协议有点像发电子邮件，发出后必须等待对方回信；WebSocket则是像打电话，服务器端和客户端可以同时向对方发送数据，它们之间存着一条持续打开的数据通道。</p>
+<h3 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connection = <span class="keyword">new</span> WebSocket(<span class="string">'ws://localhost:1740'</span>); <span class="comment">//建立连接</span></span><br><span class="line">connection.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//连接建立成功后调用此方法</span></span><br><span class="line">&#125;</span><br><span class="line">connection.onclose = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//连接被关闭调用此方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>WebSocket协议完全可以取代Ajax方法，用来向服务器端发送文本和二进制数据，而且还没有“同域限制”。</p>
+<p>WebSocket不使用HTTP协议，而是使用自己的协议。</p>
+<h3 id="发送和接收数据"><a href="#发送和接收数据" class="headerlink" title="发送和接收数据"></a>发送和接收数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">connection.send(message); <span class="comment">//发送文字信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Blob发送文件</span></span><br><span class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.querySelector(<span class="string">'input[type="file"]'</span>).files[<span class="number">0</span>];</span><br><span class="line">connection.send(file);</span><br></pre></td></tr></table></figure>
+<p>客户端收到服务器发送的数据，会触发message事件。可以通过定义message事件的回调函数，来处理服务端返回的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">connection.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(event.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的回调函数的参数为事件对象event，该对象的data属性包含了服务器返回的数据。</p>
+<h3 id="Socket-io"><a href="#Socket-io" class="headerlink" title="Socket.io"></a>Socket.io</h3><p>Socket.io是目前最流行的WebSocket实现，包括服务器和客户端两个部分。它不仅简化了接口，使得操作更容易，而且对于那些不支持WebSocket的浏览器，会自动降为Ajax连接，最大限度地保证了兼容性。它的目标是统一通信机制，使得所有浏览器和移动设备都可以进行实时通信。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> socket = io.connect(<span class="string">'http://localhost'</span>);</span><br><span class="line"><span class="comment">//监听事件</span></span><br><span class="line">socket.on(<span class="string">'news'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//发送信息</span></span><br><span class="line">socket.emit(<span class="string">'anotherNews'</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码的io.sockets.on方法指定connection事件（WebSocket连接建立）的回调函数。在回调函数中，用emit方法向客户端发送数据，触发客户端的news事件。然后，再用on方法指定服务器端anotherNews事件的回调函数。</p>
+<p>不管是服务器还是客户端，socket.io提供两个核心方法：emit方法用于发送消息，on方法用于监听对方发送的消息。</p>
+<h2 id="Server-Sent-Events"><a href="#Server-Sent-Events" class="headerlink" title="Server-Sent Events"></a>Server-Sent Events</h2><p>传统的网页都是浏览器向服务器“查询”数据，但是很多场合，最有效的方式是服务器向浏览器“发送”数据。比如，每当收到新的电子邮件，服务器就向浏览器发送一个“通知”，这要比浏览器按时向服务器查询（polling）更有效率。</p>
+<p>服务器发送事件（Server-Sent Events，简称SSE）就是为了解决这个问题，而提出的一种新API，部署在EventSource对象上。目前，除了IE，其他主流浏览器都支持。</p>
+<p>简单说，所谓SSE，就是浏览器向服务器发送一个HTTP请求，然后服务器不断单向地向浏览器推送“信息”（message）。这种信息在格式上很简单，就是“信息”加上前缀“data: ”，然后以“\n\n”结尾。</p>
+<p>SSE与WebSocket有相似功能，都是用来建立浏览器与服务器之间的通信渠道。两者的区别在于：</p>
+<blockquote>
+<p>WebSocket是全双工通道，可以双向通信，功能更强；SSE是单向通道，只能服务器向浏览器端发送。<br>WebSocket是一个新的协议，需要服务器端支持；SSE则是部署在HTTP协议之上的，现有的服务器软件都支持。<br>SSE是一个轻量级协议，相对简单；WebSocket是一种较重的协议，相对复杂。<br>SSE默认支持断线重连，WebSocket则需要额外部署。<br>SSE支持自定义发送的数据类型。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> source = <span class="keyword">new</span> EventSource(<span class="string">'/dates'</span>);</span><br><span class="line"></span><br><span class="line">source.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.data);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">source.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;&#125;)</span><br><span class="line"></span><br><span class="line">source.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// handle open event</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"></span><br><span class="line">source.addEventListener(<span class="string">"open"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// handle open event</span></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>SSE 有两个事件， open用代开连接后事件， message，当接收到信息后的事件， 其中message的event对象有以下属性</p>
+<blockquote>
+<p>data：服务器端传回的数据（文本格式）。<br>origin： 服务器端URL的域名部分，即协议、域名和端口。<br>lastEventId：数据的编号，由服务器端发送。如果没有编号，这个属性为空。</p>
+</blockquote>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p>JavaScript 通过XMLHttpRequest(XHR)来执行异步请求，这个方式已经存在了很长一段时间。虽说它很有用，但它不是最佳API。它在设计上不符合职责分离原则，将输入、输出和用事件来跟踪的状态混杂在一个对象里。而且，基于事件的模型与最近JavaScript流行的Promise以及基于生成器的异步编程模型不太搭.</p>
+<p>fetch 是w3c新推出用于 http协议数据交互的api， 主要是问了解决上述中 XMLHttpRequest 对象的缺点。 fetch基于 promise 的异步设计，是http请求操作更为优雅。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">"/data.json"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// res instanceof Response == true.</span></span><br><span class="line">  <span class="keyword">if</span> (res.ok) &#123;</span><br><span class="line">    res.json().then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(data.entries);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Looks like the response wasn't perfect, got status"</span>, res.status);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Fetch failed!"</span>, e);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在请求的时候也可以修改一些参数, 例如我们发送一个post请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">"http://www.example.org/submit.php"</span>, &#123;</span><br><span class="line">  method: <span class="string">"POST"</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/x-www-form-urlencoded"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  body: <span class="string">"firstName=Nikhil&amp;favColor=blue&amp;password=easytoguess"</span></span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (res.ok) &#123;</span><br><span class="line">    alert(<span class="string">"Perfect! Your settings are saved."</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.status == <span class="number">401</span>) &#123;</span><br><span class="line">    alert(<span class="string">"Oops! You are not authorized."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"Error submitting form!"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>无论Request还是Response都可能带着body。由于body可以是各种类型，比较复杂，所以前面我们故意先略过它，在这里单独拿出来讲解。</p>
+<p>body可以是以下任何一种类型的实例：</p>
+<blockquote>
+<p>ArrayBuffer<br>ArrayBufferView (Uint8Array and friends)<br>Blob / File<br>字符串<br>URLSearchParams<br>FormData ——目前不被Gecko和Blink支持，Firefox预计在版本39和Fetch的其他部分一起推出。</p>
+</blockquote>
+<p>此外，Request和Response都为他们的body提供了以下方法，这些方法都返回一个Promise对象。</p>
+<blockquote>
+<p>arrayBuffer()<br>blob()<br>json()<br>text()<br>formData()</p>
+</blockquote>
+<p>在使用非文本的数据方面，Fetch API和XHR相比提供了极大的便利。</p>
+<h2 id="Navigation-Timing"><a href="#Navigation-Timing" class="headerlink" title="Navigation Timing"></a>Navigation Timing</h2><p>在页面开发中我们需要对网页中一些操作的性能做监测，以便于后续的顶点优化，例如： 资源文件下载时间，dom渲染时间等等,HTML5 给我们提供了 Navigation Timing API 来处理这些问题， 该API通过window.performance对象的属性来报告页面被导航或被加载的时间及相关信息。</p>
+<blockquote>
+<p>navigation:用户是怎样导航到当前页面的。<br>timing:页面被导航或被加载完毕时所耗费的时间。</p>
+</blockquote>
+<p>在Chrome浏览器中，从任何页面上执行以下操作：</p>
+<ol>
+<li>从浏览器右上角的图标菜单中选择“工具”&gt;“JavaScript控制台”。</li>
+<li>在JavaScript控制台底部的&gt;提示符旁边输入“performance”命令后按回车键。</li>
+<li>点击“performance”查看memory对象、navigation对象及timing对象的各属性值。</li>
+<li>点击timing对象旁的箭头查看它的属性值。</li>
+</ol>
+<p>你会看到这样一些信息:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">connectEnd: <span class="number">1351215923674</span></span><br><span class="line">connectStart: <span class="number">1351215923667</span></span><br><span class="line">domComplete: <span class="number">1351215925257</span></span><br><span class="line">domContentLoadedEventEnd: <span class="number">1351215925095</span></span><br><span class="line">domContentLoadedEventStart: <span class="number">1351215925091</span></span><br><span class="line">domInteractive: <span class="number">1351215925091</span></span><br><span class="line">domLoading: <span class="number">1351215924954</span></span><br><span class="line">domainLookupEnd: <span class="number">1351215923667</span></span><br><span class="line">domainLookupStart: <span class="number">1351215923667</span></span><br><span class="line">fetchStart: <span class="number">1351215923667</span></span><br><span class="line">loadEventEnd: <span class="number">0</span></span><br><span class="line">loadEventStart: <span class="number">1351215925257</span></span><br><span class="line">navigationStart: <span class="number">1351215923667</span></span><br><span class="line">redirectEnd: <span class="number">0</span></span><br><span class="line">redirectStart: <span class="number">0</span></span><br><span class="line">requestStart: <span class="number">1351215923675</span></span><br><span class="line">responseEnd: <span class="number">1351215925024</span></span><br><span class="line">responseStart: <span class="number">1351215924948</span></span><br><span class="line">secureConnectionStart: <span class="number">0</span></span><br><span class="line">unloadEventEnd: <span class="number">1351215924949</span></span><br><span class="line">unloadEventStart: <span class="number">1351215924949</span></span><br></pre></td></tr></table></figure>
+<p>Navigation Timing 将页面各个操作的时间点都记录了下来，我们只需将这些数据传输到后台，进过后台的分析来判断哪些部分页面耗时过长需要优化。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/31/html5/html5设备api/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html5设备api</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="html5/html5网络连接" data-title="html5网络连接" data-url="http://yoursite.com/2016/05/31/html5/html5网络连接/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 myron
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
