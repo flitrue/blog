@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HTML5/" style="font-size: 17.5px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 15px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 12.5px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 15px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 15px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
+						<a href="/tags/HTML5/" style="font-size: 18.33px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 15px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 11.67px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 13.33px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 16.67px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,131 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-css/css布局-盒模型，定位和浮动" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/04/css/css布局-盒模型，定位和浮动/" class="article-date">
+  	<time datetime="2016-03-04T04:27:00.000Z" itemprop="datePublished">2016-03-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/04/css/css布局-盒模型，定位和浮动/">css布局-盒模型，定位和浮动</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>简单来说，网页中的额每一个元素都是一个盒子，而整个网页就是有大大小小的盒子组装起来的。既然是盒子那么它就有：内容（content）、填充（padding）、边框（border）、边界（margin）这些属性，而每个属性又有上下左右四个方向，像下面这张图这样<br><img src="13-34-30.jpg" alt=""></p>
+<h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><p>每一个元素都是一个盒子，display属性就决定了他们属于那种盒子；目前大致分为以下几种</p>
+<h3 id="块级元素（block）"><a href="#块级元素（block）" class="headerlink" title="块级元素（block）"></a>块级元素（block）</h3><p>一般是其他元素的容器，可容纳内联元素和其他块状元素，块状元素排斥其他元素与其位于同一行，宽度(width)高度(height)起作用。常见块状元素为div和p。</p>
+<h3 id="内联元素-inline"><a href="#内联元素-inline" class="headerlink" title="内联元素(inline)"></a>内联元素(inline)</h3><p>内联元素只能容纳文本或者其他内联元素，它允许其他内联元素与其位于同一行，但宽度(width)高度(height)不起作用。常见内联元素为“a”。</p>
+<h3 id="内联块级元素-inline-block"><a href="#内联块级元素-inline-block" class="headerlink" title="内联块级元素(inline block)"></a>内联块级元素(inline block)</h3><p>同时拥有块级元素和内联元素的特性</p>
+<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><p>display决定了盒子种类，position就确定了盒子的位置，</p>
+<h3 id="（标准文档流）static"><a href="#（标准文档流）static" class="headerlink" title="（标准文档流）static"></a>（标准文档流）static</h3><p>常规元素默认值都是static，指按照文档至上而下的标准文档流</p>
+<h3 id="（绝对定位）absolute"><a href="#（绝对定位）absolute" class="headerlink" title="（绝对定位）absolute"></a>（绝对定位）absolute</h3><p>绝对定位，他默认参照已经定位(position值不为static)的元素父级元素，配合top、right、bottom、left进行定位。<br>脱离标准文档流，也就是他的位置不会影响到其他的元素，也不会参与到父元素高度计算上，但是会受到富元素overflow:hidden的影响</p>
+<h3 id="（绝对定位）fixed"><a href="#（绝对定位）fixed" class="headerlink" title="（绝对定位）fixed"></a>（绝对定位）fixed</h3><p>参照window配合top、right、bottom、left进行定位。<br>脱离标准文档流，不会受到父元素overflow:hidden影响;</p>
+<h3 id="（相对定位）relative"><a href="#（相对定位）relative" class="headerlink" title="（相对定位）relative"></a>（相对定位）relative</h3><p>相对定位，他是默认参照父级的原始点为原始点，配合top、right、bottom、left进行定位，当父级内有padding等CSS属性时，当前级的原始点则参照父级内容区的原始点进行定位。</p>
+<h2 id="浮动（float）"><a href="#浮动（float）" class="headerlink" title="浮动（float）"></a>浮动（float）</h2><p>首先要知道，div是块级元素，在页面中独占一行，自上而下排列，那么如何让块级元素在一行中显示呢，这里就用到float;<br>float:left/right可以让块级元素在一行中从左至右或者从右至左排列，但是，需要主要的是，当元素设置了float:left/right时，会影响到后面的元素所以需要及时的清除浮动，而且会造成父级元素高度塌陷。<br>常用的清除浮动代码如下:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.clear &#123; clear: both; &#125;/*清除浮动*/</span><br><span class="line">/*清除浮动并防止父级元素高度塌陷*/</span><br><span class="line">.clearfix:before, .clearfix:after &#123; </span><br><span class="line">    content: '\0020'; </span><br><span class="line">    display: block; </span><br><span class="line">    overflow: hidden; </span><br><span class="line">    visibility: hidden; </span><br><span class="line">    width: 0; height: 0; </span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123; clear: both &#125;</span><br><span class="line">.clearfix &#123; *zoom: 1 &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-javscript/javascript类工厂构建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/06/javscript/javascript类工厂构建/" class="article-date">
+  	<time datetime="2015-12-06T14:43:00.000Z" itemprop="datePublished">2015-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/06/javscript/javascript类工厂构建/">javascript类工厂构建</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>下面的代码基于javascript原型继承设计，轻量，好用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> initializing = <span class="literal">false</span>,</span><br><span class="line">	fnTest = <span class="regexp">/xyz/</span>.test(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		xyz;</span><br><span class="line">	&#125;) ? <span class="regexp">/\b_super\b/</span> : <span class="regexp">/.*/</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Class = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">Class.extend = <span class="function"><span class="keyword">function</span>(<span class="params">prop</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> _super = <span class="keyword">this</span>.prototype;</span><br><span class="line">	initializing = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">var</span> prototype = <span class="keyword">new</span> <span class="keyword">this</span>();</span><br><span class="line">	initializing = <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> prop) &#123;</span><br><span class="line">		prototype[name] = <span class="keyword">typeof</span> prop[name] == <span class="string">"function"</span> &amp;&amp;</span><br><span class="line">			<span class="keyword">typeof</span> _super[name] == <span class="string">"function"</span> &amp;&amp; fnTest.test(prop[name]) ?</span><br><span class="line">			(<span class="function"><span class="keyword">function</span>(<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">					<span class="keyword">var</span> tmp = <span class="keyword">this</span>._super;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">this</span>._super = _super[name];</span><br><span class="line"></span><br><span class="line">					<span class="keyword">var</span> ret = fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">					<span class="keyword">this</span>._super = tmp;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">return</span> ret;</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;)(name, prop[name]) :</span><br><span class="line">			prop[name];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Class</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (!initializing &amp;&amp; <span class="keyword">this</span>.init)</span><br><span class="line">			<span class="keyword">this</span>.init.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	Class.prototype = prototype;</span><br><span class="line">	Class.prototype.constructor = Class;</span><br><span class="line">	Class.extend = <span class="built_in">arguments</span>.callee;</span><br><span class="line">	<span class="keyword">return</span> Class;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>使用方式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> A = Class.extend(&#123;</span><br><span class="line">    init :  <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'the class'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//B继承A</span></span><br><span class="line"><span class="keyword">var</span> B = A.extend(&#123;</span><br><span class="line">    init : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>._super();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-移动web/前端seo优化" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -703,76 +828,9 @@
 
 
   
-    <article id="post-移动web/移动web开发准备工作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/13/移动web/移动web开发准备工作/" class="article-date">
-  	<time datetime="2015-10-13T11:00:00.000Z" itemprop="datePublished">2015-10-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/13/移动web/移动web开发准备工作/">移动web开发准备工作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="meta设置"><a href="#meta设置" class="headerlink" title="meta设置"></a>meta设置</h2><h3 id="html5移动端页面窗口自适应设备宽度，防止用户缩放页面"><a href="#html5移动端页面窗口自适应设备宽度，防止用户缩放页面" class="headerlink" title="html5移动端页面窗口自适应设备宽度，防止用户缩放页面"></a>html5移动端页面窗口自适应设备宽度，防止用户缩放页面</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="忽略将页面中的数字识别为电话号码"><a href="#忽略将页面中的数字识别为电话号码" class="headerlink" title="忽略将页面中的数字识别为电话号码"></a>忽略将页面中的数字识别为电话号码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="忽略Android平台中对邮箱地址的识别"><a href="#忽略Android平台中对邮箱地址的识别" class="headerlink" title="忽略Android平台中对邮箱地址的识别"></a>忽略Android平台中对邮箱地址的识别</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"email=no"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari，将网站添加到主屏幕快速启动方式，"><a href="#当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari，将网站添加到主屏幕快速启动方式，" class="headerlink" title="当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari，将网站添加到主屏幕快速启动方式，"></a>当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari，将网站添加到主屏幕快速启动方式，</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="完整的html模板"><a href="#完整的html模板" class="headerlink" title="完整的html模板"></a>完整的html模板</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> <span class="attr">name</span>=<span class="string">"viewport"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"yes"</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"black"</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span> <span class="attr">name</span>=<span class="string">"format-detection"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"email=no"</span> <span class="attr">name</span>=<span class="string">"format-detection"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"index.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">这里开始内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="css-reset内容"><a href="#css-reset内容" class="headerlink" title="css reset内容"></a>css reset内容</h2><p>在移动端中需要对浏览器做一些特殊的处理，以保证样式的一致性。<br>首先我们导入<a href="http://necolas.github.io/normalize.css/" target="_blank" rel="external">Normalize.css</a>的代码，让后再加上移动端的特殊处理.<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">font-family</span>:Helvetica;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">10px</span>;<span class="comment">/*设置10px为1em*/</span></span><br><span class="line">    <span class="attribute">-webkit-tap-highlight-color</span>: <span class="built_in">rgba</span>(0,0,0,0);<span class="comment">/*去掉触摸遮盖层*/</span></span><br><span class="line">    <span class="attribute">-webkit-user-modify</span>:read-write-plaintext-only;</span><br><span class="line">    <span class="attribute">-webkit-user-select</span>: none;<span class="comment">/*禁止用户选择文字*/</span></span><br><span class="line">	<span class="attribute">-webkit-overflow-scrolling</span>: touch;<span class="comment">/*滚动touch*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*设置所有的盒子元素*/</span></span><br><span class="line">*&#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="css技巧"><a href="#css技巧" class="headerlink" title="css技巧"></a>css技巧</h2><h3 id="消除闪屏"><a href="#消除闪屏" class="headerlink" title="消除闪屏"></a>消除闪屏</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/</span></span><br><span class="line"><span class="selector-tag">-webkit-transform-style</span>: <span class="selector-tag">preserve-3d</span>;</span><br><span class="line"><span class="comment">/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/</span></span><br><span class="line"><span class="selector-tag">-webkit-backface-visibility</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:before,</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line">    content: '\0020';</span><br><span class="line">    display: block;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    visibility: hidden;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123; clear: both &#125;</span><br><span class="line">.clearfix &#123; *zoom: 1 &#125;</span><br></pre></td></tr></table></figure>
-<p>###部分android系统中元素被点击时产生的边框怎么去掉<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>,<span class="selector-tag">button</span>,<span class="selector-tag">input</span>,<span class="selector-tag">textarea</span>&#123;</span><br><span class="line"><span class="attribute">-webkit-tap-highlight-color</span>: <span class="built_in">rgba</span>(0,0,0,0;)</span><br><span class="line">-webkit-user-modify:read-write-plaintext-only;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="开启硬件加速"><a href="#开启硬件加速" class="headerlink" title="开启硬件加速"></a>开启硬件加速</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.css</span> &#123;</span><br><span class="line">   <span class="attribute">-webkit-transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">   <span class="attribute">-moz-transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">   <span class="attribute">-ms-transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="如何阻止windows-Phone的默认触摸事件"><a href="#如何阻止windows-Phone的默认触摸事件" class="headerlink" title="如何阻止windows Phone的默认触摸事件"></a>如何阻止windows Phone的默认触摸事件</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;<span class="attribute">-ms-touch-action</span>: none;&#125;<span class="comment">/* 禁止winphone默认触摸事件 */</span></span><br></pre></td></tr></table></figure>
-<h2 id="js注意的地方"><a href="#js注意的地方" class="headerlink" title="js注意的地方"></a>js注意的地方</h2><ul>
-<li>移动端上的点击事件会延迟300ms，可以使用touchstart代替（一般使用fastclick库）</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
