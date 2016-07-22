@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>javascript数据驱动页面 | myron blog</title>
+  <title>react-native 给android端设置启动图 | myron blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。">
+  <meta name="description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
+为了解决这个问题，找了很多的资料，参考了 ReactNative安卓首屏白屏优化， 也并没有解决掉启动慢点问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript数据驱动页面">
-<meta property="og:url" content="http://yoursite.com/2016/03/29/javscript/javascript数据驱动页面/index.html">
+<meta property="og:title" content="react-native 给android端设置启动图">
+<meta property="og:url" content="http://yoursite.com/2016/07/22/react-native/react-native_launch/index.html">
 <meta property="og:site_name" content="myron blog">
-<meta property="og:description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020108.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
-<meta property="og:updated_time" content="2016-04-02T10:15:52.000Z">
+<meta property="og:description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
+为了解决这个问题，找了很多的资料，参考了 ReactNative安卓首屏白屏优化， 也并没有解决掉启动慢点问">
+<meta property="og:image" content="http://yoursite.com/splash.png">
+<meta property="og:updated_time" content="2016-07-22T14:45:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript数据驱动页面">
-<meta name="twitter:description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。">
-<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta name="twitter:title" content="react-native 给android端设置启动图">
+<meta name="twitter:description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
+为了解决这个问题，找了很多的资料，参考了 ReactNative安卓首屏白屏优化， 也并没有解决掉启动慢点问">
+<meta name="twitter:image" content="http://yoursite.com/splash.png">
   
     <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
   
@@ -202,11 +202,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-javscript/javascript数据驱动页面" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-react-native/react-native_launch" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/29/javscript/javascript数据驱动页面/" class="article-date">
-  	<time datetime="2016-03-29T07:21:00.000Z" itemprop="datePublished">2016-03-29</time>
+      <a href="/2016/07/22/react-native/react-native_launch/" class="article-date">
+  	<time datetime="2016-07-22T14:45:33.000Z" itemprop="datePublished">2016-07-22</time>
 </a>
     </div>
   
@@ -219,7 +219,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      javascript数据驱动页面
+      react-native 给android端设置启动图
     </h1>
   
 
@@ -228,7 +228,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
 	</div>
 
         
@@ -239,27 +239,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>2005 <em>Ajax</em> 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 <em>spring</em> 的分层的思想，将业务逻辑和ui逻辑分开。<br><a id="more"></a></p>
-<h2 id="MVC-backbone-）"><a href="#MVC-backbone-）" class="headerlink" title="MVC( backbone ）"></a>MVC( <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> ）</h2><p>MVC是一个架构设计模式，它通过分离关注点的方式来支持改进应用组织方式。它促成了业务数据(Model)从用户界面(View)中分离出来，还有第三个组成部分(Controller)负责管理传统意义上的业务逻辑和用户输入。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
-<blockquote>
-<p>Model 数据模型一般以json对象的形式展现<br>View表示表现层，也就是用户界面，对于网页来说，就是用户看到的网页HTML代码。<br>Controller 表示控制层，用来对原始数据（Model）进行加工，传送到View。</p>
-</blockquote>
-<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em> ）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
-<p>在项目中往往采用更加灵活的方式，以 <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> 为例：</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020108.png" alt=""></p>
-<p>用户可以向 <em>View</em> 发送指令（<em>DOM</em> 事件），再由 <em>View</em> 直接要求 <em>Model</em> 改变状态</p>
-<p>用户也可以直接向 <em>Controller</em> 发送指令（改变 <em>URL</em> 触发 <em>hashChange</em> 事件），再由 <em>Controller</em> 发送给 <em>View</em>。</p>
-<p><em>Controller</em> 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 <em>View</em>。所以，<em>Backbone</em> 索性取消了 <em>Controller</em>，只保留一个 <em>Router（路由器）</em> 。</p>
-<h2 id="MVP（React）"><a href="#MVP（React）" class="headerlink" title="MVP（React）"></a>MVP（<a href="http://reactjs.cn/" target="_blank" rel="external">React</a>）</h2><p><strong>MVP</strong> 是基于 <strong>MVC</strong> 模式一种演变， P代表的是 Presenter（展示器），其模式如下图所示：</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
-<p>我们可以看到 view和model是通过展示器做联系，当view中发生了动作（Dom事件)会先传递给展示器，由展示进行逻辑处理，改变model，同时展示其还监控了model的变化，当model发生改变的时候展示其会做相应的逻辑处理并重新渲染页面。</p>
-<p>这种做法 <strong>View</strong> 非常薄，不部署任何业务逻辑，称为”被动视图”（ <strong>Passive View</strong> ），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</p>
-<p>实际使用中以 <strong>react</strong> 为例:<br>在react中 以 <strong>virtual dom</strong> 就是展示器，而组件的状态 就是model, 当页面上产生事件的时候，会先传递到 <strong>virtual dom</strong> dom触发组件中的事件，组件中进行逻辑处理，改变调用 <strong>setState</strong> 方法改变状态， 组件会重新监控状态改变，调用 <strong>render</strong> 方法产生新的 <strong>virtual dom</strong>，再通过 <strong>virtual dom</strong> 的对比，得出哪些节点发生改变，然后更新改变的节点的真实dom;</p>
-<h2 id="MVVM-angular-angular2-vue"><a href="#MVVM-angular-angular2-vue" class="headerlink" title="MVVM( angular angular2 vue)"></a>MVVM( <a href="http://www.ngnice.com/" target="_blank" rel="external">angular</a> <a href="https://angular.io/" target="_blank" rel="external">angular2</a> <a href="http://cn.vuejs.org/" target="_blank" rel="external">vue</a>)</h2><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定（data-binding）; viewModel会观察 model的变化，当model发生改变的时候，viewModel会改变绑定了这个 model 的dom，同时 viewModel也会监控view的变化，当view发生改变的时候，其绑定的model也会发生改变</p>
-<p>angular,vue等框架都是基于mvvm模式的一种实现</p>
+        <p>公司的 <a href="http://www.hbtoutiao.cn/" target="_blank" rel="external">环保头条</a> 安卓端，全部使用 <code>react-native</code> , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。</p>
+<p>为了解决这个问题，找了很多的资料，参考了 <a href="http://reactnative.cn/post/754" target="_blank" rel="external">ReactNative安卓首屏白屏优化</a>， 也并没有解决掉启动慢点问题 ， 原因是全react-native的应用，内存换效率的做法并不起作用。<br>于是我决定曲线就够，在app启动时先展示一张背景图片，当启动后隐藏。</p>
+<p>首先在 <code>android/app/src/main/res/drawable-hdpi</code> 里加上一个图片作为程序启动图 (名称随意，例如：<code>splash.png</code>) </p>
+<p>然后修改 <code>android/app/src/main/res/values/styles.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    <span class="comment">&lt;!-- 这里将刚刚那张图片设置为背景图片， splash对应图片名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最后修改我们的 <code>react-native</code> 顶层的容器，将它覆盖整个窗口</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">	container: &#123;</span><br><span class="line">		flex: <span class="number">1</span>,</span><br><span class="line">		backgroundColor: <span class="string">'#FFF'</span> <span class="comment">//背景色根据自己的需求来</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ok, 到这一步， 启动应用看看，会发现已经没有白屏了，会有一张覆盖全屏的启动图等待。</p>
+<p>在 <em>安卓5.0</em> 以上会有沉浸式状态栏闪烁的问题，原因是，react-native默认是不设置状态栏的，所以我们需要在 <code>MainActivity.java</code> 中增加如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里重写 createRootView 方法保证在耗时操作前完成状态栏设置</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> ReactRootView <span class="title">createRootView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">        Window window = getWindow();</span><br><span class="line">        <span class="comment">// 设置为沉浸式状态栏</span></span><br><span class="line">        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.createRootView();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到此，就全部完成啦，妈妈再也不用担心我的 app 启动白屏啦！</p>
+<p><img src="splash.png" alt=""></p>
 
       
     </div>
@@ -269,18 +260,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/30/javscript/如何写一个完善的jquery ui组件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          如何写一个完善的jquery ui组件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/24/hexo-coding搭建自己的博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo+coding搭建自己的博客</div>
+    <a href="/2016/07/17/react-native/react-native start/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react-native 开始走向mobile开发</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -315,7 +297,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="javscript/javascript数据驱动页面" data-title="javascript数据驱动页面" data-url="http://yoursite.com/2016/03/29/javscript/javascript数据驱动页面/"></div>
+	<div class="ds-thread" data-thread-key="react-native/react-native_launch" data-title="react-native 给android端设置启动图" data-url="http://yoursite.com/2016/07/22/react-native/react-native_launch/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

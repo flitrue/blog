@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HTML5/" style="font-size: 18.33px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 15px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 11.67px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 13.33px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 16.67px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
+						<a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react-native/" style="font-size: 12px;">react-native</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 14px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 12px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 14px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 16px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,74 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-react-native/react-native_launch" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/22/react-native/react-native_launch/" class="article-date">
+  	<time datetime="2016-07-22T14:45:33.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/22/react-native/react-native_launch/">react-native 给android端设置启动图</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司的 <a href="http://www.hbtoutiao.cn/" target="_blank" rel="external">环保头条</a> 安卓端，全部使用 <code>react-native</code> , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。</p>
+<p>为了解决这个问题，找了很多的资料，参考了 <a href="http://reactnative.cn/post/754" target="_blank" rel="external">ReactNative安卓首屏白屏优化</a>， 也并没有解决掉启动慢点问题 ， 原因是全react-native的应用，内存换效率的做法并不起作用。<br>于是我决定曲线就够，在app启动时先展示一张背景图片，当启动后隐藏。</p>
+<p>首先在 <code>android/app/src/main/res/drawable-hdpi</code> 里加上一个图片作为程序启动图 (名称随意，例如：<code>splash.png</code>) </p>
+<p>然后修改 <code>android/app/src/main/res/values/styles.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    <span class="comment">&lt;!-- 这里将刚刚那张图片设置为背景图片， splash对应图片名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最后修改我们的 <code>react-native</code> 顶层的容器，将它覆盖整个窗口</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">	container: &#123;</span><br><span class="line">		flex: <span class="number">1</span>,</span><br><span class="line">		backgroundColor: <span class="string">'#FFF'</span> <span class="comment">//背景色根据自己的需求来</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ok, 到这一步， 启动应用看看，会发现已经没有白屏了，会有一张覆盖全屏的启动图等待。</p>
+<p>在 <em>安卓5.0</em> 以上会有沉浸式状态栏闪烁的问题，原因是，react-native默认是不设置状态栏的，所以我们需要在 <code>MainActivity.java</code> 中增加如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里重写 createRootView 方法保证在耗时操作前完成状态栏设置</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> ReactRootView <span class="title">createRootView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">        Window window = getWindow();</span><br><span class="line">        <span class="comment">// 设置为沉浸式状态栏</span></span><br><span class="line">        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.createRootView();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到此，就全部完成啦，妈妈再也不用担心我的 app 启动白屏啦！</p>
+<p><img src="splash.png" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-react-native/react-native start" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -563,62 +631,6 @@
         <p class="article-more-link">
           <a  href="/2016/05/29/webapp/webapp_dev2/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webapp/2016-07-14" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/18/webapp/2016-07-14/" class="article-date">
-  	<time datetime="2016-05-18T00:20:24.000Z" itemprop="datePublished">2016-05-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/webapp/2016-07-14/">Webapp UI 开发细节优化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webapp/">webapp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
