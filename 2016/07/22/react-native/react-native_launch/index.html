@@ -15,7 +15,7 @@
 <meta property="og:description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
 为了解决这个问题，找了很多的资料，参考了 ReactNative安卓首屏白屏优化， 也并没有解决掉启动慢点问">
 <meta property="og:image" content="http://yoursite.com/splash.png">
-<meta property="og:updated_time" content="2016-07-22T14:45:41.000Z">
+<meta property="og:updated_time" content="2016-07-22T14:47:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native 给android端设置启动图">
 <meta name="twitter:description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
@@ -85,7 +85,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -241,6 +241,7 @@
       
         <p>公司的 <a href="http://www.hbtoutiao.cn/" target="_blank" rel="external">环保头条</a> 安卓端，全部使用 <code>react-native</code> , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。</p>
 <p>为了解决这个问题，找了很多的资料，参考了 <a href="http://reactnative.cn/post/754" target="_blank" rel="external">ReactNative安卓首屏白屏优化</a>， 也并没有解决掉启动慢点问题 ， 原因是全react-native的应用，内存换效率的做法并不起作用。<br>于是我决定曲线就够，在app启动时先展示一张背景图片，当启动后隐藏。</p>
+<a id="more"></a>
 <p>首先在 <code>android/app/src/main/res/drawable-hdpi</code> 里加上一个图片作为程序启动图 (名称随意，例如：<code>splash.png</code>) </p>
 <p>然后修改 <code>android/app/src/main/res/values/styles.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    <span class="comment">&lt;!-- 这里将刚刚那张图片设置为背景图片， splash对应图片名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
