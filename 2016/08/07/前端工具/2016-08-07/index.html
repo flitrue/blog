@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>使用 rollup 打包你的 ES6 代码 | myron blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Rollup 是下一代的 javascript 打包器，它使用 tree-shaking 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 Rollup.js 官网。
-开始使用跟 webpack rollup可以以命令行和 javascript 调用两种方式，这里只介绍用javascript的调用的这种方">
+  <meta name="description" content="Rollup 是下一代的 javascript 打包器，它使用 tree-shaking 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 Rollup.js 官网。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 rollup 打包你的 ES6 代码">
 <meta property="og:url" content="http://yoursite.com/2016/08/07/前端工具/2016-08-07/index.html">
 <meta property="og:site_name" content="myron blog">
-<meta property="og:description" content="Rollup 是下一代的 javascript 打包器，它使用 tree-shaking 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 Rollup.js 官网。
-开始使用跟 webpack rollup可以以命令行和 javascript 调用两种方式，这里只介绍用javascript的调用的这种方">
-<meta property="og:updated_time" content="2016-08-07T09:57:23.000Z">
+<meta property="og:description" content="Rollup 是下一代的 javascript 打包器，它使用 tree-shaking 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 Rollup.js 官网。">
+<meta property="og:updated_time" content="2016-08-09T09:27:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 rollup 打包你的 ES6 代码">
-<meta name="twitter:description" content="Rollup 是下一代的 javascript 打包器，它使用 tree-shaking 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 Rollup.js 官网。
-开始使用跟 webpack rollup可以以命令行和 javascript 调用两种方式，这里只介绍用javascript的调用的这种方">
+<meta name="twitter:description" content="Rollup 是下一代的 javascript 打包器，它使用 tree-shaking 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 Rollup.js 官网。">
   
     <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
   
@@ -83,7 +80,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -118,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react-native/" style="font-size: 12px;">react-native</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 14px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 12px;">前端工具</a> <a href="/tags/前端工具-rollup/" style="font-size: 10px;">前端工具 rollup</a> <a href="/tags/前端工具-sublime/" style="font-size: 14px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 16px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
+						<a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react-native/" style="font-size: 12px;">react-native</a> <a href="/tags/rollup/" style="font-size: 10px;">rollup</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 14px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 14px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 14px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 16px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
 					</div>
 				</section>
 				
@@ -226,7 +223,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工具-rollup/">前端工具 rollup</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rollup/">rollup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工具/">前端工具</a></li></ul>
 	</div>
 
         
@@ -237,7 +234,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code>Rollup</code> 是下一代的 <code>javascript</code> 打包器，它使用 <code>tree-shaking</code> 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 <a href="http://rollupjs.org/" target="_blank" rel="external">Rollup.js 官网</a>。</p>
+        <p><code>Rollup</code> 是下一代的 <code>javascript</code> 打包器，它使用 <code>tree-shaking</code> 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 <a href="http://rollupjs.org/" target="_blank" rel="external">Rollup.js 官网</a>。<br><a id="more"></a></p>
 <h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>跟 webpack rollup可以以命令行和 javascript 调用两种方式，这里只介绍用javascript的调用的这种方式。首先我们安装一些 rollup 使用到的module, 在 package.json 中加上这些</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // ...</span><br><span class="line">    "devDependencies": &#123;</span><br><span class="line">        "babel-core": "^6.13.0",</span><br><span class="line">        "babel-preset-es2015-rollup": "^1.1.1",</span><br><span class="line">        "rollup": "^0.34.3",</span><br><span class="line">        "rollup-plugin-babel": "^2.6.1",</span><br><span class="line">        "rollup-plugin-commonjs": "^3.3.1",</span><br><span class="line">        "rollup-plugin-node-resolve": "^2.0.0",</span><br><span class="line">        "rollup-plugin-uglify": "^1.0.1"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="编写打包的代码"><a href="#编写打包的代码" class="headerlink" title="编写打包的代码"></a>编写打包的代码</h2><p>建一个 <code>build.js</code> 文件，内部代码可以像这样</p>
@@ -249,6 +246,10 @@
 <p>然后执行命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
 <p>这样打包的操作就结束了，rollup打包的代码提交较小，相比 webpack rollup 最后输出的代码，非常的整洁，结构清晰。</p>
+<h2 id="近期bug解决"><a href="#近期bug解决" class="headerlink" title="近期bug解决"></a>近期bug解决</h2><p>最近 <em>babel-preset-es2015-rollup</em> 这个插件可以有问题，如果打包的时候发现报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Error: It looks like your Babel configuration specifies a module transformer. Please disable it. If you&apos;re using the &quot;es2015&quot; preset, consider using &quot;es2015-rollup&quot; instead. See https://github.com/rollup/rollup-plugin-babel#configuring-babel for more information]</span><br></pre></td></tr></table></figure>
+<p>只要执行以下命令即可:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-preset-es2015@6.13.0</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -257,6 +258,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/08/09/前端工具/2016-08-09/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          npm 发布一个自己的包
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/22/react-native/react-native_launch/" id="article-nav-older" class="article-nav-link-wrap">
