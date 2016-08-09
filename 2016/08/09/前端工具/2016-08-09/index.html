@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="myron blog">
 <meta property="og:description" content="NPM 是 node 自带的包管理工具, 我们在平时项目提炼出许多重用性比较强的代码，把这些代码整合成一个模块发布到npm社区，可以让自己模块做更好版本管理(不会因为自己某天改了一行代码就导致所有依赖项目歇菜)，新建项目的时候也不用copy代码这种粗糙的方法引入。
 最近在npm上发布了两个包 si-log, si-store">
-<meta property="og:updated_time" content="2016-08-09T09:24:10.000Z">
+<meta property="og:updated_time" content="2016-08-09T09:29:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm 发布一个自己的包">
 <meta name="twitter:description" content="NPM 是 node 自带的包管理工具, 我们在平时项目提炼出许多重用性比较强的代码，把这些代码整合成一个模块发布到npm社区，可以让自己模块做更好版本管理(不会因为自己某天改了一行代码就导致所有依赖项目歇菜)，新建项目的时候也不用copy代码这种粗糙的方法引入。
@@ -245,13 +245,23 @@
 <h2 id="采用模块化方式编码"><a href="#采用模块化方式编码" class="headerlink" title="采用模块化方式编码"></a>采用模块化方式编码</h2><p>node 包使用遵循模块化方案(commonJS), 如果使用到了babel转码，也可以使用es6的语法发布</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// si-store/index.js</span></span><br><span class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'./Store'</span></span><br><span class="line"><span class="keyword">import</span> &#123;register&#125; <span class="keyword">from</span> <span class="string">'./storage/index.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> store = <span class="keyword">new</span> Store()</span><br><span class="line"></span><br><span class="line">store.version = <span class="string">'0.1.1'</span></span><br><span class="line">store.create = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Store(options)</span><br><span class="line">&#125;</span><br><span class="line">store.register = register</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
 <h2 id="编写-README-md"><a href="#编写-README-md" class="headerlink" title="编写 README.md"></a>编写 README.md</h2><p>readme 是介绍你的包，需要介绍你的包解决了那些问题，最基本的使用方式是怎么样的，有那些api,像这样</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># si-store</span></span><br><span class="line"></span><br><span class="line">一个基于 Web Storage 的存储库，提供简单的api操作，可以设置缓存时间</span><br><span class="line"></span><br><span class="line"><span class="section">## 安装</span></span><br><span class="line"></span><br><span class="line">用 npm 安装</span><br><span class="line"></span><br><span class="line"><span class="code">```</span>shell</span><br><span class="line">npm install si-store --save</span><br></pre></td></tr></table></figure>
+<p> si-store</p>
+<p>一个基于 Web Storage 的存储库，提供简单的api操作，可以设置缓存时间</p>
+<p> 安装</p>
+<p>用 npm 安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install si-store --save</span><br></pre></td></tr></table></figure>
 <p>直接在 <code>script</code> 标签中导入，先要在github 上下载代码,然后：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"si-store.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>…..</p>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>…..</p>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p> <a href="http://opensource.org/licenses/MIT" target="_blank" rel="external">MIT</a></p>
-<p> Copyright (c) 2016 myron<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">README.md 文件要把你的包使用方法写清楚，这样可以增加你项目的star哦.</span><br><span class="line"></span><br><span class="line">## 发布</span><br><span class="line"></span><br><span class="line">### 首先</span><br><span class="line"></span><br><span class="line">把代码全部提交到github上，然后生成tag, 使用tag做版本管理</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">git push </span><br><span class="line">git tag 0.1.0 </span><br><span class="line">git push --tag</span><br></pre></td></tr></table></figure></p>
+<p> 开始使用</p>
+<p>…..</p>
+<p>API</p>
+<p>…..</p>
+<p>License</p>
+<p> <a href="http://opensource.org/licenses/MIT" target="_blank" rel="external">MIT</a></p>
+<p> Copyright (c) 2016 myron</p>
+<p>README.md 文件要把你的包使用方法写清楚，这样可以增加你项目的star哦.</p>
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><h3 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h3><p>把代码全部提交到github上，然后生成tag, 使用tag做版本管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push </span><br><span class="line">git tag 0.1.0 </span><br><span class="line">git push --tag</span><br></pre></td></tr></table></figure>
 <h3 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h3><p>然后执行 publish 命令即可</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
 <p>这样我们的包就发布完成了，可以上 <a href="https://www.npmjs.com/" target="_blank" rel="external">NPM 官网</a> 上搜索下自己包是否存在， </p>
