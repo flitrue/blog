@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>ES6的二三事(一) | myron blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近都在开发 react-native 和 Vue 的项目，接触多了 ES6 代码，相较于之前的一脸懵逼，显示觉得 ES6 简直妙不可言，于是赶紧写写博客总结下知识点和经验。
+简介
+ECMAScript 6.0（以下简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+标准的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6的二三事(一)">
+<meta property="og:url" content="http://yoursite.com/2016/08/16/javscript/ES6的二三事(一)/index.html">
+<meta property="og:site_name" content="myron blog">
+<meta property="og:description" content="最近都在开发 react-native 和 Vue 的项目，接触多了 ES6 代码，相较于之前的一脸懵逼，显示觉得 ES6 简直妙不可言，于是赶紧写写博客总结下知识点和经验。
+简介
+ECMAScript 6.0（以下简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+标准的">
+<meta property="og:updated_time" content="2016-08-16T14:05:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6的二三事(一)">
+<meta name="twitter:description" content="最近都在开发 react-native 和 Vue 的项目，接触多了 ES6 代码，相较于之前的一脸懵逼，显示觉得 ES6 简直妙不可言，于是赶紧写写博客总结下知识点和经验。
+简介
+ECMAScript 6.0（以下简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+标准的">
+  
+    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/uicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">myron</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">低头努力，剩下的交给时光</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:953788477@qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-ES6/" style="font-size: 10px;">javascript ES6</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/karma/" style="font-size: 10px;">karma</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react-native/" style="font-size: 12px;">react-native</a> <a href="/tags/rollup/" style="font-size: 10px;">rollup</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 14px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 16px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 14px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 16px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com/">曾静的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是个阳光帅气的男孩纸…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">myron</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/uicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">myron</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">低头努力，剩下的交给时光</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/aa953788477" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:953788477@qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javscript/ES6的二三事(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/16/javscript/ES6的二三事(一)/" class="article-date">
+  	<time datetime="2016-08-16T00:25:00.000Z" itemprop="datePublished">2016-08-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6的二三事(一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-ES6/">javascript ES6</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近都在开发 <code>react-native</code> 和 <code>Vue</code> 的项目，接触多了 <code>ES6</code> 代码，相较于之前的一脸懵逼，显示觉得 <code>ES6</code> 简直妙不可言，于是赶紧写写博客总结下知识点和经验。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>ECMAScript 6.0（以下简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+<p>标准的制定者有计划，以后每年发布一次标准，使用年份作为版本。因为ES6的第一个版本是在2015年发布的，所以又称ECMAScript 2015（简称ES2015）。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h2><p>在之前的 javascript 开发中，我们使用 <code>var</code> 定义变量，这种方式定义的变量有几个问题:</p>
+<blockquote>
+<ol>
+<li>没有块级作用域</li>
+<li>存在变量提升</li>
+<li>没有常量的定义</li>
+</ol>
+</blockquote>
+<p>为了解决这些问题， ES6 新增了 <code>let</code> 命令来定义变量， <code>const</code> 命令来定义常量, 如果最 javascript 作用域不太了解的，可以看我之前的博客 <a href="http://www.myronliu.com/2016/03/30/javscript/javascript%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/" target="_blank" rel="external">javascript作用域和闭包</a></p>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>javascript 之前用 <code>var</code> 定义的变量是没有块级作用域的，在 <code>if</code> 或 <code>for</code> 语句块中定义的变量，在外面仍可以访问到.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> test = <span class="string">'this is test msg'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(test) <span class="comment">// this is test msg</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)  <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<p>是用 <code>let</code> 定义变量之后，就可以有块级作用域了.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br><span class="line"><span class="comment">//ReferenceError: i is not defined</span></span><br></pre></td></tr></table></figure>
+<h3 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 输出undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 报错ReferenceError</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">let</span> bar = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码中，变量 <code>foo</code> 用 <code>var</code> 命令声明，会发生变量提升，即脚本开始运行时，变量 <code>foo</code> 已经存在了，但是没有值，所以会输出undefined。变量 <code>bar</code> 用 <code>let</code> 命令声明，不会发生变量提升。这表示在声明它之前，变量 <code>bar</code> 是不存在的，这时如果用到它，就会抛出一个错误。</p>
+</blockquote>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>ES6之前，没有常量的定义，只能像这样写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> SIZE = <span class="number">10</span>;  <span class="comment">// 用大写定义变量约定为常量，后面不可修改</span></span><br></pre></td></tr></table></figure>
+<p>以上的做法还是会有后面被人修改的隐患， 于是ES6中有了 <code>const</code> 定义常量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SIZE = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">SIZE = <span class="number">4</span>; <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h2 id="变量的结构赋值"><a href="#变量的结构赋值" class="headerlink" title="变量的结构赋值"></a>变量的结构赋值</h2><blockquote>
+<p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
+</blockquote>
+<p>以前，为变量赋值，只能直接指定值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<p>ES6 中允许可以写成这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> [a, b, c] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+<p>上面是在数组提取值，除此之外，ES6还支持对象中提取值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &#123;a, b, c&#125; = &#123;a:<span class="number">1</span>, b: <span class="number">2</span>, c: <span class="number">3</span>&#125;</span><br><span class="line"><span class="comment">// a = 1</span></span><br><span class="line"><span class="comment">// b = 2</span></span><br><span class="line"><span class="comment">// c = 3</span></span><br></pre></td></tr></table></figure>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>ES6允许使用“箭头”（=&gt;）定义函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun = v =&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = () =&gt; <span class="number">5</span>;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">5</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = (num1, num2) =&gt; num1 + num2;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>另外用 <code>=&gt;</code> 定义的函数，是绑定了 <em>this</em> 对象的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = () =&gt; <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">&#125;.bind(<span class="keyword">this</span>)</span><br></pre></td></tr></table></figure>
+<p>除此之外箭头函数使用还需要注意以下三点：</p>
+<blockquote>
+<ol>
+<li>不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。</li>
+<li>不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用Rest参数代替。</li>
+<li>不可以使用yield命令，因此箭头函数不能用作Generator函数。</li>
+</ol>
+</blockquote>
+<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><p>JavaScript语言的传统方法是通过构造函数，定义并生成新对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用原型绑定方法，不会每次实例化都创建，提升性能</span></span><br><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + <span class="keyword">this</span>.name + <span class="string">', I`m '</span> + age + <span class="string">' years old'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hong = <span class="keyword">new</span> Person(<span class="string">'小红'</span>, <span class="number">16</span>)</span><br></pre></td></tr></table></figure>
+<p>这种定义的方式有存在以下问题：</p>
+<blockquote>
+<ol>
+<li>和 java、c# 等传统面向对象语言，定义方式差别很大，容易让然产生困惑</li>
+<li>没有继承机制，只能通过原型链模拟，需要自己实现</li>
+</ol>
+</blockquote>
+<p>ES6提供了更接近传统语言的写法，引入了Class（类）这个概念，作为对象的模板。通过class (class在之前的版本一直是保留关键字)关键字，可以定义类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (name, age) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    say () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + <span class="keyword">this</span>.name + <span class="string">', I`m '</span> + age + <span class="string">' years old'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用方式跟之前一样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hong = <span class="keyword">new</span> Person(<span class="string">'小红'</span>, <span class="number">16</span>)</span><br></pre></td></tr></table></figure>
+<p>可以通过 <code>extends</code> 关键字继承类</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (name, age) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name, age) <span class="comment">// 通过 super 调用父类的同名方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>static</code> 关键字定义静态属性和方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (name, age) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    say () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + <span class="keyword">this</span>.name + <span class="string">', I`m '</span> + age + <span class="string">' years old'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> test = <span class="string">'111'</span></span><br><span class="line">    <span class="keyword">static</span> desc () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'this is person class'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Person.test) <span class="comment">// 111</span></span><br><span class="line">Person.desc()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hong = <span class="keyword">new</span> Person(<span class="string">'小红'</span>, <span class="number">16</span>) </span><br><span class="line">hong.desc() <span class="comment">// 报错，没有这个方法</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>基本上，ES6的class可以看作只是一个语法糖，它的绝大部分功能，ES5都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/12/前端工具/node_npm_update/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">node 和 npm 版本升级</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javscript/ES6的二三事(一)" data-title="ES6的二三事(一)" data-url="http://yoursite.com/2016/08/16/javscript/ES6的二三事(一)/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 myron
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
