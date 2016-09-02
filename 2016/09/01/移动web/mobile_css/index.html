@@ -6,22 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>移动web开发中有用的css片段 | myron blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段
-css reset移动web中reset 除了常规的 Normalize.css 之外，还需要加上下面这些代码
-1234567891011121314151617181920html&amp;#123;    -webkit-">
+  <meta name="description" content="在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动web开发中有用的css片段">
 <meta property="og:url" content="http://yoursite.com/2016/09/01/移动web/mobile_css/index.html">
 <meta property="og:site_name" content="myron blog">
-<meta property="og:description" content="在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段
-css reset移动web中reset 除了常规的 Normalize.css 之外，还需要加上下面这些代码
-1234567891011121314151617181920html&amp;#123;    -webkit-">
-<meta property="og:updated_time" content="2016-09-02T10:06:12.000Z">
+<meta property="og:description" content="在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段。">
+<meta property="og:updated_time" content="2016-09-02T11:53:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动web开发中有用的css片段">
-<meta name="twitter:description" content="在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段
-css reset移动web中reset 除了常规的 Normalize.css 之外，还需要加上下面这些代码
-1234567891011121314151617181920html&amp;#123;    -webkit-">
+<meta name="twitter:description" content="在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段。">
   
     <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
   
@@ -244,7 +238,7 @@ css reset移动web中reset 除了常规的 Normalize.css 之外，还需要加�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段</p>
+        <p>在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段。<br><a id="more"></a></p>
 <h2 id="css-reset"><a href="#css-reset" class="headerlink" title="css reset"></a>css reset</h2><p>移动web中reset 除了常规的 <a href="http://necolas.github.io/normalize.css/" target="_blank" rel="external">Normalize.css</a> 之外，还需要加上下面这些代码</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-tap-highlight-color</span>: <span class="built_in">rgba</span>(0,0,0,0);<span class="comment">/*去掉触摸遮盖层*/</span></span><br><span class="line">    <span class="attribute">-webkit-user-modify</span>: read-write-plaintext-only;</span><br><span class="line">    <span class="attribute">-webkit-user-select</span>: none;<span class="comment">/*禁止用户选择文字*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*设置所有盒子大小计算边框内*/</span></span><br><span class="line">*</span><br><span class="line">*<span class="selector-pseudo">:before</span>,</span><br><span class="line">*<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*消除输入框的阴影和边框*/</span></span><br><span class="line"><span class="selector-tag">input</span>,<span class="selector-tag">textarea</span>, <span class="selector-tag">select</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-appearance</span>: none;</span><br><span class="line">    <span class="attribute">appearance</span>: none;</span><br><span class="line">    <span class="attribute">outline</span>: none;</span><br><span class="line">    <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="消除-transition-动画闪屏"><a href="#消除-transition-动画闪屏" class="headerlink" title="消除 transition 动画闪屏"></a>消除 transition 动画闪屏</h2><p>移动 web 中常会使用到 <em>transition</em> 动画，在某些设备上会出现闪屏的现象，需要在样式加上下面这些</p>
