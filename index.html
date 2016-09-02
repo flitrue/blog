@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/karma/" style="font-size: 10px;">karma</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react-native/" style="font-size: 12px;">react-native</a> <a href="/tags/rollup/" style="font-size: 10px;">rollup</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 14px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 16px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 14px;">前端工具 sublime</a> <a href="/tags/移动端/" style="font-size: 16px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
+						<a href="/tags/ES6/" style="font-size: 11.67px;">ES6</a> <a href="/tags/HTML5/" style="font-size: 18.33px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/karma/" style="font-size: 10px;">karma</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react-native/" style="font-size: 11.67px;">react-native</a> <a href="/tags/rollup/" style="font-size: 10px;">rollup</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 15px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 18.33px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 15px;">前端工具 sublime</a> <a href="/tags/移动web/" style="font-size: 10px;">移动web</a> <a href="/tags/移动端/" style="font-size: 16.67px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,139 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-移动web/mobile_css" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/01/移动web/mobile_css/" class="article-date">
+  	<time datetime="2016-09-01T07:47:00.000Z" itemprop="datePublished">2016-09-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/01/移动web/mobile_css/">移动web开发中有用的css片段</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在做移动 web 开发中有很多地方跟 PC 段是不一样的，需要不一样的 css reset， 或者使用flexbox布局，等等，这里就记录下移动 web 开发中有用的 css 片段</p>
+<h2 id="css-reset"><a href="#css-reset" class="headerlink" title="css reset"></a>css reset</h2><p>移动web中reset 除了常规的 <a href="http://necolas.github.io/normalize.css/" target="_blank" rel="external">Normalize.css</a> 之外，还需要加上下面这些代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-tap-highlight-color</span>: <span class="built_in">rgba</span>(0,0,0,0);<span class="comment">/*去掉触摸遮盖层*/</span></span><br><span class="line">    <span class="attribute">-webkit-user-modify</span>: read-write-plaintext-only;</span><br><span class="line">    <span class="attribute">-webkit-user-select</span>: none;<span class="comment">/*禁止用户选择文字*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*设置所有盒子大小计算边框内*/</span></span><br><span class="line">*</span><br><span class="line">*<span class="selector-pseudo">:before</span>,</span><br><span class="line">*<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*消除输入框的阴影和边框*/</span></span><br><span class="line"><span class="selector-tag">input</span>,<span class="selector-tag">textarea</span>, <span class="selector-tag">select</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-appearance</span>: none;</span><br><span class="line">    <span class="attribute">appearance</span>: none;</span><br><span class="line">    <span class="attribute">outline</span>: none;</span><br><span class="line">    <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="消除-transition-动画闪屏"><a href="#消除-transition-动画闪屏" class="headerlink" title="消除 transition 动画闪屏"></a>消除 transition 动画闪屏</h2><p>移动 web 中常会使用到 <em>transition</em> 动画，在某些设备上会出现闪屏的现象，需要在样式加上下面这些</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.animate</span> &#123;</span><br><span class="line">    <span class="comment">/* .... */</span></span><br><span class="line">    <span class="comment">/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/</span></span><br><span class="line">    <span class="attribute">-webkit-transform-style</span>: preserve-<span class="number">3</span>d;</span><br><span class="line">    <span class="comment">/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/</span></span><br><span class="line">    <span class="attribute">-webkit-backface-visibility</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="弹性滚动"><a href="#弹性滚动" class="headerlink" title="弹性滚动"></a>弹性滚动</h2><p>ios 设备上设置弹性滚动属性，可以使滚动更加流畅</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.scollable</span>&#123;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">    <span class="attribute">-webkit-overflow-scrolling</span>: touch;<span class="comment">/*滚动touch*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="点击状态处理"><a href="#点击状态处理" class="headerlink" title="点击状态处理"></a>点击状态处理</h2><p>reset 关闭了点击高亮（因为会延迟），需要使用伪元素实现点击高亮效果</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.active</span><span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: @color;</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-position</span>: center;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">pointer-events</span>: none;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: opacity <span class="number">600ms</span>;</span><br><span class="line">    <span class="attribute">transition</span>: opacity <span class="number">600ms</span>;   <span class="comment">/*加上动画显得更自然*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.active</span><span class="selector-pseudo">:active</span><span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: opacity <span class="number">150ms</span>;</span><br><span class="line">    <span class="attribute">transition</span>: opacity <span class="number">150ms</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1px边框处理"><a href="#1px边框处理" class="headerlink" title="1px边框处理"></a>1px边框处理</h2><p>移动端会有很多的高清屏，导致 <code>border-width: 1px</code> 的边框显得特别粗，所以需要使用伪元素模拟边框，检测不同的屏幕然后缩小高度，使其像头发丝一样细.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*border 在底部*/</span></span><br><span class="line"><span class="selector-class">.has-border</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: auto;</span><br><span class="line">    <span class="attribute">bottom</span>: auto;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 0, 0, .12);</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">15</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.pixel-ratio-2</span> &amp; &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">scaleX</span>(0.5);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleX</span>(0.5);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.pixel-ratio-3</span> &amp; &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">scaleX</span>(0.33);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleX</span>(0.33);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过 js 检测 <em>devicePixelRatio</em> 然后 html 加上相应的样式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理retina屏幕显示效果</span></span><br><span class="line"><span class="keyword">var</span> classNames = []</span><br><span class="line"><span class="keyword">var</span> pixelRatio = <span class="built_in">window</span>.devicePixelRatio || <span class="number">1</span></span><br><span class="line">classNames.push(<span class="string">'pixel-ratio-'</span> + <span class="built_in">Math</span>.floor(pixelRatio))</span><br><span class="line"><span class="keyword">if</span> (pixelRatio &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">  classNames.push(<span class="string">'retina'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> html = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">classNames.forEach((className) =&gt; html.classList.add(className))</span><br></pre></td></tr></table></figure>
+<h2 id="使用-fastclick-之后，label点击的问题"><a href="#使用-fastclick-之后，label点击的问题" class="headerlink" title="使用 fastclick 之后，label点击的问题"></a>使用 fastclick 之后，label点击的问题</h2><p>为了解决 <em>点击事件300ms延迟</em> 的问题, 都会引入 <code>fastclick</code> 库, 但是会发现当 label 内部有其它元素时不能给表单元素聚焦了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这个时候点击 span标签中的内容 input无法获取焦点--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>text<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>需要使用 <code>pointer-event</code> 让 label中元素的点击事件都冒泡到 label 上再执行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*这里是示例代码， 实际使用最好制定 className*/</span></span><br><span class="line"><span class="selector-tag">label</span> *&#123;</span><br><span class="line">    <span class="attribute">pointer-events</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="关于布局"><a href="#关于布局" class="headerlink" title="关于布局"></a>关于布局</h2><p>移动端中 对于 flexbox  的支持已经很好，flexbox 是布局神器，像页面 上中下这种结构的布局很容易就实现了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.page</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>: column;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: flex-start;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span>,</span><br><span class="line"><span class="selector-class">.footer</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">56px</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span>&#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外阮一峰老师也写过 <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">flexbox 入门教程</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动web/">移动web</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-前端工具/gulp_workflow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/26/前端工具/gulp_workflow/" class="article-date">
+  	<time datetime="2016-08-26T00:56:00.000Z" itemprop="datePublished">2016-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/26/前端工具/gulp_workflow/">基于gulp的前端工作流</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工具/">前端工具</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-javscript/ES6的二三事(二)－模块化" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -671,145 +804,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/07/17/react-native/react-native start/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-html5/html5网络连接" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/html5/html5网络连接/" class="article-date">
-  	<time datetime="2016-05-31T04:05:05.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/html5/html5网络连接/">html5网络连接</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="XMLHttpRequest-Level-2"><a href="#XMLHttpRequest-Level-2" class="headerlink" title="XMLHttpRequest Level 2"></a>XMLHttpRequest Level 2</h2><p>XMLHttpRequest Level 2 对于 老版本的XMLHttpRequest对象 功能的一个补全，这里我们先看下老版本的XMLHttpRequest对象的缺点</p>
-<blockquote>
-<ul>
-<li>只支持文本数据的传送，无法用来读取和上传二进制文件。</li>
-<li>传送和接收数据时，没有进度信息，只能提示有没有完成。</li>
-<li>受到”同域限制”（Same Origin Policy），只能向同一域名的服务器请求数据</li>
-</ul>
-</blockquote>
-<p>而新版的 XMLHttpRequest 增加了更多的功能</p>
-<blockquote>
-<ul>
-<li>可以设置HTTP请求的时限。</li>
-<li>可以使用FormData对象管理表单数据。</li>
-<li>可以上传文件。</li>
-<li>可以请求不同域名下的数据（跨域请求）。</li>
-<li>可以获取服务器端的二进制数据。</li>
-<li>可以获得数据传输的进度信息。</li>
-</ul>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/html5/html5网络连接/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-html5/html5设备api" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/html5/html5设备api/" class="article-date">
-  	<time datetime="2016-05-31T01:00:02.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/html5/html5设备api/">html5设备api</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为了更好地为移动设备服务，HTML 5推出了一系列针对移动设备的API。</p>
-<h2 id="Viewport"><a href="#Viewport" class="headerlink" title="Viewport"></a>Viewport</h2><p>Viewport指的是网页的显示区域，也就是不借助滚动条的情况下，用户可以看到的部分网页大小，中文译为“视口”。正常情况下，viewport和浏览器的显示窗口是一样大小的。但是，在移动设备上，两者可能不是一样大小。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/html5/html5设备api/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
