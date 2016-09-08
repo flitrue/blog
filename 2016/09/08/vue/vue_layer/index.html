@@ -4,24 +4,33 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>myron blog</title>
+  <title>关于 vue 弹窗组件的一些感想 | myron blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 关于 vue 弹窗组件的一些感想date: 2016-09-08 08:34tags: 
-- vue最近是用 vue 开发了一套组件库 vue-carbon , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。
-弹窗组件一直是 web 开发中必备的，使用频率相当高，最常见的莫过于 alert，confirm，prompt .. 这些（曾经我们都会用alert来调试程序）">
+  <meta name="description" content="最近是用 vue 开发了一套组件库 vue-carbon , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。
+弹窗组件一直是 web 开发中必备的，使用频率相当高，最常见的莫过于 alert，confirm，prompt .. 这些（曾经我们都会用alert来调试程序）, 不同的组件库对于弹窗的处理也是不一样的。在开发时需要考虑一下三点:
+
+
+进入和弹出的动画效果。
+z-index">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myron blog">
+<meta property="og:title" content="关于 vue 弹窗组件的一些感想">
 <meta property="og:url" content="http://yoursite.com/2016/09/08/vue/vue_layer/index.html">
 <meta property="og:site_name" content="myron blog">
-<meta property="og:description" content="title: 关于 vue 弹窗组件的一些感想date: 2016-09-08 08:34tags: 
-- vue最近是用 vue 开发了一套组件库 vue-carbon , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。
-弹窗组件一直是 web 开发中必备的，使用频率相当高，最常见的莫过于 alert，confirm，prompt .. 这些（曾经我们都会用alert来调试程序）">
-<meta property="og:updated_time" content="2016-09-08T02:26:34.000Z">
+<meta property="og:description" content="最近是用 vue 开发了一套组件库 vue-carbon , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。
+弹窗组件一直是 web 开发中必备的，使用频率相当高，最常见的莫过于 alert，confirm，prompt .. 这些（曾经我们都会用alert来调试程序）, 不同的组件库对于弹窗的处理也是不一样的。在开发时需要考虑一下三点:
+
+
+进入和弹出的动画效果。
+z-index">
+<meta property="og:updated_time" content="2016-09-08T02:27:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myron blog">
-<meta name="twitter:description" content="title: 关于 vue 弹窗组件的一些感想date: 2016-09-08 08:34tags: 
-- vue最近是用 vue 开发了一套组件库 vue-carbon , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。
-弹窗组件一直是 web 开发中必备的，使用频率相当高，最常见的莫过于 alert，confirm，prompt .. 这些（曾经我们都会用alert来调试程序）">
+<meta name="twitter:title" content="关于 vue 弹窗组件的一些感想">
+<meta name="twitter:description" content="最近是用 vue 开发了一套组件库 vue-carbon , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。
+弹窗组件一直是 web 开发中必备的，使用频率相当高，最常见的莫过于 alert，confirm，prompt .. 这些（曾经我们都会用alert来调试程序）, 不同的组件库对于弹窗的处理也是不一样的。在开发时需要考虑一下三点:
+
+
+进入和弹出的动画效果。
+z-index">
   
     <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
   
@@ -123,7 +132,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ES6/" style="font-size: 11.67px;">ES6</a> <a href="/tags/HTML5/" style="font-size: 18.33px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/karma/" style="font-size: 10px;">karma</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react-native/" style="font-size: 11.67px;">react-native</a> <a href="/tags/rollup/" style="font-size: 10px;">rollup</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 15px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 16.67px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 15px;">前端工具 sublime</a> <a href="/tags/移动web/" style="font-size: 10px;">移动web</a> <a href="/tags/移动端/" style="font-size: 16.67px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
+						<a href="/tags/ES6/" style="font-size: 11.67px;">ES6</a> <a href="/tags/HTML5/" style="font-size: 18.33px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/karma/" style="font-size: 10px;">karma</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react-native/" style="font-size: 11.67px;">react-native</a> <a href="/tags/rollup/" style="font-size: 10px;">rollup</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 15px;">webapp</a> <a href="/tags/前端工具/" style="font-size: 16.67px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 15px;">前端工具 sublime</a> <a href="/tags/移动web/" style="font-size: 10px;">移动web</a> <a href="/tags/移动端/" style="font-size: 16.67px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a>
 					</div>
 				</section>
 				
@@ -211,7 +220,7 @@
   
     <div class="article-meta">
       <a href="/2016/09/08/vue/vue_layer/" class="article-date">
-  	<time datetime="2016-09-08T00:33:57.000Z" itemprop="datePublished">2016-09-08</time>
+  	<time datetime="2016-09-08T00:34:00.000Z" itemprop="datePublished">2016-09-08</time>
 </a>
     </div>
   
@@ -220,11 +229,31 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于 vue 弹窗组件的一些感想
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: 关于 vue 弹窗组件的一些感想<br>date: 2016-09-08 08:34<br>tags: </p>
-<h2 id="vue"><a href="#vue" class="headerlink" title="- vue"></a>- vue</h2><p>最近是用 vue 开发了一套组件库 <a href="https://myronliu347.github.io/vue-carbon/" target="_blank" rel="external">vue-carbon</a> , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。</p>
+        <p>最近是用 vue 开发了一套组件库 <a href="https://myronliu347.github.io/vue-carbon/" target="_blank" rel="external">vue-carbon</a> , 在开发过程对对于组件化的开发有一些感想，于是开始记录下这些。</p>
 <p>弹窗组件一直是 web 开发中必备的，使用频率相当高，最常见的莫过于 alert，confirm，prompt .. 这些（曾经我们都会用alert来调试程序）, 不同的组件库对于弹窗的处理也是不一样的。在开发时需要考虑一下三点:</p>
 <blockquote>
 <ol>
@@ -312,7 +341,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vue/vue_layer" data-title="" data-url="http://yoursite.com/2016/09/08/vue/vue_layer/"></div>
+	<div class="ds-thread" data-thread-key="vue/vue_layer" data-title="关于 vue 弹窗组件的一些感想" data-url="http://yoursite.com/2016/09/08/vue/vue_layer/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
