@@ -5,20 +5,20 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>myron blog</title>
+  <link rel="dns-prefetch" href="http://myronliu.com">
+  <title>Myron Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="我的技术博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="myron blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="myron blog">
+<meta property="og:title" content="Myron Blog">
+<meta property="og:url" content="http://myronliu.com/index.html">
+<meta property="og:site_name" content="Myron Blog">
 <meta property="og:description" content="我的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myron blog">
+<meta name="twitter:title" content="Myron Blog">
 <meta name="twitter:description" content="我的技术博客">
   
-    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Myron Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -154,6 +154,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue/vue_mixins_directive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/31/vue/vue_mixins_directive/">关于 Vue Mixin 和 Directive 的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/31/vue/vue_mixins_directive/" class="archive-article-date">
+  	<time datetime="2017-01-31T01:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用 vue 组件化开发已经很长时间，组件化的意义就是把在多个页面中共有的逻辑（显示/功能）封装，在多个页面或者多个项目中重复使用以提高开发效率。</p>
+<p>但组件中共有的逻辑如何重用呢？例如： 我们再开发一个 <code>popover</code> 组件时都会有如下功能：</p>
+<ol>
+<li>点击外部时关闭弹出</li>
+<li>滚动条滚动或者窗口大小发生改变时重新定位</li>
+</ol>
+<p>这里我们需要监听三个事件，一个是外部被点击事件，滚动条滚动，窗口大小发生改变，这些功能都很可能在别的组件中被使用，我们要将这些共有功能封装起来。</p>
+<p><code>Vue</code> 中提供了 <strong>mixin</strong>（混合） 和 <strong>directive</strong> 两种方式用于封装多个组件内的共有功能。</p>
+        
+          <a class="article-more-a" href="/2017/01/31/vue/vue_mixins_directive/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/31/vue/vue_mixins_directive/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-随笔/2016" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,7 +310,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Vue 2.0 &#x53D1;&#x5E03;&#x4EE5;&#x6765;&#xFF0C;&#x5F88;&#x591A; vue &#x7684;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x90FD;&#x5F00;&#x59CB;&#x4E86;&#x5347;&#x7EA7;&#x8BA1;&#x5212;&#xFF0C;&#x6211;&#x4E5F;&#x601D;&#x8003;&#x7740; <code>vue-carbon</code> &#x7684;&#x5347;&#x7EA7;&#x4E4B;&#x8DEF;&#xFF0C;9&#x6708;&#x5F00;&#x5DE5;&#xFF0C;11&#x6708;&#x5B8C;&#x5DE5;&#xFF0C; <a href="https://museui.github.io/">Muse UI</a> &#x95EA;&#x4EAE;&#x767B;&#x573A;&#x3002;</p>
+        <p>Vue 2.0 发布以来，很多 vue 的开源项目都开始了升级计划，我也思考着 <code>vue-carbon</code> 的升级之路，9月开工，11月完工， <a href="https://museui.github.io/">Muse UI</a> 闪亮登场。</p>
         
           <a class="article-more-a" href="/2016/11/12/vue/muse_ui/#more">more >></a>
         
@@ -730,82 +801,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/08/12/前端工具/node_npm_update/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端工具/javascript_unit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/10/前端工具/javascript_unit/">javascript单元测试实践</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/10/前端工具/javascript_unit/" class="archive-article-date">
-  	<time datetime="2016-08-10T06:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近往 npm 上发布一些包，为了保证后续运行没有很严重的bug，需要给程序加一些单元测试，看下整体的运行的情况，参照了最近使用的 <code>vue-cli</code> 生成项目的测试部分代码，使用 karma + mocha + phantomjs + chai 完成了整个项目的单元测试工作。</p>
-        
-          <a class="article-more-a" href="/2016/08/10/前端工具/javascript_unit/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端工具</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">karma</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mocha</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">chai</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/10/前端工具/javascript_unit/">展开全文 >></a>
         </p>
       
 

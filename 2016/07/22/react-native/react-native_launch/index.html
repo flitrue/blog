@@ -5,26 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>react-native 给android端设置启动图 | myron blog</title>
+  <link rel="dns-prefetch" href="http://myronliu.com">
+  <title>react-native 给android端设置启动图 | Myron Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
 为了解决这个问题，找了很多的资料，参考了 ReactNative安卓首屏白屏优化， 也并没有解决掉启动慢点问">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react-native 给android端设置启动图">
-<meta property="og:url" content="http://yoursite.com/2016/07/22/react-native/react-native_launch/index.html">
-<meta property="og:site_name" content="myron blog">
+<meta property="og:url" content="http://myronliu.com/2016/07/22/react-native/react-native_launch/index.html">
+<meta property="og:site_name" content="Myron Blog">
 <meta property="og:description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
 为了解决这个问题，找了很多的资料，参考了 ReactNative安卓首屏白屏优化， 也并没有解决掉启动慢点问">
-<meta property="og:image" content="http://yoursite.com/splash.png">
-<meta property="og:updated_time" content="2016-07-22T14:47:23.000Z">
+<meta property="og:updated_time" content="2017-01-31T03:08:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native 给android端设置启动图">
 <meta name="twitter:description" content="公司的 环保头条 安卓端，全部使用 react-native , 相对之前的webapp 程序, 它的动画性能更好，更加贴近于原生的体验。 app功能开发基本完成后，发现一个很严重的问题，在app启动的时候会有很明显的白屏现象，不同的机型不同（cpu好的白屏时间短），大概1s到2s的时间。
 为了解决这个问题，找了很多的资料，参考了 ReactNative安卓首屏白屏优化， 也并没有解决掉启动慢点问">
-<meta name="twitter:image" content="http://yoursite.com/splash.png">
   
-    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Myron Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -183,14 +181,13 @@
 <a id="more"></a>
 <p>首先在 <code>android/app/src/main/res/drawable-hdpi</code> 里加上一个图片作为程序启动图 (名称随意，例如：<code>splash.png</code>) </p>
 <p>然后修改 <code>android/app/src/main/res/values/styles.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    <span class="comment">&lt;!-- 这里将刚刚那张图片设置为背景图片， splash对应图片名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="comment">&lt;!-- 这里将刚刚那张图片设置为背景图片， splash对应图片名称 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>最后修改我们的 <code>react-native</code> 顶层的容器，将它覆盖整个窗口</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">	container: &#123;</span><br><span class="line">		flex: <span class="number">1</span>,</span><br><span class="line">		backgroundColor: <span class="string">'#FFF'</span> <span class="comment">//背景色根据自己的需求来</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;View style=&#123;styles.container&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">	<span class="attr">container</span>: &#123;</div><div class="line">		<span class="attr">flex</span>: <span class="number">1</span>,</div><div class="line">		<span class="attr">backgroundColor</span>: <span class="string">'#FFF'</span> <span class="comment">//背景色根据自己的需求来</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>ok, 到这一步， 启动应用看看，会发现已经没有白屏了，会有一张覆盖全屏的启动图等待。</p>
 <p>在 <em>安卓5.0</em> 以上会有沉浸式状态栏闪烁的问题，原因是，react-native默认是不设置状态栏的，所以我们需要在 <code>MainActivity.java</code> 中增加如下代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里重写 createRootView 方法保证在耗时操作前完成状态栏设置</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> ReactRootView <span class="title">createRootView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">        Window window = getWindow();</span><br><span class="line">        <span class="comment">// 设置为沉浸式状态栏</span></span><br><span class="line">        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.createRootView();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这里重写 createRootView 方法保证在耗时操作前完成状态栏设置</span></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> ReactRootView <span class="title">createRootView</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line">        Window window = getWindow();</div><div class="line">        <span class="comment">// 设置为沉浸式状态栏</span></div><div class="line">        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.createRootView();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>到此，就全部完成啦，妈妈再也不用担心我的 app 启动白屏啦！</p>
-<p><img src="splash.png" alt=""></p>
 
       
 
@@ -285,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/07/22/react-native/react-native_launch/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://myronliu.com/2016/07/22/react-native/react-native_launch/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -324,7 +321,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="react-native/react-native_launch" data-title="react-native 给android端设置启动图" data-url="http://yoursite.com/2016/07/22/react-native/react-native_launch/"></div>
+	<div class="ds-thread" data-thread-key="react-native/react-native_launch" data-title="react-native 给android端设置启动图" data-url="http://myronliu.com/2016/07/22/react-native/react-native_launch/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

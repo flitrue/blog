@@ -5,20 +5,20 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>myron blog</title>
+  <link rel="dns-prefetch" href="http://myronliu.com">
+  <title>Myron Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="我的技术博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="myron blog">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
-<meta property="og:site_name" content="myron blog">
+<meta property="og:title" content="Myron Blog">
+<meta property="og:url" content="http://myronliu.com/page/4/index.html">
+<meta property="og:site_name" content="Myron Blog">
 <meta property="og:description" content="我的技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myron blog">
+<meta name="twitter:title" content="Myron Blog">
 <meta name="twitter:description" content="我的技术博客">
   
-    <link rel="alternative" href="/atom.xml" title="myron blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Myron Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -153,6 +153,70 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-javscript/javascript模块化编程(二)--commonjs,AMD,CMD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/21/javscript/javascript模块化编程(二)--commonjs,AMD,CMD/">javascript模块化编程(二)--commonjs,AMD,CMD</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/21/javscript/javascript模块化编程(二)--commonjs,AMD,CMD/" class="archive-article-date">
+  	<time datetime="2016-03-21T15:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面的写法，再文件模块比较少的情况都不会有问题，但是再当模块比较多之后，window下还是会被挂载很多对象，而且当模块依赖过多的时候需要在’（）’，写很长的参数，于是乎，前端模块化，有了一些规范，让我们去定义模块。<br>
+        
+          <a class="article-more-a" href="/2016/03/21/javscript/javascript模块化编程(二)--commonjs,AMD,CMD/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/21/javscript/javascript模块化编程(二)--commonjs,AMD,CMD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-javscript/javascript模块化编程(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -337,7 +401,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>简单来说，网页中的额每一个元素都是一个盒子，而整个网页就是有大大小小的盒子组装起来的。既然是盒子那么它就有：内容（content）、填充（padding）、边框（border）、边界（margin）这些属性，而每个属性又有上下左右四个方向，像下面这张图这样<br><img src="13-34-30.jpg" alt=""></p>
+        <h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>简单来说，网页中的额每一个元素都是一个盒子，而整个网页就是有大大小小的盒子组装起来的。既然是盒子那么它就有：内容（content）、填充（padding）、边框（border）、边界（margin）这些属性，而每个属性又有上下左右四个方向，像下面这张图这样</p>
+<p><img src="/images/13-34-30.jpg" alt="13-34-30"></p>
 <h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><p>每一个元素都是一个盒子，display属性就决定了他们属于那种盒子；目前大致分为以下几种</p>
 <h3 id="块级元素（block）"><a href="#块级元素（block）" class="headerlink" title="块级元素（block）"></a>块级元素（block）</h3><p>一般是其他元素的容器，可容纳内联元素和其他块状元素，块状元素排斥其他元素与其位于同一行，宽度(width)高度(height)起作用。常见块状元素为div和p。</p>
 <h3 id="内联元素-inline"><a href="#内联元素-inline" class="headerlink" title="内联元素(inline)"></a>内联元素(inline)</h3><p>内联元素只能容纳文本或者其他内联元素，它允许其他内联元素与其位于同一行，但宽度(width)高度(height)不起作用。常见内联元素为“a”。</p>
@@ -347,7 +412,7 @@
 <h3 id="（绝对定位）absolute"><a href="#（绝对定位）absolute" class="headerlink" title="（绝对定位）absolute"></a>（绝对定位）absolute</h3><p>绝对定位，他默认参照已经定位(position值不为static)的元素父级元素，配合top、right、bottom、left进行定位。<br>脱离标准文档流，也就是他的位置不会影响到其他的元素，也不会参与到父元素高度计算上，但是会受到富元素overflow:hidden的影响</p>
 <h3 id="（绝对定位）fixed"><a href="#（绝对定位）fixed" class="headerlink" title="（绝对定位）fixed"></a>（绝对定位）fixed</h3><p>参照window配合top、right、bottom、left进行定位。<br>脱离标准文档流，不会受到父元素overflow:hidden影响;</p>
 <h3 id="（相对定位）relative"><a href="#（相对定位）relative" class="headerlink" title="（相对定位）relative"></a>（相对定位）relative</h3><p>相对定位，他是默认参照父级的原始点为原始点，配合top、right、bottom、left进行定位，当父级内有padding等CSS属性时，当前级的原始点则参照父级内容区的原始点进行定位。</p>
-<h2 id="浮动（float）"><a href="#浮动（float）" class="headerlink" title="浮动（float）"></a>浮动（float）</h2><p>首先要知道，div是块级元素，在页面中独占一行，自上而下排列，那么如何让块级元素在一行中显示呢，这里就用到float;<br>float:left/right可以让块级元素在一行中从左至右或者从右至左排列，但是，需要主要的是，当元素设置了float:left/right时，会影响到后面的元素所以需要及时的清除浮动，而且会造成父级元素高度塌陷。<br>常用的清除浮动代码如下:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.clear &#123; clear: both; &#125;/*清除浮动*/</span><br><span class="line">/*清除浮动并防止父级元素高度塌陷*/</span><br><span class="line">.clearfix:before, .clearfix:after &#123; </span><br><span class="line">    content: '\0020'; </span><br><span class="line">    display: block; </span><br><span class="line">    overflow: hidden; </span><br><span class="line">    visibility: hidden; </span><br><span class="line">    width: 0; height: 0; </span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123; clear: both &#125;</span><br><span class="line">.clearfix &#123; *zoom: 1 &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="浮动（float）"><a href="#浮动（float）" class="headerlink" title="浮动（float）"></a>浮动（float）</h2><p>首先要知道，div是块级元素，在页面中独占一行，自上而下排列，那么如何让块级元素在一行中显示呢，这里就用到float;<br>float:left/right可以让块级元素在一行中从左至右或者从右至左排列，但是，需要主要的是，当元素设置了float:left/right时，会影响到后面的元素所以需要及时的清除浮动，而且会造成父级元素高度塌陷。<br>常用的清除浮动代码如下:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.clear &#123; clear: both; &#125;/*清除浮动*/</div><div class="line">/*清除浮动并防止父级元素高度塌陷*/</div><div class="line">.clearfix:before, .clearfix:after &#123; </div><div class="line">    content: '\0020'; </div><div class="line">    display: block; </div><div class="line">    overflow: hidden; </div><div class="line">    visibility: hidden; </div><div class="line">    width: 0; height: 0; </div><div class="line">&#125;</div><div class="line">.clearfix:after &#123; clear: both &#125;</div><div class="line">.clearfix &#123; *zoom: 1 &#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -574,21 +639,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h2><p>包管理器，安装这个插件之后可以管理sublime的所有的扩展包的安装和卸载<br>安装方法如下，打开console窗口（CTRL+`/views&gt;show console）将下面这段代码copy进去敲enter即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure></p>
-<p>接下来得插件安装，<br>1.打开命令面板ctrl+shift+p<br>2.输入ip,enter<br>3.输入插件名称敲击enter</p>
+        <h2 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h2><p>包管理器，安装这个插件之后可以管理sublime的所有的扩展包的安装和卸载<br>安装方法如下，打开console窗口（CTRL+/views&gt;show console）将下面这段代码copy进去敲enter即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</div></pre></td></tr></table></figure>
+<p>接下来得插件安装，</p>
+<ol>
+<li>打开命令面板ctrl+shift+p</li>
+<li>输入ip,enter</li>
+<li>输入插件名称敲击enter</li>
+</ol>
 <h2 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a><a href="http://docs.emmet.io" target="_blank" rel="external">Emmet</a></h2><p>前身事大名鼎鼎的zen coding，仅仅需要一行代码就能快速生成html代码。简单的语法既可以生成负责html css代码(点击标题，可以学习emmet语法)，</p>
-<h2 id="SideBar-Enhancements"><a href="#SideBar-Enhancements" class="headerlink" title="SideBar Enhancements"></a>SideBar Enhancements</h2><p>这个插件改进了侧边栏，增加了许多功能：将文件移入回收站，在浏览器中浏览，将文件复制到剪切板。<br><img src="15-31-34.jpg" alt=""></p>
-<h2 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h2><p>文件名称自动补全插件<br><img src="15-32-45.jpg" alt=""></p>
+<h2 id="SideBar-Enhancements"><a href="#SideBar-Enhancements" class="headerlink" title="SideBar Enhancements"></a>SideBar Enhancements</h2><p>这个插件改进了侧边栏，增加了许多功能：将文件移入回收站，在浏览器中浏览，将文件复制到剪切板。</p>
+<p><img src="/images/15-31-34.jpg" alt="15-31-34"></p>
+<h2 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h2><p>文件名称自动补全插件</p>
+<p><img src="/images/15-32-45.jpg" alt="15-32-45"></p>
 <h2 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h2><p>css3的语言环境，也会对一些css3的属性惊醒提示</p>
-<h2 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a>DocBlockr</h2><p>文本注释插件，再js方法上敲击/**+ enter即可变成下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * [ description]</span><br><span class="line"> * @param  &#123;[type]&#125; item [description]</span><br><span class="line"> * @return &#123;[type]&#125;      [description]</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>
+<h2 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a>DocBlockr</h2><p>文本注释插件，再js方法上敲击/**+ enter即可变成下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * [ description]</div><div class="line"> * @param  &#123;[type]&#125; item [description]</div><div class="line"> * @return &#123;[type]&#125;      [description]</div><div class="line"> */</div></pre></td></tr></table></figure></p>
 <h2 id="JsFormat"><a href="#JsFormat" class="headerlink" title="JsFormat"></a>JsFormat</h2><p>javascript格式化插件，安装之后选择文本ctrl+alt+f可以格式化指定文本</p>
 <h2 id="SublimeCodeIntel"><a href="#SublimeCodeIntel" class="headerlink" title="SublimeCodeIntel"></a>SublimeCodeIntel</h2><p>多种语言提示，代码自动补齐，快速跳转到变量定义，在状态栏显示函数快捷信息等<br>它支持的语言有：PHP, Python, RHTML, JavaScript, Smarty, Mason, Node.js, XBL, Tcl, HTML, HTML5, TemplateToolkit, XUL, Django, Perl, Ruby, Python3.</p>
-<h2 id="SublimeLinter"><a href="#SublimeLinter" class="headerlink" title="SublimeLinter"></a>SublimeLinter</h2><p>代码检查插件，可以提示你的编码错误，但是需要安装子包，例如<br>1.javascript语法检查 SublimeLinter-jshint这个包是必须得；<br>2.css语法检查 sublimeLinter-csslint<br><img src="15-43-40.jpg" alt=""></p>
+<h2 id="SublimeLinter"><a href="#SublimeLinter" class="headerlink" title="SublimeLinter"></a>SublimeLinter</h2><p>代码检查插件，可以提示你的编码错误，但是需要安装子包，例如<br>1.javascript语法检查 SublimeLinter-jshint这个包是必须得；<br>2.css语法检查 sublimeLinter-csslint</p>
+<p><img src="/images/15-43-40.jpg" alt="15-43-40"></p>
 <h2 id="SublimeLinter-csslint"><a href="#SublimeLinter-csslint" class="headerlink" title="SublimeLinter-csslint"></a>SublimeLinter-csslint</h2><p>配置sublimelinter，的css语法检查插件</p>
 <h2 id="SublimeLinter-jshint"><a href="#SublimeLinter-jshint" class="headerlink" title="SublimeLinter-jshint"></a>SublimeLinter-jshint</h2><p>配置sublimelinter，的js语法检查插件</p>
 <h2 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h2><p>HTML/XML 标签缩进、补全和校验；</p>
-<h2 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h2><p>打开控制台插件，安装后配置上下面的快捷键即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;keys&quot;: [&quot;command+shift+m&quot;], &quot;command&quot;: &quot;open_terminal&quot; &#125;,`</span><br></pre></td></tr></table></figure></p>
-<h2 id="TrailingSpaces"><a href="#TrailingSpaces" class="headerlink" title="TrailingSpaces"></a>TrailingSpaces</h2><p>多余空格标记插件，会标记每行多余的空格，加入下边的快捷键配置即可一次删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;keys&quot;: [&quot;command+shift+t&quot;], &quot;command&quot;: &quot;delete_trailing_spaces&quot; &#125;,</span><br></pre></td></tr></table></figure></p>
+<h2 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h2><p>打开控制台插件，安装后配置上下面的快捷键即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;keys&quot;: [&quot;command+shift+m&quot;], &quot;command&quot;: &quot;open_terminal&quot; &#125;,`</div></pre></td></tr></table></figure></p>
+<h2 id="TrailingSpaces"><a href="#TrailingSpaces" class="headerlink" title="TrailingSpaces"></a>TrailingSpaces</h2><p>多余空格标记插件，会标记每行多余的空格，加入下边的快捷键配置即可一次删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;keys&quot;: [&quot;command+shift+t&quot;], &quot;command&quot;: &quot;delete_trailing_spaces&quot; &#125;,</div></pre></td></tr></table></figure></p>
 <h2 id="主题包"><a href="#主题包" class="headerlink" title="主题包"></a>主题包</h2><p>sublime本身的外表就已经很好看了，如果大家对颜值有特殊要求的，可以<a href="http://www.techug.com/9-best-sublime-text-themes" target="_blank" rel="external">点击这里</a></p>
 <h2 id="各种framework包"><a href="#各种framework包" class="headerlink" title="各种framework包"></a>各种framework包</h2><ul>
 <li>jQuery jquery的代码补全包；</li>
@@ -766,72 +840,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/11/15/前端工具/sublime自定义代码提示/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端工具/sublime功能介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/14/前端工具/sublime功能介绍/">sublime功能介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2015/11/14/前端工具/sublime功能介绍/" class="archive-article-date">
-  	<time datetime="2015-11-14T10:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>sublime是一个小巧，功能又十分强大得文本编辑器，下面就来介绍下它的几个强大的工恩呢刚</p>
-<h2 id="快速文件查找"><a href="#快速文件查找" class="headerlink" title="快速文件查找"></a>快速文件查找</h2><p>sublime上 CTRL+P可以查找文件，只用输入其中几个关键字便可找到<br><img src="23-47-25.jpg" alt=""><br>另外输入在后面加上#可以并查找文件中的内容，确定后打开文件后跳到指定内容位置<br><img src="23-49-59.jpg" alt=""><br>后面加上@+方法名 可以打开文件兵跳转到指定方法行<br><img src="23-51-29.jpg" alt=""><br>最后输入：1334可以跳到指定行</p>
-<h2 id="多点编辑模式"><a href="#多点编辑模式" class="headerlink" title="多点编辑模式"></a>多点编辑模式</h2><p>sublime中按住CRTL建然后在不同位置点击鼠标左键可进入多点编辑模式，另外CTRL+D多次使用可以选取相同字符并自动进入多点编辑模式，非常好用<br><img src="23-55-11.jpg" alt=""></p>
-<h2 id="命令面板"><a href="#命令面板" class="headerlink" title="命令面板"></a>命令面板</h2><p>假设一个场景，我想把侧边栏收起来，但是又不记得快捷键，这个时候命令面板就起作用了，打开命令面板<strong>CRTL+SHIFT+P</strong>，输入toggle side bar然后enter这样就可以了，sublime中所有的操作都可以再命令面板中找到，让大家告别无聊的鼠标<br><img src="00-00-09.jpg" alt=""></p>
-<h2 id="灵活的配置和自定制"><a href="#灵活的配置和自定制" class="headerlink" title="灵活的配置和自定制"></a>灵活的配置和自定制</h2><p>sublime中所有的配置都是再json文件中设置，一般有连个default和user我们如果要修改某些配置，只需要再user文件中修改，会自动覆盖default的配置，sublime有许许多多的插件，只要花点心思找些插件包，便可以配置成一个符合你习惯的完美的编辑器</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端工具 sublime</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/14/前端工具/sublime功能介绍/">展开全文 >></a>
         </p>
       
 
