@@ -175,20 +175,20 @@
       
         <p><code>Rollup</code> 是下一代的 <code>javascript</code> 打包器，它使用 <code>tree-shaking</code> 的技术使打包的结果只包括实际用到的 exports。 使用它打包的代码，基本没有冗余的代码，减少了很多的代码体积， 它的官网上有打包的实例代码 <a href="http://rollupjs.org/" target="_blank" rel="external">Rollup.js 官网</a>。<br><a id="more"></a></p>
 <h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>跟 webpack rollup可以以命令行和 javascript 调用两种方式，这里只介绍用javascript的调用的这种方式。首先我们安装一些 rollup 使用到的module, 在 package.json 中加上这些</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // ...</span><br><span class="line">    "devDependencies": &#123;</span><br><span class="line">        "babel-core": "^6.13.0",</span><br><span class="line">        "babel-preset-es2015-rollup": "^1.1.1",</span><br><span class="line">        "rollup": "^0.34.3",</span><br><span class="line">        "rollup-plugin-babel": "^2.6.1",</span><br><span class="line">        "rollup-plugin-commonjs": "^3.3.1",</span><br><span class="line">        "rollup-plugin-node-resolve": "^2.0.0",</span><br><span class="line">        "rollup-plugin-uglify": "^1.0.1"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // ...</div><div class="line">    "devDependencies": &#123;</div><div class="line">        "babel-core": "^6.13.0",</div><div class="line">        "babel-preset-es2015-rollup": "^1.1.1",</div><div class="line">        "rollup": "^0.34.3",</div><div class="line">        "rollup-plugin-babel": "^2.6.1",</div><div class="line">        "rollup-plugin-commonjs": "^3.3.1",</div><div class="line">        "rollup-plugin-node-resolve": "^2.0.0",</div><div class="line">        "rollup-plugin-uglify": "^1.0.1"</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="编写打包的代码"><a href="#编写打包的代码" class="headerlink" title="编写打包的代码"></a>编写打包的代码</h2><p>建一个 <code>build.js</code> 文件，内部代码可以像这样</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rollup = <span class="built_in">require</span>(<span class="string">'rollup'</span>);</span><br><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">'rollup-plugin-babel'</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'rollup-plugin-uglify'</span>);</span><br><span class="line"><span class="keyword">var</span> npm = <span class="built_in">require</span>(<span class="string">'rollup-plugin-node-resolve'</span>);</span><br><span class="line"><span class="keyword">var</span> commonjs = <span class="built_in">require</span>(<span class="string">'rollup-plugin-commonjs'</span>);</span><br><span class="line">rollup.rollup(&#123;</span><br><span class="line">    entry: <span class="string">'src/index.js'</span>,</span><br><span class="line">    plugins: [</span><br><span class="line">        npm(&#123; jsnext: <span class="literal">true</span>, main: <span class="literal">true</span> &#125;),</span><br><span class="line">        commonjs(),</span><br><span class="line">        babel(&#123;</span><br><span class="line">            exclude: <span class="string">'node_modules/**'</span>,</span><br><span class="line">            presets: [ <span class="string">"es2015-rollup"</span> ]</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">bundle</span>) </span>&#123;</span><br><span class="line">    bundle.write(&#123;</span><br><span class="line">        format: <span class="string">'cjs'</span>,</span><br><span class="line">        banner: banner,</span><br><span class="line">        dest: <span class="string">'dist/si_log_common.js'</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rollup = <span class="built_in">require</span>(<span class="string">'rollup'</span>);</div><div class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">'rollup-plugin-babel'</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'rollup-plugin-uglify'</span>);</div><div class="line"><span class="keyword">var</span> npm = <span class="built_in">require</span>(<span class="string">'rollup-plugin-node-resolve'</span>);</div><div class="line"><span class="keyword">var</span> commonjs = <span class="built_in">require</span>(<span class="string">'rollup-plugin-commonjs'</span>);</div><div class="line">rollup.rollup(&#123;</div><div class="line">    <span class="attr">entry</span>: <span class="string">'src/index.js'</span>,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        npm(&#123; <span class="attr">jsnext</span>: <span class="literal">true</span>, <span class="attr">main</span>: <span class="literal">true</span> &#125;),</div><div class="line">        commonjs(),</div><div class="line">        babel(&#123;</div><div class="line">            <span class="attr">exclude</span>: <span class="string">'node_modules/**'</span>,</div><div class="line">            <span class="attr">presets</span>: [ <span class="string">"es2015-rollup"</span> ]</div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">bundle</span>) </span>&#123;</div><div class="line">    bundle.write(&#123;</div><div class="line">        <span class="attr">format</span>: <span class="string">'cjs'</span>,</div><div class="line">        <span class="attr">banner</span>: banner,</div><div class="line">        <span class="attr">dest</span>: <span class="string">'dist/si_log_common.js'</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>如果需要同时 输出 commonJS 规范和 UMD 规范的代码只要这样既可</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">rollup.rollup(&#123;</span><br><span class="line">    entry: <span class="string">'src/index.js'</span>,</span><br><span class="line">    plugins: [</span><br><span class="line">        npm(&#123; jsnext: <span class="literal">true</span>, main: <span class="literal">true</span> &#125;),</span><br><span class="line">        commonjs(),</span><br><span class="line">        babel(&#123;</span><br><span class="line">            exclude: <span class="string">'node_modules/**'</span>,</span><br><span class="line">            presets: [ <span class="string">"es2015-rollup"</span> ]</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">bundle</span>) </span>&#123;</span><br><span class="line">    bundle.write(&#123;</span><br><span class="line">        format: <span class="string">'cjs'</span>,</span><br><span class="line">        banner: banner,</span><br><span class="line">        dest: <span class="string">'dist/si_log_common.js'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    rollup.rollup(&#123;</span><br><span class="line">        entry: <span class="string">'src/index.js'</span>,</span><br><span class="line">        plugins: [</span><br><span class="line">            npm(&#123; jsnext: <span class="literal">true</span>, main: <span class="literal">true</span> &#125;),</span><br><span class="line">            uglify(),   <span class="comment">// 加入压缩代码</span></span><br><span class="line">            commonjs(),</span><br><span class="line">            babel(&#123;</span><br><span class="line">                exclude: <span class="string">'node_modules/**'</span>,</span><br><span class="line">                presets: [ <span class="string">"es2015-rollup"</span> ]</span><br><span class="line">            &#125;)</span><br><span class="line">        ]</span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">bundle</span>) </span>&#123;</span><br><span class="line">        bundle.write(&#123;</span><br><span class="line">            <span class="comment">// output format - 'amd', 'cjs', 'es6', 'iife', 'umd'</span></span><br><span class="line">            format: <span class="string">'umd'</span>,</span><br><span class="line">            moduleName: <span class="string">'siLog'</span>,</span><br><span class="line">            sourceMap: <span class="literal">true</span>,</span><br><span class="line">            dest: <span class="string">'si_log.js'</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">rollup.rollup(&#123;</div><div class="line">    <span class="attr">entry</span>: <span class="string">'src/index.js'</span>,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        npm(&#123; <span class="attr">jsnext</span>: <span class="literal">true</span>, <span class="attr">main</span>: <span class="literal">true</span> &#125;),</div><div class="line">        commonjs(),</div><div class="line">        babel(&#123;</div><div class="line">            <span class="attr">exclude</span>: <span class="string">'node_modules/**'</span>,</div><div class="line">            <span class="attr">presets</span>: [ <span class="string">"es2015-rollup"</span> ]</div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">bundle</span>) </span>&#123;</div><div class="line">    bundle.write(&#123;</div><div class="line">        <span class="attr">format</span>: <span class="string">'cjs'</span>,</div><div class="line">        <span class="attr">banner</span>: banner,</div><div class="line">        <span class="attr">dest</span>: <span class="string">'dist/si_log_common.js'</span></div><div class="line">    &#125;);</div><div class="line">    rollup.rollup(&#123;</div><div class="line">        <span class="attr">entry</span>: <span class="string">'src/index.js'</span>,</div><div class="line">        <span class="attr">plugins</span>: [</div><div class="line">            npm(&#123; <span class="attr">jsnext</span>: <span class="literal">true</span>, <span class="attr">main</span>: <span class="literal">true</span> &#125;),</div><div class="line">            uglify(),   <span class="comment">// 加入压缩代码</span></div><div class="line">            commonjs(),</div><div class="line">            babel(&#123;</div><div class="line">                <span class="attr">exclude</span>: <span class="string">'node_modules/**'</span>,</div><div class="line">                <span class="attr">presets</span>: [ <span class="string">"es2015-rollup"</span> ]</div><div class="line">            &#125;)</div><div class="line">        ]</div><div class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">bundle</span>) </span>&#123;</div><div class="line">        bundle.write(&#123;</div><div class="line">            <span class="comment">// output format - 'amd', 'cjs', 'es6', 'iife', 'umd'</span></div><div class="line">            format: <span class="string">'umd'</span>,</div><div class="line">            <span class="attr">moduleName</span>: <span class="string">'siLog'</span>,</div><div class="line">            <span class="attr">sourceMap</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">dest</span>: <span class="string">'si_log.js'</span></div><div class="line">        &#125;);</div><div class="line">    &#125;)</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>最后在 package.json 中 加载scripts使用:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // ...</span><br><span class="line">    "scripts": &#123;</span><br><span class="line">        // ...</span><br><span class="line">        "build": "node build/build.js"</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // ...</div><div class="line">    "scripts": &#123;</div><div class="line">        // ...</div><div class="line">        "build": "node build/build.js"</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后执行命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
 <p>这样打包的操作就结束了，rollup打包的代码提交较小，相比 webpack rollup 最后输出的代码，非常的整洁，结构清晰。</p>
 <h2 id="近期bug解决"><a href="#近期bug解决" class="headerlink" title="近期bug解决"></a>近期bug解决</h2><p>最近 <em>babel-preset-es2015-rollup</em> 这个插件可能有问题，如果打包的时候发现报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Error: It looks like your Babel configuration specifies a module transformer. Please disable it. If you&apos;re using the &quot;es2015&quot; preset, consider using &quot;es2015-rollup&quot; instead. See https://github.com/rollup/rollup-plugin-babel#configuring-babel for more information]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Error: It looks like your Babel configuration specifies a module transformer. Please disable it. If you&apos;re using the &quot;es2015&quot; preset, consider using &quot;es2015-rollup&quot; instead. See https://github.com/rollup/rollup-plugin-babel#configuring-babel for more information]</div></pre></td></tr></table></figure>
 <p>只要执行以下命令即可:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-preset-es2015@6.13.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-preset-es2015@6.13.0</div></pre></td></tr></table></figure>
 
       
 
@@ -430,15 +430,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,15 +454,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,7 +474,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,11 +490,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,31 +518,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
             
             <div class="clearfix"></div>

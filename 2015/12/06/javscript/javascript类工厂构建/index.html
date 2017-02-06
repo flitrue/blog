@@ -173,8 +173,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>下面的代码基于javascript原型继承设计，轻量，好用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> initializing = <span class="literal">false</span>,</span><br><span class="line">	fnTest = <span class="regexp">/xyz/</span>.test(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		xyz;</span><br><span class="line">	&#125;) ? <span class="regexp">/\b_super\b/</span> : <span class="regexp">/.*/</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Class = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">Class.extend = <span class="function"><span class="keyword">function</span>(<span class="params">prop</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> _super = <span class="keyword">this</span>.prototype;</span><br><span class="line">	initializing = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">var</span> prototype = <span class="keyword">new</span> <span class="keyword">this</span>();</span><br><span class="line">	initializing = <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> prop) &#123;</span><br><span class="line">		prototype[name] = <span class="keyword">typeof</span> prop[name] == <span class="string">"function"</span> &amp;&amp;</span><br><span class="line">			<span class="keyword">typeof</span> _super[name] == <span class="string">"function"</span> &amp;&amp; fnTest.test(prop[name]) ?</span><br><span class="line">			(<span class="function"><span class="keyword">function</span>(<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">					<span class="keyword">var</span> tmp = <span class="keyword">this</span>._super;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">this</span>._super = _super[name];</span><br><span class="line"></span><br><span class="line">					<span class="keyword">var</span> ret = fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">					<span class="keyword">this</span>._super = tmp;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">return</span> ret;</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;)(name, prop[name]) :</span><br><span class="line">			prop[name];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Class</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (!initializing &amp;&amp; <span class="keyword">this</span>.init)</span><br><span class="line">			<span class="keyword">this</span>.init.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	Class.prototype = prototype;</span><br><span class="line">	Class.prototype.constructor = Class;</span><br><span class="line">	Class.extend = <span class="built_in">arguments</span>.callee;</span><br><span class="line">	<span class="keyword">return</span> Class;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>使用方式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> A = Class.extend(&#123;</span><br><span class="line">    init :  <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'the class'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//B继承A</span></span><br><span class="line"><span class="keyword">var</span> B = A.extend(&#123;</span><br><span class="line">    init : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>._super();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure></p>
+        <p>下面的代码基于javascript原型继承设计，轻量，好用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">var</span> initializing = <span class="literal">false</span>,</div><div class="line">	fnTest = <span class="regexp">/xyz/</span>.test(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		xyz;</div><div class="line">	&#125;) ? <span class="regexp">/\b_super\b/</span> : <span class="regexp">/.*/</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Class = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">Class.extend = <span class="function"><span class="keyword">function</span>(<span class="params">prop</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> _super = <span class="keyword">this</span>.prototype;</div><div class="line">	initializing = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">var</span> prototype = <span class="keyword">new</span> <span class="keyword">this</span>();</div><div class="line">	initializing = <span class="literal">false</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> prop) &#123;</div><div class="line">		prototype[name] = <span class="keyword">typeof</span> prop[name] == <span class="string">"function"</span> &amp;&amp;</div><div class="line">			<span class="keyword">typeof</span> _super[name] == <span class="string">"function"</span> &amp;&amp; fnTest.test(prop[name]) ?</div><div class="line">			(<span class="function"><span class="keyword">function</span>(<span class="params">name, fn</span>) </span>&#123;</div><div class="line">				<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">var</span> tmp = <span class="keyword">this</span>._super;</div><div class="line"></div><div class="line">					<span class="keyword">this</span>._super = _super[name];</div><div class="line"></div><div class="line">					<span class="keyword">var</span> ret = fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">					<span class="keyword">this</span>._super = tmp;</div><div class="line"></div><div class="line">					<span class="keyword">return</span> ret;</div><div class="line">				&#125;;</div><div class="line">			&#125;)(name, prop[name]) :</div><div class="line">			prop[name];</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Class</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">if</span> (!initializing &amp;&amp; <span class="keyword">this</span>.init)</div><div class="line">			<span class="keyword">this</span>.init.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">	&#125;</div><div class="line">	Class.prototype = prototype;</div><div class="line">	Class.prototype.constructor = Class;</div><div class="line">	Class.extend = <span class="built_in">arguments</span>.callee;</div><div class="line">	<span class="keyword">return</span> Class;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>使用方式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> A = Class.extend(&#123;</div><div class="line">    <span class="attr">init</span> :  <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'the class'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="comment">//B继承A</span></div><div class="line"><span class="keyword">var</span> B = A.extend(&#123;</div><div class="line">    <span class="attr">init</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>._super();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">new</span> B();</div></pre></td></tr></table></figure></p>
 
       
 
@@ -412,15 +412,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -432,15 +436,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,7 +456,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,11 +472,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,31 +500,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
             
             <div class="clearfix"></div>

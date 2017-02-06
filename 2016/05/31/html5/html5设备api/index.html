@@ -184,7 +184,7 @@ ViewportViewport指的是网页的显示区域，也就是不借助滚动条的�
 <p>一般来说viewport的大小要比浏览器可视区域要大，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。下图列出了一些设备上浏览器的默认viewport的宽度。</p>
 <p><img src="http://images.cnitblog.com/blog/130623/201407/300958470402077.png" alt=""></p>
 <p>我们在开发移动端页面的时候都会去设置viewport宽度</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>上面代码指定，viewport的缩放规则是，缩放到当前设备的屏幕宽度（device-width），初始缩放比例（initial-scale）为1倍，禁止用户缩放（user-scalable）。</p>
 <blockquote>
 <ul>
@@ -198,22 +198,22 @@ ViewportViewport指的是网页的显示区域，也就是不借助滚动条的�
 </blockquote>
 <h2 id="Geolocation-API"><a href="#Geolocation-API" class="headerlink" title="Geolocation API"></a>Geolocation API</h2><p>Geolocation接口用于获取用户的地理位置。它使用的方法基于GPS或者其他机制（比如IP地址、Wifi热点、手机基站等）。</p>
 <p>getCurrentPosition方法，用来获取用户的地理位置。使用它需要得到用户的授权，浏览器会跳出一个对话框，询问用户是否许可当前页面获取他的地理位置。必须考虑两种情况的回调函数：一种是同意授权，另一种是拒绝授权。如果用户拒绝授权，会抛出一个错误。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event.coords.latitude + <span class="string">', '</span> + event.coords.longitude);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Error code "</span> + event.code + <span class="string">". "</span> + event.message);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(event.coords.latitude + <span class="string">', '</span> + event.coords.longitude);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Error code "</span> + event.code + <span class="string">". "</span> + event.message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>成功后的函数的参数是一个event对象。event有两个属性：timestamp和coords。timestamp属性是一个时间戳，返回获得位置信息的具体时间。coords属性指向一个对象，包含了用户的位置信息，主要是以下几个值：</p>
 <blockquote>
 <p>coords.latitude：纬度<br>coords.longitude：经度<br>coords.accuracy：精度<br>coords.altitude：海拔<br>coords.altitudeAccuracy：海拔精度（单位：米）<br>coords.heading：以360度表示的方向<br>coords.speed：每秒的速度（单位：米）</p>
 </blockquote>
 <h2 id="Vibration-API"><a href="#Vibration-API" class="headerlink" title="Vibration API"></a>Vibration API</h2><p>Vibration接口用于在浏览器中发出命令，使得设备振动。显然，这个API主要针对手机，适用场合是向用户发出提示或警告，游戏中尤其会大量使用。由于振动操作很耗电，在低电量时最好取消该操作。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">navigator.vibrate(<span class="number">1000</span>); <span class="comment">//震动 1s</span></span><br><span class="line"></span><br><span class="line">navigator.vibrate([<span class="number">500</span>, <span class="number">300</span>, <span class="number">100</span>]); <span class="comment">//震动 500ms 等待 300ms 再震动 100ms</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">navigator.vibrate(<span class="number">1000</span>); <span class="comment">//震动 1s</span></div><div class="line"></div><div class="line">navigator.vibrate([<span class="number">500</span>, <span class="number">300</span>, <span class="number">100</span>]); <span class="comment">//震动 500ms 等待 300ms 再震动 100ms</span></div></pre></td></tr></table></figure>
 <h2 id="Orientation"><a href="#Orientation" class="headerlink" title="Orientation"></a>Orientation</h2><p>Orientation API用于检测手机的摆放方向（竖放或横放）。</p>
 <p>一旦设备的方向发生变化，会触发deviceorientation事件，可以对该事件指定回调函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"deviceorientation"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event.alpha);</span><br><span class="line">	<span class="built_in">console</span>.log(event.beta);</span><br><span class="line">	<span class="built_in">console</span>.log(event.gamma);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"deviceorientation"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(event.alpha);</div><div class="line">	<span class="built_in">console</span>.log(event.beta);</div><div class="line">	<span class="built_in">console</span>.log(event.gamma);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>上面代码中，event事件对象有alpha、beta和gamma三个属性，它们分别对应手机摆放的三维倾角变化。要理解它们，就要理解手机的方向模型。当手机水平摆放时，使用三个轴标示它的空间位置：x轴代表横轴、y轴代表竖轴、z轴代表垂直轴。event对象的三个属性就对应这三根轴的旋转角度。</p>
 <blockquote>
 <p>alpha：表示围绕z轴的旋转，从0到360度。当设备水平摆放时，顶部指向地球的北极，alpha此时为0。<br>beta：表示围绕x轴的旋转，从-180度到180度。当设备水平摆放时，beta此时为0。<br>gramma：表示围绕y轴的选择，从-90到90度。当设备水平摆放时，gramma此时为0。</p>
 </blockquote>
 <h2 id="DeviceMotionEvent"><a href="#DeviceMotionEvent" class="headerlink" title="DeviceMotionEvent"></a>DeviceMotionEvent</h2><p>DeviceMotionEvent 用于检测设备加速度，例如， 摇一摇，重力感应等等, 下面这段代码用于监控手机晃动</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> SHAKE_THRESHOLD = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> last_update = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> x = y = z = last_x = last_y = last_z = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.DeviceMotionEvent) &#123;</span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'devicemotion'</span>, deviceMotionHandler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">'not support mobile event'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deviceMotionHandler</span>(<span class="params">eventData</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> acceleration = eventData.accelerationIncludingGravity;</span><br><span class="line">    <span class="keyword">var</span> curTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">if</span> ((curTime - last_update) &gt; <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> diffTime = curTime - last_update;</span><br><span class="line">        last_update = curTime;</span><br><span class="line">        x = acceleration.x;</span><br><span class="line">        y = acceleration.y;</span><br><span class="line">        z = acceleration.z;</span><br><span class="line">        <span class="keyword">var</span> speed = <span class="built_in">Math</span>.abs(x + y + z - last_x - last_y - last_z) / diffTime * <span class="number">10000</span>;</span><br><span class="line">        <span class="keyword">if</span> (speed &gt; SHAKE_THRESHOLD) &#123;</span><br><span class="line">            alert(<span class="string">"摇动了"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        last_x = x;</span><br><span class="line">        last_y = y;</span><br><span class="line">        last_z = z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SHAKE_THRESHOLD = <span class="number">3000</span>;</div><div class="line"><span class="keyword">var</span> last_update = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> x = y = z = last_x = last_y = last_z = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.DeviceMotionEvent) &#123;</div><div class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'devicemotion'</span>, deviceMotionHandler, <span class="literal">false</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        alert(<span class="string">'not support mobile event'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deviceMotionHandler</span>(<span class="params">eventData</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> acceleration = eventData.accelerationIncludingGravity;</div><div class="line">    <span class="keyword">var</span> curTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">    <span class="keyword">if</span> ((curTime - last_update) &gt; <span class="number">100</span>) &#123;</div><div class="line">        <span class="keyword">var</span> diffTime = curTime - last_update;</div><div class="line">        last_update = curTime;</div><div class="line">        x = acceleration.x;</div><div class="line">        y = acceleration.y;</div><div class="line">        z = acceleration.z;</div><div class="line">        <span class="keyword">var</span> speed = <span class="built_in">Math</span>.abs(x + y + z - last_x - last_y - last_z) / diffTime * <span class="number">10000</span>;</div><div class="line">        <span class="keyword">if</span> (speed &gt; SHAKE_THRESHOLD) &#123;</div><div class="line">            alert(<span class="string">"摇动了"</span>);</div><div class="line">        &#125;</div><div class="line">        last_x = x;</div><div class="line">        last_y = y;</div><div class="line">        last_z = z;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>上面代码通过判断两次手机移动的距离和时间，来判断手机手否晃动。</p>
 
       
@@ -452,15 +452,19 @@ ViewportViewport指的是网页的显示区域，也就是不借助滚动条的�
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,15 +476,7 @@ ViewportViewport指的是网页的显示区域，也就是不借助滚动条的�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,7 +496,15 @@ ViewportViewport指的是网页的显示区域，也就是不借助滚动条的�
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,11 +512,15 @@ ViewportViewport指的是网页的显示区域，也就是不借助滚动条的�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,31 +540,15 @@ ViewportViewport指的是网页的显示区域，也就是不借助滚动条的�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
             
             <div class="clearfix"></div>

@@ -178,13 +178,13 @@
 <h2 id="路由处理"><a href="#路由处理" class="headerlink" title="路由处理"></a>路由处理</h2><p>再手机端上页面切换会出现白屏，也无法做转场动画，为了坚决这些问题，我们需要开发一个单页面应用程序（ <strong>SPA</strong> ），通过解析url #后面的路径（#后面路径转换不会产生页面条件）加载不同的dom，这里也可以加上转场的动画，以获取和原生一样的用户体验。</p>
 <p><a href="https://github.com/flatiron/director" target="_blank" rel="external">director.js</a> 是最纯粹的路由注册/解析器，它在不刷新页面的情况下，利用“#”符号组织不同的URL路径，并根据不同的URL路径来匹配不同的回调方法。director.js不仅可以应用在客户端，在使用node.js的后台，它也能够实现前面说的后端路由功能。</p>
 <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>移动端的网络需要考虑流量的消耗，不必要的重复请求是很粗糙的，所以很移动端需要大量使用缓存，来获取更好的用户体验。html5提供了<strong>webstorage</strong>机制储存数据，需要加一些简单的封装就可以使用了 <a href="http://liuyy.coding.me/2016/05/01/js%E7%BC%93%E5%AD%98%E5%B0%81%E8%A3%85/" target="_blank" rel="external">js缓存封装</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(key, value);</span><br><span class="line">localStorage.getItem(key);</span><br><span class="line">localStorage.removeItem(key);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(key, value);</div><div class="line">localStorage.getItem(key);</div><div class="line">localStorage.removeItem(key);</div></pre></td></tr></table></figure>
 <h2 id="手势事件"><a href="#手势事件" class="headerlink" title="手势事件"></a>手势事件</h2><p>移动端需要监测用户不同的手势来做相应的处理，例如：微信上列表上长按显示操作菜单，滑动返回。。。。，我们可以通过监测touch事件来判断用户的手势，touch事件有以下几种：</p>
 <blockquote>
 <p>touchstart     手指接触屏幕事件<br>touchmove      手指再屏幕上移动事件<br>touchend       手指离开屏幕事件<br>touchcancel    非正常离开屏幕事件（例如在触摸时，别的应用打开，或者程序意外退出。。。）</p>
 </blockquote>
 <p>简单的手势用以上几种事件配合就可以处理了，如果手势相对复杂，可以使用 <a href="http://touch.code.baidu.com/" target="_blank" rel="external">touch.js</a>, 百度开发的手势事件库，api相当简单</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">touch.on(<span class="string">'.target'</span>, <span class="string">'swipeleft swiperight'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"you have done"</span>, ev.type);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">touch.on(<span class="string">'.target'</span>, <span class="string">'swipeleft swiperight'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"you have done"</span>, ev.type);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h2 id="滚动条"><a href="#滚动条" class="headerlink" title="滚动条"></a>滚动条</h2><p>再android4.0以前手机上是不支持div滚动条的，很多的应用都引进了 <a href="http://cubiq.org/iscroll-5" target="_blank" rel="external">iscoll.js</a>，用js模拟滚动条，再4.0 以后有了div滚动条，可以使用原生滚动。但是在长列表渲染时，div滚动条会有闪白的情况，于是，大家就都使用，iscoll和div滚动切换的方式，再较低版本例如android 4.4之前用iscoll 4.4以上用原生滚动条。</p>
 <h2 id="下拉刷新和infinite-scroll"><a href="#下拉刷新和infinite-scroll" class="headerlink" title="下拉刷新和infinite-scroll"></a>下拉刷新和infinite-scroll</h2><p>下拉刷新和无限滚动式手机端的必不可少的功能，js需要监听滚动和touch事件来实现这两个功能; <a href="http://justcoding.iteye.com/blog/2215557" target="_blank" rel="external">jQuery模拟原生态App上拉刷新下拉加载效果代码</a></p>
 <h2 id="现有框架解决方案"><a href="#现有框架解决方案" class="headerlink" title="现有框架解决方案"></a>现有框架解决方案</h2><h3 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h3><p><a href="http://www.peablog.com/project/appjs/" target="_blank" rel="external">App.js</a> 的目标是为移动webapp提供一个健壮良好的开端，处理常见的功能并且兼容其他流行的JS库。提供良好的路由控制，有controller的mvc设计，也可以良好的兼容其它的框架，缺点是组件相对较少，但是对于简单的webapp还是没有问题的</p>
@@ -438,15 +438,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,15 +462,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,7 +482,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +498,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,31 +526,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
             
             <div class="clearfix"></div>

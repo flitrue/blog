@@ -174,17 +174,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>前面的写法，再文件模块比较少的情况都不会有问题，但是再当模块比较多之后，window下还是会被挂载很多对象，而且当模块依赖过多的时候需要在’（）’，写很长的参数，于是乎，前端模块化，有了一些规范，让我们去定义模块。<br><a id="more"></a></p>
-<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD是“Asynchronous Module Definition”的缩写，意思就是”异步模块定义”，它采用异步加载模块的方法，使用require的方法先加载定义上数组中的依赖模块，全部完成后执行回调函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require([&apos;module1&apos;], function(module1)&#123;</span><br><span class="line">    module1.doSomethings();//调用模块方法</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>采用异步加载，不会使浏览器卡死。也可以定义一个模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(moduleId?, [modules]?, factory);</span><br></pre></td></tr></table></figure></p>
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD是“Asynchronous Module Definition”的缩写，意思就是”异步模块定义”，它采用异步加载模块的方法，使用require的方法先加载定义上数组中的依赖模块，全部完成后执行回调函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([&apos;module1&apos;], function(module1)&#123;</div><div class="line">    module1.doSomethings();//调用模块方法</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>采用异步加载，不会使浏览器卡死。也可以定义一个模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(moduleId?, [modules]?, factory);</div></pre></td></tr></table></figure></p>
 <p>其中</p>
 <blockquote>
 <p>moduleId 模块Id可以忽略，忽略的时候加载使用文件路径<br>modules 依赖模块,可以输模块id或是文件路径,没有可以忽略<br>factory 加载完依赖之后的回调方法，这里是模块定义的具体实现，利用return语句返回模块</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//注意依赖模块会返回对象，传入回调函数中</span><br><span class="line">define(&apos;render&apos;, [&apos;jQuery&apos;], function($)&#123;</span><br><span class="line">    //do somethings</span><br><span class="line">    return &#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//注意依赖模块会返回对象，传入回调函数中</div><div class="line">define(&apos;render&apos;, [&apos;jQuery&apos;], function($)&#123;</div><div class="line">    //do somethings</div><div class="line">    return &#123;&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>关于amd规范的实现：<a href="http://www.requirejs.cn/" target="_blank" rel="external">require.js</a></p>
-<h2 id="cmd规范"><a href="#cmd规范" class="headerlink" title="cmd规范"></a>cmd规范</h2><p>CMD（Common Module Definition）公共模块定义规范，<br>在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(factory)</span><br></pre></td></tr></table></figure></p>
-<p>define 是一个全局函数，用来定义模块。<br>factory可以是一个JSON,字符串等等…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">define(&#123;aa : <span class="string">"aa"</span>&#125;);</span><br><span class="line">define(<span class="string">'ddd'</span>);</span><br></pre></td></tr></table></figure></p>
-<p>factory 为函数时，表示是模块的构造方法。执行该构造方法，可以得到模块向外提供的接口。factory 方法在执行时，默认会传入三个参数：<em>require</em>、<em>exports</em> 和 <em>module</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> module1 = <span class="built_in">require</span>(<span class="string">'module1'</span>);</span><br><span class="line">    <span class="comment">// 正确写法</span></span><br><span class="line">    <span class="built_in">module</span>.exports = &#123;</span><br><span class="line">        foo: <span class="string">'bar'</span>,</span><br><span class="line">        doSomething: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="cmd规范"><a href="#cmd规范" class="headerlink" title="cmd规范"></a>cmd规范</h2><p>CMD（Common Module Definition）公共模块定义规范，<br>在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(factory)</div></pre></td></tr></table></figure></p>
+<p>define 是一个全局函数，用来定义模块。<br>factory可以是一个JSON,字符串等等…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">define(&#123;<span class="attr">aa</span> : <span class="string">"aa"</span>&#125;);</div><div class="line">define(<span class="string">'ddd'</span>);</div></pre></td></tr></table></figure></p>
+<p>factory 为函数时，表示是模块的构造方法。执行该构造方法，可以得到模块向外提供的接口。factory 方法在执行时，默认会传入三个参数：<em>require</em>、<em>exports</em> 和 <em>module</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> module1 = <span class="built_in">require</span>(<span class="string">'module1'</span>);</div><div class="line">    <span class="comment">// 正确写法</span></div><div class="line">    <span class="built_in">module</span>.exports = &#123;</div><div class="line">        <span class="attr">foo</span>: <span class="string">'bar'</span>,</div><div class="line">        <span class="attr">doSomething</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>require 用于加载模块依赖；<br>exports 导出对象，等同于module.exports;<br>module 模块对象，用于使用module.exports导出对象;</p>
 </blockquote>
@@ -193,19 +193,19 @@
 <blockquote>
 <p>1.按需加载, amd将依赖前置到模块定义时，也就是有些模块尚未使用到就加载了，暂用内存，不合理.<br>2.CMD推崇依赖就近，AMD推崇依赖前置。当依赖模块过多时，回调函数如会有很长一条参数对象.</p>
 </blockquote>
-<h2 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h2><p>CommonJs 是服务器端模块的规范，Node.js采用了这个规范。<br>根据CommonJS规范，一个单独的文件就是一个模块。加载模块使用require方法，该方法读取一个文件并执行，最后返回文件内部的exports对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var test=&quot;a&quot;;//私有变量</span><br><span class="line">var $ = require(&apos;jQuery&apos;);//拉取文件依赖</span><br><span class="line">exports.aa = function ()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">exports.bb =  function()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//也可以这么写</span><br><span class="line">module.exports = &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h2><p>CommonJs 是服务器端模块的规范，Node.js采用了这个规范。<br>根据CommonJS规范，一个单独的文件就是一个模块。加载模块使用require方法，该方法读取一个文件并执行，最后返回文件内部的exports对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var test=&quot;a&quot;;//私有变量</div><div class="line">var $ = require(&apos;jQuery&apos;);//拉取文件依赖</div><div class="line">exports.aa = function ()&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">exports.bb =  function()&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">//也可以这么写</div><div class="line">module.exports = &#123;&#125;</div></pre></td></tr></table></figure></p>
 <p>CommonJS 加载模块是同步的，所以只有加载完成才能执行后面的操作。像Node.js主要用于服务器的编程，加载的模块文件一般都已经存在本地硬盘，所以加载起来比较快，不用考虑异步加载的方式，所以CommonJS规范比较适用。但如果是浏览器环境，要从服务器加载模块，这是就必须采用异步模式。所以就有了 AMD  CMD 解决方案。<br>现在利用一些前端打包工具，我们也可以是使用标准的额common.js规范编码了，<a href="http://browserify.org/" target="_blank" rel="external">browserify</a>,<a href="http://webpack.github.io/" target="_blank" rel="external">webpack</a>;</p>
-<h2 id="umd"><a href="#umd" class="headerlink" title="umd"></a>umd</h2><p>我们编写一个模块，并不知道它要在哪种规范下使用，于是，需要一种编写方式能同事兼容Amd和CommonJs模块化实现，这就是umd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(function (window, factory) &#123;</span><br><span class="line">    if (typeof exports === &apos;object&apos;) &#123;</span><br><span class="line">        module.exports = factory();</span><br><span class="line">    &#125; else if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</span><br><span class="line">        define(factory);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        window.module1 = factory();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(this, function () &#123;</span><br><span class="line">    //module ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="umd"><a href="#umd" class="headerlink" title="umd"></a>umd</h2><p>我们编写一个模块，并不知道它要在哪种规范下使用，于是，需要一种编写方式能同事兼容Amd和CommonJs模块化实现，这就是umd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(function (window, factory) &#123;</div><div class="line">    if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">        module.exports = factory();</div><div class="line">    &#125; else if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        define(factory);</div><div class="line">    &#125; else &#123;</div><div class="line">        window.module1 = factory();</div><div class="line">    &#125;</div><div class="line">&#125;)(this, function () &#123;</div><div class="line">    //module ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>UMD先判断是否支持Node.js的模块（exports）是否存在，存在则使用Node.js模块模式。<br>在判断是否支持AMD（define是否存在），存在则使用AMD方式加载模块。<br>如果都不存在模块化实现那么就放在window对象下。</p>
 <h2 id="ES6模块化"><a href="#ES6模块化" class="headerlink" title="ES6模块化"></a>ES6模块化</h2><p>历史上，JavaScript一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如Ruby的require、Python的import，甚至就连CSS都有@import，但是JavaScript任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。</p>
 <p>在ES6之前，社区制定了一些模块加载方案，最主要的有CommonJS和AMD两种。前者用于服务器，后者用于浏览器。ES6在语言规格的层面上，实现了模块功能，而且实现得相当简单，完全可以取代现有的CommonJS和AMD规范，成为浏览器和服务器通用的模块解决方案。</p>
-<p>ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。<br>ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6模块</span></span><br><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。<br>ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ES6模块</span></div><div class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</div></pre></td></tr></table></figure></p>
 <p>上面代码的实质是从fs模块加载3个方法，其他方法不加载。这种加载称为“编译时加载”，即ES6可以在编译时就完成模块加载，效率要比CommonJS模块的加载方式高。当然，这也导致了没法引用ES6模块本身，因为它不是对象。</p>
 <h3 id="export命令"><a href="#export命令" class="headerlink" title="export命令"></a>export命令</h3><p>模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。</p>
-<p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个JS文件，里面使用export命令输出变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export var name1 = &apos;Michael&apos;;</span><br><span class="line">export var name2 = &apos;Jackson&apos;;</span><br><span class="line">export var name3 = 1958;</span><br></pre></td></tr></table></figure></p>
-<h3 id="import命令"><a href="#import命令" class="headerlink" title="import命令"></a>import命令</h3><p>使用export命令定义了模块的对外接口以后，其他JS文件就可以通过import命令加载这个模块（文件）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">import ajax from &apos;../ajax.js&apos;</span><br></pre></td></tr></table></figure></p>
-<h3 id="export-default命令"><a href="#export-default命令" class="headerlink" title="export default命令"></a>export default命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// export-default.js</span><br><span class="line">export default function () &#123;</span><br><span class="line">  console.log(&apos;foo&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面代码是一个模块文件export-default.js，它的默认输出是一个函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// import-default.js</span><br><span class="line">import customName from &apos;./export-default&apos;;</span><br><span class="line">customName(); // &apos;foo&apos;</span><br></pre></td></tr></table></figure></p>
+<p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个JS文件，里面使用export命令输出变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export var name1 = &apos;Michael&apos;;</div><div class="line">export var name2 = &apos;Jackson&apos;;</div><div class="line">export var name3 = 1958;</div></pre></td></tr></table></figure></p>
+<h3 id="import命令"><a href="#import命令" class="headerlink" title="import命令"></a>import命令</h3><p>使用export命令定义了模块的对外接口以后，其他JS文件就可以通过import命令加载这个模块（文件）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">import ajax from &apos;../ajax.js&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="export-default命令"><a href="#export-default命令" class="headerlink" title="export default命令"></a>export default命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// export-default.js</div><div class="line">export default function () &#123;</div><div class="line">  console.log(&apos;foo&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码是一个模块文件export-default.js，它的默认输出是一个函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// import-default.js</div><div class="line">import customName from &apos;./export-default&apos;;</div><div class="line">customName(); // &apos;foo&apos;</div></pre></td></tr></table></figure></p>
 <p>其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。<br>Es6中已经提供了比较完善的模块化方案，但是目前兼容不太好，只能通过babel转码成es5代码再通过webpack打包.<br>ES6模块化这部门讲的比较粗糙，如果感兴趣可以看下阮一峰大大的教程<br><a href="http://es6.ruanyifeng.com/#docs/module" target="_blank" rel="external">ECMAScript6入门-Module</a></p>
 
       
@@ -444,15 +444,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,15 +468,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,7 +488,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,11 +504,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,31 +532,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
             
             <div class="clearfix"></div>

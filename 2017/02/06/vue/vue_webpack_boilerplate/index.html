@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://myronliu.com">
-  <title>javascript数据驱动页面 | Myron Blog</title>
+  <title>Vue webpack boilerplate 的一些捣腾 | Myron Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。">
+  <meta name="description" content="最近在公司内部推 Vuejs，vue-cli webpack 生成的项目无法满足现有的需求，于是乎开始 vue-cli 初始化的项目, 主要解决项目多页面和外部引入样式文件没有 autoprefixer 的问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript数据驱动页面">
-<meta property="og:url" content="http://myronliu.com/2016/03/29/javscript/javascript数据驱动页面/index.html">
+<meta property="og:title" content="Vue webpack boilerplate 的一些捣腾">
+<meta property="og:url" content="http://myronliu.com/2017/02/06/vue/vue_webpack_boilerplate/index.html">
 <meta property="og:site_name" content="Myron Blog">
-<meta property="og:description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020108.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
-<meta property="og:updated_time" content="2016-04-02T10:15:52.000Z">
+<meta property="og:description" content="最近在公司内部推 Vuejs，vue-cli webpack 生成的项目无法满足现有的需求，于是乎开始 vue-cli 初始化的项目, 主要解决项目多页面和外部引入样式文件没有 autoprefixer 的问题。">
+<meta property="og:updated_time" content="2017-02-06T08:48:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript数据驱动页面">
-<meta name="twitter:description" content="2005 Ajax 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 spring 的分层的思想，将业务逻辑和ui逻辑分开。">
-<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta name="twitter:title" content="Vue webpack boilerplate 的一些捣腾">
+<meta name="twitter:description" content="最近在公司内部推 Vuejs，vue-cli webpack 生成的项目无法满足现有的需求，于是乎开始 vue-cli 初始化的项目, 主要解决项目多页面和外部引入样式文件没有 autoprefixer 的问题。">
   
     <link rel="alternative" href="/atom.xml" title="Myron Blog" type="application/atom+xml">
   
@@ -158,47 +153,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javscript/javascript数据驱动页面" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue/vue_webpack_boilerplate" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      javascript数据驱动页面
+      Vue webpack boilerplate 的一些捣腾
     </h1>
   
 
         
-        <a href="/2016/03/29/javscript/javascript数据驱动页面/" class="archive-article-date">
-  	<time datetime="2016-03-29T07:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
+        <a href="/2017/02/06/vue/vue_webpack_boilerplate/" class="archive-article-date">
+  	<time datetime="2017-02-05T18:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>2005 <em>Ajax</em> 提出，web2.0的时代到来，web开发开始越来越注重与用户交互，于是乎，越来越多的后端逻辑迁移到前端实现，javascript代码量大大提升，但是，大量的业务逻辑也ui逻辑混在一起，导致程序臃肿，代码难以维护。于是开始有了，一些类似 <em>spring</em> 的分层的思想，将业务逻辑和ui逻辑分开。<br><a id="more"></a></p>
-<h2 id="MVC-backbone-）"><a href="#MVC-backbone-）" class="headerlink" title="MVC( backbone ）"></a>MVC( <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> ）</h2><p>MVC是一个架构设计模式，它通过分离关注点的方式来支持改进应用组织方式。它促成了业务数据(Model)从用户界面(View)中分离出来，还有第三个组成部分(Controller)负责管理传统意义上的业务逻辑和用户输入。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
-<blockquote>
-<p>Model 数据模型一般以json对象的形式展现<br>View表示表现层，也就是用户界面，对于网页来说，就是用户看到的网页HTML代码。<br>Controller 表示控制层，用来对原始数据（Model）进行加工，传送到View。</p>
-</blockquote>
-<p>mvc结构中 view是根据 <em>模板</em> + <em>数据（Model）</em> 生成的一段html代码，当我们的用户进行点击按钮或者输入等等操作的时候，就会产生一个动作（ <em>action</em> ）view会把 <em>action</em> 传递给controller，controller中进行逻辑处理对原始model进行修改，view监控到model的改变之后，通过模板和新的数据重新渲染页面。</p>
-<p>在项目中往往采用更加灵活的方式，以 <a href="https://github.com/jashkenas/backbone" target="_blank" rel="external">backbone</a> 为例：</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020108.png" alt=""></p>
-<p>用户可以向 <em>View</em> 发送指令（<em>DOM</em> 事件），再由 <em>View</em> 直接要求 <em>Model</em> 改变状态</p>
-<p>用户也可以直接向 <em>Controller</em> 发送指令（改变 <em>URL</em> 触发 <em>hashChange</em> 事件），再由 <em>Controller</em> 发送给 <em>View</em>。</p>
-<p><em>Controller</em> 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 <em>View</em>。所以，<em>Backbone</em> 索性取消了 <em>Controller</em>，只保留一个 <em>Router（路由器）</em> 。</p>
-<h2 id="MVP（React）"><a href="#MVP（React）" class="headerlink" title="MVP（React）"></a>MVP（<a href="http://reactjs.cn/" target="_blank" rel="external">React</a>）</h2><p><strong>MVP</strong> 是基于 <strong>MVC</strong> 模式一种演变， P代表的是 Presenter（展示器），其模式如下图所示：</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
-<p>我们可以看到 view和model是通过展示器做联系，当view中发生了动作（Dom事件)会先传递给展示器，由展示进行逻辑处理，改变model，同时展示其还监控了model的变化，当model发生改变的时候展示其会做相应的逻辑处理并重新渲染页面。</p>
-<p>这种做法 <strong>View</strong> 非常薄，不部署任何业务逻辑，称为”被动视图”（ <strong>Passive View</strong> ），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</p>
-<p>实际使用中以 <strong>react</strong> 为例:<br>在react中 以 <strong>virtual dom</strong> 就是展示器，而组件的状态 就是model, 当页面上产生事件的时候，会先传递到 <strong>virtual dom</strong> dom触发组件中的事件，组件中进行逻辑处理，改变调用 <strong>setState</strong> 方法改变状态， 组件会重新监控状态改变，调用 <strong>render</strong> 方法产生新的 <strong>virtual dom</strong>，再通过 <strong>virtual dom</strong> 的对比，得出哪些节点发生改变，然后更新改变的节点的真实dom;</p>
-<h2 id="MVVM-angular-angular2-vue"><a href="#MVVM-angular-angular2-vue" class="headerlink" title="MVVM( angular angular2 vue)"></a>MVVM( <a href="http://www.ngnice.com/" target="_blank" rel="external">angular</a> <a href="https://angular.io/" target="_blank" rel="external">angular2</a> <a href="http://cn.vuejs.org/" target="_blank" rel="external">vue</a>)</h2><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定（data-binding）; viewModel会观察 model的变化，当model发生改变的时候，viewModel会改变绑定了这个 model 的dom，同时 viewModel也会监控view的变化，当view发生改变的时候，其绑定的model也会发生改变</p>
-<p>angular,vue等框架都是基于mvvm模式的一种实现</p>
+        <p>最近在公司内部推 <code>Vuejs</code>，<code>vue-cli</code> webpack 生成的项目无法满足现有的需求，于是乎开始 <code>vue-cli</code> 初始化的项目, 主要解决项目多页面和外部引入样式文件没有 autoprefixer 的问题。</p>
+<a id="more"></a>
+<h2 id="多页面改造"><a href="#多页面改造" class="headerlink" title="多页面改造"></a>多页面改造</h2><p>vue webpack 模板默认是 SPA 项目，改成多页面则需要把单入口变为多入口，生成多个html文件。</p>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><pre>
+|—— src
+  |—— assets
+  |—— components      // 多个页面间的公共组件
+  |—— pages 
+    |—— hello
+      |—— hello.vue   // 页面主vue文件,和文件夹一致方便搜索
+      |—— index.html  // html模板文件
+      |—— main.js     // 入口文件
+</pre>
+
+<p><strong>pages</strong> 文件夹下每个页面都新建一个文件夹，固定三个文件 <code>index.html</code> 、 <code>main.js</code> 、 <code>page.vue</code> ， 后续会有代码来识别产生多入口</p>
+<h3 id="构建代码修改"><a href="#构建代码修改" class="headerlink" title="构建代码修改"></a>构建代码修改</h3><p>构建逻辑部分需要自定识别 <strong>pages</strong> 下的文件夹，生成多个 <code>entry</code> 。</p>
+<p>首先，增加一个 <code>page.js</code> 初始化所有的页面信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// page.js</span></div><div class="line"><span class="keyword">var</span> glob = <span class="built_in">require</span>(<span class="string">'glob'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">var</span> chalk = <span class="built_in">require</span>(<span class="string">'chalk'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> ENTRY = <span class="string">'main.js'</span>;</div><div class="line"><span class="keyword">var</span> PAGE_FLODER = path.resolve(__dirname, <span class="string">'../src/pages/'</span>);</div><div class="line"><span class="keyword">var</span> PAGES = PAGE_FLODER + <span class="string">'/**/'</span> + ENTRY;</div><div class="line"><span class="keyword">var</span> TEMPLATE = <span class="string">'index.html'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">initPages</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> pages = &#123;&#125;;</div><div class="line">    glob.sync(PAGES).forEach(<span class="function"><span class="keyword">function</span> (<span class="params">entry</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> pageName = getPageName(entry);</div><div class="line">        <span class="keyword">var</span> templatePath = getTemplatePath(entry);</div><div class="line">        <span class="keyword">if</span> (!fs.existsSync(templatePath)) &#123;</div><div class="line">            <span class="built_in">console</span>.log(chalk.yellow(pageName + <span class="string">'找不到模板文件'</span>));</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        pages[pageName] = &#123;</div><div class="line">            <span class="attr">name</span>: pageName,</div><div class="line">            <span class="attr">entry</span>: entry,</div><div class="line">            <span class="attr">template</span>: templatePath</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> pages;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPageName</span>(<span class="params">filePath</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> filePath.substring(PAGE_FLODER.length + <span class="number">1</span>, filePath.indexOf(ENTRY) - <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTemplatePath</span>(<span class="params">filePath</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> templatePath = filePath.substring(<span class="number">0</span>, filePath.indexOf(ENTRY));</div><div class="line">    templatePath += TEMPLATE;</div><div class="line">    <span class="keyword">return</span> templatePath;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = initPages();</div></pre></td></tr></table></figure>
+<p>然后 修改 <code>config/index.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// see http://vuejs-templates.github.io/webpack for documentation.</span></div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> PACKAGE = process.argv[<span class="number">2</span>] || <span class="string">'lark'</span>;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">pages</span>: <span class="built_in">require</span>(<span class="string">'./page'</span>),   <span class="comment">// 增加page的配置</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>接下，<code>utils.js</code> 增加两个函数用来生成多个 <code>entry</code> 和 <code>HtmlWebpackPlugin</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// utils.js</span></div><div class="line"><span class="comment">//...</span></div><div class="line">exports.getEntry = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> entry = &#123;&#125;;</div><div class="line">    <span class="built_in">Object</span>.keys(config.pages).forEach(<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</div><div class="line">        entry[name] = config.pages[name].entry;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> entry;</div><div class="line">&#125;</div><div class="line"></div><div class="line">exports.getHtmlPlugin = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> assetsSubDirectory = process.env.NODE_ENV === <span class="string">'production'</span> ?</div><div class="line">        config.build.assetsSubDirectory :</div><div class="line">        config.dev.assetsSubDirectory;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.keys(config.pages).map(<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HtmlWebpackPlugin (&#123;</div><div class="line">            <span class="attr">template</span>: config.pages[name].template,</div><div class="line">            <span class="attr">filename</span>: name + <span class="string">'.html'</span>,</div><div class="line">            <span class="attr">inject</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">chunks</span>: [<span class="string">'vendor'</span>, <span class="string">'manifest'</span>, name],</div><div class="line">            <span class="attr">minify</span>: env === <span class="string">'production'</span> ? &#123;</div><div class="line">              <span class="attr">removeComments</span>: <span class="literal">true</span>,</div><div class="line">              <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>,</div><div class="line">              <span class="attr">removeAttributeQuotes</span>: <span class="literal">true</span></div><div class="line">              <span class="comment">// more options:</span></div><div class="line">              <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></div><div class="line">            &#125; : <span class="literal">undefined</span>,</div><div class="line">            <span class="comment">// necessary to consistently work with multiple chunks via CommonsChunkPlugin</span></div><div class="line">            chunksSortMode: env === <span class="string">'production'</span> ? <span class="string">'dependency'</span> : <span class="literal">undefined</span></div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后改动 <code>webpack.base.conf.js</code> 、 <code>webpack.dev.conf.js</code> 和 <code>webpack.prod.conf.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.base.conf.js</span></div><div class="line"><span class="comment">// ...</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: utils.getEntry() <span class="comment">// 多入口配置</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.dev.conf.js</span></div><div class="line"><span class="comment">// ...</span></div><div class="line"><span class="built_in">module</span>.exports = merge(baseWebpackConfig, &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">            <span class="string">'process.env'</span>: config.dev.env</div><div class="line">        &#125;),</div><div class="line">        <span class="comment">// https://github.com/glenjamin/webpack-hot-middleware#installation--usage</span></div><div class="line">        <span class="keyword">new</span> webpack.optimize.OccurrenceOrderPlugin(),</div><div class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</div><div class="line">        <span class="keyword">new</span> webpack.NoErrorsPlugin()</div><div class="line">    ].concat(utils.getHtmlPlugin()),  <span class="comment">// 加入生成的多页面 HtmlWebpackPlugin</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.prod.conf.js</span></div><div class="line"><span class="comment">//...</span></div><div class="line">webpackConfig.plugins = webpackConfig.plugins.concat(utils.getHtmlPlugin()); <span class="comment">// 加上这行代码</span></div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure>
+<p>ok，大功告成， 这样一来就变为多页面项目了。</p>
+<h2 id="js内引入css没有-autoprefixer"><a href="#js内引入css没有-autoprefixer" class="headerlink" title="js内引入css没有 autoprefixer"></a>js内引入css没有 autoprefixer</h2><p><code>.vue</code> 文件写的样式都会经过 <code>postcss</code> 处理，但是项目中重构和js需要分开工作，所以需要将css文件独立出去，再在入口文件中引入，这是发现没有样式没有进过 <code>postcss</code> 处理.</p>
+<p>这里需要在样式加载时使用 <code>postcss-loader</code> 处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install postcss-loader --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// utils.js</span></div><div class="line">exports.cssLoaders = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">css</span>: generateLoaders([<span class="string">'css'</span>, <span class="string">'postcss'</span>]),</div><div class="line">        <span class="attr">postcss</span>: generateLoaders([<span class="string">'css'</span>, <span class="string">'postcss'</span>]),</div><div class="line">        <span class="attr">less</span>: generateLoaders([<span class="string">'css'</span>, <span class="string">'postcss'</span>, <span class="string">'less'</span>]),</div><div class="line">        <span class="attr">sass</span>: generateLoaders([<span class="string">'css'</span>, <span class="string">'postcss'</span>, <span class="string">'sass?indentedSyntax'</span>]),</div><div class="line">        <span class="attr">scss</span>: generateLoaders([<span class="string">'css'</span>, <span class="string">'postcss'</span>, <span class="string">'sass'</span>]),</div><div class="line">        <span class="attr">stylus</span>: generateLoaders([<span class="string">'css'</span>, <span class="string">'postcss'</span>, <span class="string">'stylus'</span>]),</div><div class="line">        <span class="attr">styl</span>: generateLoaders([<span class="string">'css'</span>, <span class="string">'postcss'</span>, <span class="string">'stylus'</span>])</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.base.conf.js</span></div><div class="line"><span class="keyword">var</span> postcssConfig = [</div><div class="line">    <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)(&#123;</div><div class="line">        <span class="attr">browsers</span>: [<span class="string">'last 5 versions'</span>, <span class="string">'android &gt;= 4.2'</span>, <span class="string">'ios &gt;= 7'</span>]</div><div class="line">    &#125;)</div><div class="line">];</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    postcss: postcssConfig, <span class="comment">// 增加postcss配置</span></div><div class="line">    vue: &#123;</div><div class="line">        <span class="attr">loaders</span>: utils.cssLoaders(&#123;</div><div class="line">            <span class="attr">sourceMap</span>: useCssSourceMap</div><div class="line">        &#125;),</div><div class="line">        <span class="attr">postcss</span>: postcssConfig</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>最近又发现 <code>vue webpack</code> 模板又升级到了 <code>webpack 2.2</code> 马上准备入一波坑了。</p>
 
       
 
@@ -233,7 +240,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -289,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://myronliu.com/2016/03/29/javscript/javascript数据驱动页面/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://myronliu.com/2017/02/06/vue/vue_webpack_boilerplate/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +310,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/03/30/javscript/javascript作用域和闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/06/vue/2017-02-06/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          javascript作用域与闭包
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2016/03/24/hexo-coding搭建自己的博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo+coding搭建自己的博客</div>
+    <a href="/2017/01/31/vue/vue_mixins_directive/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于 Vue Mixin 和 Directive 的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -328,7 +335,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="javscript/javascript数据驱动页面" data-title="javascript数据驱动页面" data-url="http://myronliu.com/2016/03/29/javscript/javascript数据驱动页面/"></div>
+	<div class="ds-thread" data-thread-key="vue/vue_webpack_boilerplate" data-title="Vue webpack boilerplate 的一些捣腾" data-url="http://myronliu.com/2017/02/06/vue/vue_webpack_boilerplate/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

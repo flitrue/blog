@@ -180,17 +180,17 @@
 <p>最近在npm上发布了两个包 <a href="https://www.npmjs.com/package/si-log" target="_blank" rel="external">si-log</a>, <a href="https://www.npmjs.com/package/si-store" target="_blank" rel="external">si-store</a></p>
 <a id="more"></a>
 <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>要发布自己的包，需要有 package.json 文件(现在的项目应该都有了吧), 如果没有需要在项目目录下执行 <code>npm init</code> ，初始化完成后，会看到 package.json 文件内容像这样</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;si-store&quot;,                      // 包的名称</span><br><span class="line">  &quot;version&quot;: &quot;0.1.1&quot;,                      // 版本</span><br><span class="line">  &quot;description&quot;: &quot;基于Web Storage的缓存库&quot;,  // 介绍</span><br><span class="line">  &quot;main&quot;: &quot;dist/si-store-common.js&quot;,       // 入口文件</span><br><span class="line">  // 代码托管信息 (目前是在github下)</span><br><span class="line">  &quot;repository&quot;: &#123;</span><br><span class="line">    &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;git+https://github.com/aa953788477/store.js.git&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  // 关键字， 便于搜索</span><br><span class="line">  &quot;keywords&quot;: [</span><br><span class="line">    &quot;store&quot;</span><br><span class="line">  ],</span><br><span class="line">  // 作者 </span><br><span class="line">  &quot;author&quot;: &quot;Myron Liu&quot;,</span><br><span class="line">  //开源协议</span><br><span class="line">  &quot;license&quot;: &quot;MIT&quot;,</span><br><span class="line">  // 提bug的页面 默认是github 的 issues</span><br><span class="line">  &quot;bugs&quot;: &#123;</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/aa953788477/store.js/issues&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  // 主页</span><br><span class="line">  &quot;homepage&quot;: &quot;https://github.com/aa953788477/store.js#readme&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;si-store&quot;,                      // 包的名称</div><div class="line">  &quot;version&quot;: &quot;0.1.1&quot;,                      // 版本</div><div class="line">  &quot;description&quot;: &quot;基于Web Storage的缓存库&quot;,  // 介绍</div><div class="line">  &quot;main&quot;: &quot;dist/si-store-common.js&quot;,       // 入口文件</div><div class="line">  // 代码托管信息 (目前是在github下)</div><div class="line">  &quot;repository&quot;: &#123;</div><div class="line">    &quot;type&quot;: &quot;git&quot;,</div><div class="line">    &quot;url&quot;: &quot;git+https://github.com/aa953788477/store.js.git&quot;</div><div class="line">  &#125;,</div><div class="line">  // 关键字， 便于搜索</div><div class="line">  &quot;keywords&quot;: [</div><div class="line">    &quot;store&quot;</div><div class="line">  ],</div><div class="line">  // 作者 </div><div class="line">  &quot;author&quot;: &quot;Myron Liu&quot;,</div><div class="line">  //开源协议</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;,</div><div class="line">  // 提bug的页面 默认是github 的 issues</div><div class="line">  &quot;bugs&quot;: &#123;</div><div class="line">    &quot;url&quot;: &quot;https://github.com/aa953788477/store.js/issues&quot;</div><div class="line">  &#125;,</div><div class="line">  // 主页</div><div class="line">  &quot;homepage&quot;: &quot;https://github.com/aa953788477/store.js#readme&quot;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="采用模块化方式编码"><a href="#采用模块化方式编码" class="headerlink" title="采用模块化方式编码"></a>采用模块化方式编码</h2><p>node 包使用遵循模块化方案(commonJS), 如果使用到了babel转码，也可以使用es6的语法发布</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// si-store/index.js</span></span><br><span class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'./Store'</span></span><br><span class="line"><span class="keyword">import</span> &#123;register&#125; <span class="keyword">from</span> <span class="string">'./storage/index.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> store = <span class="keyword">new</span> Store()</span><br><span class="line"></span><br><span class="line">store.version = <span class="string">'0.1.1'</span></span><br><span class="line">store.create = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Store(options)</span><br><span class="line">&#125;</span><br><span class="line">store.register = register</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// si-store/index.js</span></div><div class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'./Store'</span></div><div class="line"><span class="keyword">import</span> &#123;register&#125; <span class="keyword">from</span> <span class="string">'./storage/index.js'</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> store = <span class="keyword">new</span> Store()</div><div class="line"></div><div class="line">store.version = <span class="string">'0.1.1'</span></div><div class="line">store.create = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Store(options)</div><div class="line">&#125;</div><div class="line">store.register = register</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</div></pre></td></tr></table></figure>
 <h2 id="编写-README-md"><a href="#编写-README-md" class="headerlink" title="编写 README.md"></a>编写 README.md</h2><p>readme 是介绍你的包，需要介绍你的包解决了那些问题，最基本的使用方式是怎么样的，有那些api,像这样</p>
 <p> si-store</p>
 <p>一个基于 Web Storage 的存储库，提供简单的api操作，可以设置缓存时间</p>
 <p> 安装</p>
 <p>用 npm 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install si-store --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install si-store --save</div></pre></td></tr></table></figure>
 <p>直接在 <code>script</code> 标签中导入，先要在github 上下载代码,然后：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"si-store.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"si-store.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <p> 开始使用</p>
 <p>…..</p>
 <p>API</p>
@@ -200,12 +200,12 @@
 <p> Copyright (c) 2016 myron</p>
 <p>README.md 文件要把你的包使用方法写清楚，这样可以增加你项目的star哦.</p>
 <h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><h3 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h3><p>把代码全部提交到github上，然后生成tag, 使用tag做版本管理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push </span><br><span class="line">git tag 0.1.0 </span><br><span class="line">git push --tag</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git push </div><div class="line">git tag 0.1.0 </div><div class="line">git push --tag</div></pre></td></tr></table></figure>
 <h3 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h3><p>然后执行 publish 命令即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure>
 <p>这样我们的包就发布完成了，可以上 <a href="https://www.npmjs.com/" target="_blank" rel="external">NPM 官网</a> 上搜索下自己包是否存在， </p>
 <h2 id="后续更新"><a href="#后续更新" class="headerlink" title="后续更新"></a>后续更新</h2><p>当修复了bug，或者增加了一些新的功能后需要重新发布这个包，首先，修改 package.json 中version,然后生成新的 tag 发布.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag 0.1.1</span><br><span class="line">git push --tag</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git tag 0.1.1</div><div class="line">git push --tag</div><div class="line">npm publish</div></pre></td></tr></table></figure>
 <p>最好新建一个CHANGELOG.md 文件，记录下版本更新了那些东西。</p>
 
       
@@ -448,15 +448,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,15 +472,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,7 +492,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,11 +508,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,31 +536,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
             
             <div class="clearfix"></div>

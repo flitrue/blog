@@ -174,15 +174,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>随着web开发逐渐演变成web application之后，尤其是在web2.0依赖页面上的javascript脚本逐渐变多，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者需要分模块，来管理前端代码开发。<br><a id="more"></a></p>
-<h2 id="原始写法"><a href="#原始写法" class="headerlink" title="原始写法"></a>原始写法</h2><p>模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> state = <span class="string">''</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">method1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do somethings</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mehtod2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do somthings</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面吧state和方法放在一起组成一个模块，要使用的是否，直接调用方法即可。但是这种做法缺点也很明显，吧，变量和方法都放在了全局变量里，造成了全局污染，一但模块数量变多，后面相同名称方法或是变量就会覆盖之前的，产生一些奇怪的bug.<br>为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> module1 = &#123;</span><br><span class="line">    state : <span class="string">''</span>,</span><br><span class="line">    method1 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mehtod2 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种写法将方法和变量都封装到了module1里，调用的时候直接 <strong>对象.方法名</strong> 就可以了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module1.mehtod1();</span><br></pre></td></tr></table></figure></p>
+<h2 id="原始写法"><a href="#原始写法" class="headerlink" title="原始写法"></a>原始写法</h2><p>模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> state = <span class="string">''</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">method1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//do somethings</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mehtod2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//do somthings</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面吧state和方法放在一起组成一个模块，要使用的是否，直接调用方法即可。但是这种做法缺点也很明显，吧，变量和方法都放在了全局变量里，造成了全局污染，一但模块数量变多，后面相同名称方法或是变量就会覆盖之前的，产生一些奇怪的bug.<br>为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1 = &#123;</div><div class="line">    <span class="attr">state</span> : <span class="string">''</span>,</div><div class="line">    <span class="attr">method1</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//do somethings</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">mehtod2</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//do somethings</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这种写法将方法和变量都封装到了module1里，调用的时候直接 <strong>对象.方法名</strong> 就可以了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module1.mehtod1();</div></pre></td></tr></table></figure></p>
 <p>但是，这样的写法会暴露所有模块成员，内部变量可以被外部改写。比如，外部的代码可以直接修改state的值。</p>
-<h2 id="用面向对象构造函数，封装私有对象"><a href="#用面向对象构造函数，封装私有对象" class="headerlink" title="用面向对象构造函数，封装私有对象"></a>用面向对象构造函数，封装私有对象</h2><p>利用构造函数的特性，封装私有对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ModuleClass</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hello = <span class="string">'hello world'</span>;</span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(hello);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = <span class="keyword">new</span> ModuleClass();</span><br><span class="line"><span class="built_in">module</span>.sayHello();</span><br></pre></td></tr></table></figure></p>
-<p>这样私有变量在外部就不会被访问到，这种把函数直接写在写在构造函数内部的做法，每次实例化的时候都会创建这个函数，非常耗费内存。<br>利用prototype(原型)改写上面的程序如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ModuleClass</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.hello = <span class="string">'hello world'</span>;</span><br><span class="line">&#125;</span><br><span class="line">ModuleClass.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.hello);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="用面向对象构造函数，封装私有对象"><a href="#用面向对象构造函数，封装私有对象" class="headerlink" title="用面向对象构造函数，封装私有对象"></a>用面向对象构造函数，封装私有对象</h2><p>利用构造函数的特性，封装私有对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ModuleClass</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> hello = <span class="string">'hello world'</span>;</div><div class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(hello);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> <span class="built_in">module</span> = <span class="keyword">new</span> ModuleClass();</div><div class="line"><span class="built_in">module</span>.sayHello();</div></pre></td></tr></table></figure></p>
+<p>这样私有变量在外部就不会被访问到，这种把函数直接写在写在构造函数内部的做法，每次实例化的时候都会创建这个函数，非常耗费内存。<br>利用prototype(原型)改写上面的程序如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ModuleClass</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.hello = <span class="string">'hello world'</span>;</div><div class="line">&#125;</div><div class="line">ModuleClass.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.hello);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>改写之后，将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写。</p>
-<h2 id="利用立即执行函数写法写模块"><a href="#利用立即执行函数写法写模块" class="headerlink" title="利用立即执行函数写法写模块"></a>利用立即执行函数写法写模块</h2><p>使用”立即执行函数”（Immediately-Invoked Function Expression，IIFE），将相关的属性和方法封装在一个函数作用域里面，可以达到不暴露私有成员的目的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hello = <span class="string">'hello world'</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        sayHello : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(hello);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>这样一来，外部就无法访问到私有的hello变量了。<br>更多的时候我们模块需要一来另一些模块或者全局变量，返回的时候挂载再全局变量上<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, $</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hello = <span class="string">'hello world'</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f3</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do somethings</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//这里也可以对引入对象进行扩展</span></span><br><span class="line">    $.fn.test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.module1 = &#123;</span><br><span class="line">        sayHello : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(hello);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>, jQuery);</span><br></pre></td></tr></table></figure></p>
+<h2 id="利用立即执行函数写法写模块"><a href="#利用立即执行函数写法写模块" class="headerlink" title="利用立即执行函数写法写模块"></a>利用立即执行函数写法写模块</h2><p>使用”立即执行函数”（Immediately-Invoked Function Expression，IIFE），将相关的属性和方法封装在一个函数作用域里面，可以达到不暴露私有成员的目的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> hello = <span class="string">'hello world'</span>;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">sayHello</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(hello);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>这样一来，外部就无法访问到私有的hello变量了。<br>更多的时候我们模块需要一来另一些模块或者全局变量，返回的时候挂载再全局变量上<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, $</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> hello = <span class="string">'hello world'</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//do somethings</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//do somethings</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f3</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//do somethings</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//这里也可以对引入对象进行扩展</span></div><div class="line">    $.fn.test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">window</span>.module1 = &#123;</div><div class="line">        <span class="attr">sayHello</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(hello);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)(<span class="built_in">window</span>, jQuery);</div></pre></td></tr></table></figure></p>
 <p>如果这个模块需要让外部调用哪些方法，只用挂载到module1上就可以了,同时，立即执行函数内部也可以对引入对象（例如jQuery，做扩展操作。以保证内部的方法和变量都是独立的，不会影响到外面</p>
 
       
@@ -421,15 +421,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -441,15 +445,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,7 +465,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,11 +481,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rollup</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,31 +509,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
             
             <div class="clearfix"></div>
