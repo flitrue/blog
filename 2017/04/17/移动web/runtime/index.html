@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://myronliu.com">
-  <title>Archives | Myron Blog</title>
+  <title>移动端页面多环境运行解决方案 | Myron Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我的技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Myron Blog">
-<meta property="og:url" content="http://myronliu.com/archives/index.html">
+  <meta name="description" content="在移动端的页面开发中，一个页面往往会在多个地方运行，例如：嵌入在app内、微信、其它浏览器….. ,在这些地方运行，很多功能的实现会采用不同方式，例如分享功能，在app中可能会调用native（android/ios）提供的接口，微信端会调用微信的sdk，这是两种完全不同的实现方式，但是对外的调用方式和接收参数、返回参数一致。
+这时需要一个中间层(runtime)，对外调用runtime中的方法，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端页面多环境运行解决方案">
+<meta property="og:url" content="http://myronliu.com/2017/04/17/移动web/runtime/index.html">
 <meta property="og:site_name" content="Myron Blog">
-<meta property="og:description" content="我的技术博客">
+<meta property="og:description" content="在移动端的页面开发中，一个页面往往会在多个地方运行，例如：嵌入在app内、微信、其它浏览器….. ,在这些地方运行，很多功能的实现会采用不同方式，例如分享功能，在app中可能会调用native（android/ios）提供的接口，微信端会调用微信的sdk，这是两种完全不同的实现方式，但是对外的调用方式和接收参数、返回参数一致。
+这时需要一个中间层(runtime)，对外调用runtime中的方法，">
+<meta property="og:updated_time" content="2017-04-17T09:48:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Myron Blog">
-<meta name="twitter:description" content="我的技术博客">
+<meta name="twitter:title" content="移动端页面多环境运行解决方案">
+<meta name="twitter:description" content="在移动端的页面开发中，一个页面往往会在多个地方运行，例如：嵌入在app内、微信、其它浏览器….. ,在这些地方运行，很多功能的实现会采用不同方式，例如分享功能，在app中可能会调用native（android/ios）提供的接口，微信端会调用微信的sdk，这是两种完全不同的实现方式，但是对外的调用方式和接收参数、返回参数一致。
+这时需要一个中间层(runtime)，对外调用runtime中的方法，">
   
     <link rel="alternative" href="/atom.xml" title="Myron Blog" type="application/atom+xml">
   
@@ -152,36 +156,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-移动web/runtime" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      移动端页面多环境运行解决方案
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/17/移动web/runtime/" class="archive-article-date">
+
+        
+        <a href="/2017/04/17/移动web/runtime/" class="archive-article-date">
   	<time datetime="2017-04-17T06:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/17/移动web/runtime/">移动端页面多环境运行解决方案</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在移动端的页面开发中，一个页面往往会在多个地方运行，例如：嵌入在app内、微信、其它浏览器….. ,在这些地方运行，很多功能的实现会采用不同方式，例如分享功能，在app中可能会调用native（android/ios）提供的接口，微信端会调用微信的sdk，这是两种完全不同的实现方式，但是对外的调用方式和接收参数、返回参数一致。</p>
+<p>这时需要一个中间层(runtime)，对外调用runtime中的方法，runtime中区分运行环境来调用不同的实现方式。</p>
+<h2 id="接口设计"><a href="#接口设计" class="headerlink" title="接口设计"></a>接口设计</h2><p>首先我们确定不同运行环境的runtime 层的设计</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">interface <span class="keyword">void</span> use (<span class="built_in">Object</span> runtime) &#123;&#125;</div></pre></td></tr></table></figure>
+<p>使用是，调用 <code>use</code> 方法加载不同运行环境下的实例。</p>
+<p>然后就是不同运行环境的实例了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    name <span class="comment">// 运行环境名称</span></div><div class="line">    boolean isRuntime () &#123;&#125;  <span class="comment">// 环境判断</span></div><div class="line">    <span class="comment">// 具体的方法</span></div><div class="line">    API: &#123;</div><div class="line">        share (options) &#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>通过 <code>name</code> 属性来区分不同的运行环境, 方便后续的方法扩展，</li>
+<li>isRuntime 方法，返回 true / false 提供判断是否是此运行环境的方法</li>
+<li>接下来的就是其它方法了，不同运行环境的，接受参数和返回参数需要保持一致</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>首先是 <code>runtime.js</code> 提供给外部调用，通过 <code>use</code> 方法加载不同运行环境的实现方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> runtimes = []; <span class="comment">// 用来保存不同的运行环境的示例</span></div><div class="line"><span class="keyword">const</span> Runtime = &#123;</div><div class="line">    use (runtime) &#123;</div><div class="line">        <span class="keyword">if</span> (!runtime.name) &#123;</div><div class="line">            <span class="built_in">console</span>.warn(<span class="string">'must be have name'</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 判读此名称的运行环境, 有则将api合并，没有则加入到数组中</span></div><div class="line">        <span class="keyword">if</span> (!existMerge(runtime.name, runtime.API)) runtimes.push(plugin);</div><div class="line">        createAPI(runtime.API); <span class="comment">// 创建对面提供的方法</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">existMerge</span> (<span class="params">name, API</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> result = <span class="literal">false</span>;</div><div class="line">    runtimes.forEach(<span class="function">(<span class="params">runtime</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span> (runtime.name === name) &#123;</div><div class="line">            result = <span class="literal">true</span>;</div><div class="line">            runtime.API = &#123;</div><div class="line">                ...runtime.API,</div><div class="line">                ...API</div><div class="line">            &#125;;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAPI</span> (<span class="params">API</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> methodName <span class="keyword">in</span> API) &#123;</div><div class="line">        <span class="keyword">if</span> (!API.hasOwnProperty(methodName)) <span class="keyword">continue</span>;</div><div class="line">        Runtime[methodName] = (<span class="function"><span class="keyword">function</span> (<span class="params">methodName</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> callAPI(<span class="built_in">arguments</span>, methodName);</div><div class="line">            &#125;</div><div class="line">        &#125;)(methodName);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callAPI</span> (<span class="params">args, methodName</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; runtimes.length; i++) &#123;</div><div class="line">        <span class="keyword">const</span> runtime = runtimes[i];</div><div class="line">        <span class="keyword">if</span> (!runtime.isRuntime()) <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">const</span> API = runtime.API;</div><div class="line">        <span class="keyword">if</span> (!API[methodName] &amp;&amp; <span class="keyword">typeof</span> API[method] === <span class="string">'function'</span>) <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">return</span> API[methodName].apply(<span class="literal">null</span>, args);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.warn(<span class="string">`找不到此方法:`</span>, _module, method);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Runtime;</div></pre></td></tr></table></figure>
+<p>然后是不同运行环境下的实例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// hybrid.js 嵌入到app中的页面</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'hybrid'</span>,</div><div class="line">    isRuntime () &#123;</div><div class="line">        <span class="keyword">return</span> <span class="comment">// TODO 通过userAgent判断运行环境</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">API</span>: &#123;</div><div class="line">        share () &#123;</div><div class="line">            <span class="comment">// TODO 调用native(android/ios) 提供接口</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// wechat.js 微信运行环境</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'wechat'</span>,</div><div class="line">    isRuntime () &#123;</div><div class="line">        <span class="keyword">return</span> <span class="comment">// TODO 通过userAgent判断运行环境</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">API</span>: &#123;</div><div class="line">        share () &#123;</div><div class="line">            <span class="comment">// TODO 调用微信sdk分享功能</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Runtime <span class="keyword">from</span> <span class="string">'./runtime'</span>;</div><div class="line"><span class="keyword">import</span> WeChat <span class="keyword">from</span> <span class="string">'./wechat'</span>;</div><div class="line"><span class="keyword">import</span> Hybrid <span class="keyword">from</span> <span class="string">'./hybrid'</span>;</div><div class="line"></div><div class="line">Runtime.use(WeChat);</div><div class="line">Runtime.use(Hybrid);</div><div class="line"></div><div class="line">Runtime.share(); <span class="comment">// 调用分享功能</span></div></pre></td></tr></table></figure>
+<p>这样一来我们可以在不同的运行环境下，给出不同的实现，使一个页面可以在多处运行。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,375 +236,106 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/22/移动web/css_harline/" class="archive-article-date">
-  	<time datetime="2017-03-22T06:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/22/移动web/css_harline/">移动web 1px边框解决方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">移动web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/16/随笔/拖延症/" class="archive-article-date">
-  	<time datetime="2017-03-16T03:27:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/16/随笔/拖延症/">关于拖延症的一些事</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/vue/vue_webpack_boilerplate/" class="archive-article-date">
-  	<time datetime="2017-02-05T18:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/vue/vue_webpack_boilerplate/">Vue webpack boilerplate 的一些捣腾</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/vue/vue_mixins_directive/" class="archive-article-date">
-  	<time datetime="2017-01-31T01:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/vue/vue_mixins_directive/">关于 Vue Mixin 和 Directive 的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/29/随笔/2016/" class="archive-article-date">
-  	<time datetime="2016-12-29T01:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/29/随笔/2016/">不断折腾的2016 | 掘金技术征文</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://myronliu.com/2017/04/17/移动web/runtime/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/12/vue/muse_ui/" class="archive-article-date">
-  	<time datetime="2016-11-12T00:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-12</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/12/vue/muse_ui/">Muse UI — Vue2.0 和 Material Design 结合</a>
-    </h1>
+  
+    <a href="/2017/03/22/移动web/css_harline/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动web 1px边框解决方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="移动web/runtime" data-title="移动端页面多环境运行解决方案" data-url="http://myronliu.com/2017/04/17/移动web/runtime/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/26/wechat/wechat_start/" class="archive-article-date">
-  	<time datetime="2016-09-26T00:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/26/wechat/wechat_start/">微信小程序开发初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">wechat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/18/vue/vue_ripple/" class="archive-article-date">
-  	<time datetime="2016-09-18T08:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/18/vue/vue_ripple/">vue 开发波纹点击特效组件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/08/vue/vue_layer/" class="archive-article-date">
-  	<time datetime="2016-09-08T00:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/08/vue/vue_layer/">关于 vue 弹窗组件的一些感想</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -584,8 +358,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
