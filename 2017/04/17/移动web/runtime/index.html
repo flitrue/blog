@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Myron Blog">
 <meta property="og:description" content="在移动端的页面开发中，一个页面往往会在多个地方运行，例如：嵌入在app内、微信、其它浏览器….. ,在这些地方运行，很多功能的实现会采用不同方式，例如分享功能，在app中可能会调用native（android/ios）提供的接口，微信端会调用微信的sdk，这是两种完全不同的实现方式，但是对外的调用方式和接收参数、返回参数一致。
 这时需要一个中间层(runtime)，对外调用runtime中的方法，">
-<meta property="og:updated_time" content="2017-04-17T09:48:47.000Z">
+<meta property="og:updated_time" content="2017-04-17T09:50:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端页面多环境运行解决方案">
 <meta name="twitter:description" content="在移动端的页面开发中，一个页面往往会在多个地方运行，例如：嵌入在app内、微信、其它浏览器….. ,在这些地方运行，很多功能的实现会采用不同方式，例如分享功能，在app中可能会调用native（android/ios）提供的接口，微信端会调用微信的sdk，这是两种完全不同的实现方式，但是对外的调用方式和接收参数、返回参数一致。
@@ -178,6 +178,7 @@
       
         <p>在移动端的页面开发中，一个页面往往会在多个地方运行，例如：嵌入在app内、微信、其它浏览器….. ,在这些地方运行，很多功能的实现会采用不同方式，例如分享功能，在app中可能会调用native（android/ios）提供的接口，微信端会调用微信的sdk，这是两种完全不同的实现方式，但是对外的调用方式和接收参数、返回参数一致。</p>
 <p>这时需要一个中间层(runtime)，对外调用runtime中的方法，runtime中区分运行环境来调用不同的实现方式。</p>
+<a id="more"></a>
 <h2 id="接口设计"><a href="#接口设计" class="headerlink" title="接口设计"></a>接口设计</h2><p>首先我们确定不同运行环境的runtime 层的设计</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">interface <span class="keyword">void</span> use (<span class="built_in">Object</span> runtime) &#123;&#125;</div></pre></td></tr></table></figure>
 <p>使用是，调用 <code>use</code> 方法加载不同运行环境下的实例。</p>
