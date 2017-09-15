@@ -3,81 +3,232 @@
 <head>
   <meta charset="utf-8">
   
-  <title>editorconfig和Eslint规范代码编辑 | 精神病聚集地</title>
+  <title>editorconfig和Eslint规范代码编辑 | ω锦鲤ω</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="代码规范是一个老生常谈的问题了，在很多人维护一个项目的时候，如何保证每个人的代码风格基本一致呢，每个团队的都会给程序员制定一套开发规范，但是如何去再编写的时候能检测代码时候按照规范编写的呢，这里就需要借助前端工具 editorconfig 和 eslint 了。">
+<meta name="keywords" content="前端工具,eslint,editorconfig">
 <meta property="og:type" content="article">
 <meta property="og:title" content="editorconfig和Eslint规范代码编辑">
 <meta property="og:url" content="http://myronliu.com/2016/04/05/editorconfig和Eslint规范代码编辑/index.html">
-<meta property="og:site_name" content="精神病聚集地">
+<meta property="og:site_name" content="ω锦鲤ω">
 <meta property="og:description" content="代码规范是一个老生常谈的问题了，在很多人维护一个项目的时候，如何保证每个人的代码风格基本一致呢，每个团队的都会给程序员制定一套开发规范，但是如何去再编写的时候能检测代码时候按照规范编写的呢，这里就需要借助前端工具 editorconfig 和 eslint 了。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-04-05T11:01:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="editorconfig和Eslint规范代码编辑">
 <meta name="twitter:description" content="代码规范是一个老生常谈的问题了，在很多人维护一个项目的时候，如何保证每个人的代码风格基本一致呢，每个团队的都会给程序员制定一套开发规范，但是如何去再编写的时候能检测代码时候按照规范编写的呢，这里就需要借助前端工具 editorconfig 和 eslint 了。">
   
-    <link rel="alternate" href="/atom.xml" title="精神病聚集地" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="ω锦鲤ω" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/uicon.jpg">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
 </head>
-
 <body>
   <div id="container">
-    <div id="wrap">
-      <div class="outer">
-        <div class="widget-wrap mobile-header">
-  <h3 class="widget-title"></h3>
-  <div class="widget">
-    <img class="avatar" src="/images/uicon.jpg">
-    <h2 class="author">myron</h2>
-    <h3 class="description">一只疯了的前端🐶</h3>
-    <div class="count-box">
-      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags/vue"><div><strong>25</strong><br>标签</div></a>
-    </div>
-    <ul class="blog-link">
-     
-          <a href="/" title="Home">
-            <li>主页</li>
-          </a>
-        
-          <a href="/archives" title="Archives">
-            <li>归档</li>
-          </a>
-        
-          <a href="/categories" title="Categories">
-            <li>分类</li>
-          </a>
-        
-          <a href="/tags/vue" title="Tags">
-            <li>标签</li>
-          </a>
-        
-    </ul>
-  </div>
-</div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/uicon.jpg" class="js-avatar">
+            
+        </a>
 
-        <section id="main"><article id="post-editorconfig和Eslint规范代码编辑" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/05/editorconfig和Eslint规范代码编辑/" class="article-date">
-  <time class="post-time" datetime="2016-04-05T11:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">05</span>
-  </time>
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Myron</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">低头努力，剩下的交给时光</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">首页</a></li>
+                        
+                            <li><a href="/archives">归档</a></li>
+                        
+                            <li><a href="/tags/随笔/">随笔</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:myronliu347@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/myronliu347" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/ES6/" style="font-size: 11.43px;">ES6</a> <a href="/tags/HTML5/" style="font-size: 18.57px;">HTML5</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/css/" style="font-size: 12.86px;">css</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/karma/" style="font-size: 10px;">karma</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/rollup/" style="font-size: 10px;">rollup</a> <a href="/tags/vue/" style="font-size: 15.71px;">vue</a> <a href="/tags/web-storage/" style="font-size: 10px;">web storage</a> <a href="/tags/webapp/" style="font-size: 14.29px;">webapp</a> <a href="/tags/wechat/" style="font-size: 10px;">wechat</a> <a href="/tags/前端工具/" style="font-size: 17.14px;">前端工具</a> <a href="/tags/前端工具-sublime/" style="font-size: 14.29px;">前端工具 sublime</a> <a href="/tags/移动web/" style="font-size: 12.86px;">移动web</a> <a href="/tags/移动端/" style="font-size: 17.14px;">移动端</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">luuman</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com/">曾静的博客</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.5udou.cn/">豆米的博客</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是个阳光帅气的男孩纸…</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Myron</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/uicon.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Myron</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">低头努力，剩下的交给时光</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">首页</a></li>
+                
+                    <li><a href="/archives">归档</a></li>
+                
+                    <li><a href="/tags/随笔/">随笔</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:myronliu347@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/myronliu347" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-editorconfig和Eslint规范代码编辑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/editorconfig和Eslint规范代码编辑/" class="article-date">
+      <time datetime="2016-04-05T11:00:00.000Z" itemprop="datePublished">2016-04-05</time>
 </a>
-   
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -88,17 +239,23 @@
     </h1>
   
 
-        <div>
-          
-          
-              
-
-          
-        </div>
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/editorconfig/">editorconfig</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/">eslint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工具/">前端工具</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <p>代码规范是一个老生常谈的问题了，在很多人维护一个项目的时候，如何保证每个人的代码风格基本一致呢，每个团队的都会给程序员制定一套开发规范，但是如何去再编写的时候能检测代码时候按照规范编写的呢，这里就需要借助前端工具 <strong>editorconfig</strong> 和 <strong>eslint</strong> 了。<br><a id="more"></a></p>
 <h2 id="editorconfig"><a href="#editorconfig" class="headerlink" title="editorconfig"></a><a href="http://editorconfig.org/" target="_blank" rel="external">editorconfig</a></h2><p><strong>EditorConfig</strong> 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格。<strong>EditorConfig</strong> 包含一个用于定义代码格式的文件和一批编辑器插件，这些插件可以让编辑器读取配置文件并依此格式化代码。 <strong>EditorConfig</strong> 的配置文件十分易读，并且可以很好的在VCS（Version Control System）下工作。<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="attr">root</span> = <span class="literal">true</span></div><div class="line"><span class="section"></span></div><div class="line">[*]</div><div class="line"><span class="attr">charset</span> = utf-<span class="number">8</span></div><div class="line"><span class="attr">end_of_line</span> = lf</div><div class="line"><span class="attr">indent_size</span> = <span class="number">4</span></div><div class="line"><span class="attr">indent_style</span> = space</div><div class="line"><span class="attr">insert_final_newline</span> = <span class="literal">true</span></div><div class="line"><span class="attr">trim_trailing_whitespace</span> = <span class="literal">true</span></div><div class="line"><span class="section"></span></div><div class="line">[*.md]</div><div class="line"><span class="attr">trim_trailing_whitespace</span> = <span class="literal">false</span></div><div class="line"><span class="section"></span></div><div class="line">[*.py]</div><div class="line"><span class="attr">indent_size</span> = <span class="number">4</span></div></pre></td></tr></table></figure></p>
 <blockquote>
@@ -135,21 +292,34 @@
 <p>这里是我的配置，有问题的可以查看这份 <a href="https://github.com/Jocs/ESLint_docs" target="_blank" rel="external">中文文档</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;</div><div class="line">  "env": &#123;</div><div class="line">    "browser": true,</div><div class="line">    "node": true,</div><div class="line">    "commonjs": true</div><div class="line">  &#125;,</div><div class="line">  "ecmaFeatures": &#123;</div><div class="line">    // lambda表达式</div><div class="line">    "arrowFunctions": true,</div><div class="line">    // 解构赋值</div><div class="line">    "destructuring": true,</div><div class="line">    // class</div><div class="line">    "classes": true,</div><div class="line">    // http://es6.ruanyifeng.com/#docs/function#函数参数的默认值</div><div class="line">    "defaultParams": true,</div><div class="line">    // 块级作用域，允许使用let const</div><div class="line">    "blockBindings": true,</div><div class="line">    // 允许使用模块，模块内默认严格模式</div><div class="line">    "modules": true,</div><div class="line">    // 允许字面量定义对象时，用表达式做属性名</div><div class="line">    // http://es6.ruanyifeng.com/#docs/object#属性名表达式</div><div class="line">    "objectLiteralComputedProperties": true,</div><div class="line">    // 允许对象字面量方法名简写</div><div class="line">    /*var o = &#123;</div><div class="line">        method() &#123;</div><div class="line">          return "Hello!";</div><div class="line">        &#125;</div><div class="line">     &#125;;</div><div class="line"></div><div class="line">     等同于</div><div class="line"></div><div class="line">     var o = &#123;</div><div class="line">       method: function() &#123;</div><div class="line">         return "Hello!";</div><div class="line">       &#125;</div><div class="line">     &#125;;</div><div class="line">    */</div><div class="line">    "objectLiteralShorthandMethods": true,</div><div class="line">    /*</div><div class="line">      对象字面量属性名简写</div><div class="line">      var foo = 'bar';</div><div class="line">      var baz = &#123;foo&#125;;</div><div class="line">      baz // &#123;foo: "bar"&#125;</div><div class="line"></div><div class="line">      // 等同于</div><div class="line">      var baz = &#123;foo: foo&#125;;</div><div class="line">    */</div><div class="line">    "objectLiteralShorthandProperties": true,</div><div class="line">    // http://es6.ruanyifeng.com/#docs/function#rest参数</div><div class="line">    "restParams": true,</div><div class="line">    // http://es6.ruanyifeng.com/#docs/function#扩展运算符</div><div class="line">    "spread": true,</div><div class="line">    // http://es6.ruanyifeng.com/#docs/iterator#for---of循环</div><div class="line">    "forOf": true,</div><div class="line">    // http://es6.ruanyifeng.com/#docs/generator</div><div class="line">    "generators": true,</div><div class="line">    // http://es6.ruanyifeng.com/#docs/string#模板字符串</div><div class="line">    "templateStrings": true,</div><div class="line">    "superInFunctions": true,</div><div class="line">    // http://es6.ruanyifeng.com/#docs/object#对象的扩展运算符</div><div class="line">    "experimentalObjectRestSpread": true</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  "rules": &#123;</div><div class="line">    // 定义对象的set存取器属性时，强制定义get</div><div class="line">    "accessor-pairs": 2,</div><div class="line">    // 指定数组的元素之间要以空格隔开(,后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格</div><div class="line">    "array-bracket-spacing": [2, "never"],</div><div class="line">    // 在块级作用域外访问块内定义的变量是否报错提示</div><div class="line">    "block-scoped-var": 0,</div><div class="line">    // if while function 后面的&#123;必须与if在同一行，java风格。</div><div class="line">    "brace-style": [2, "1tbs", &#123; "allowSingleLine": true &#125;],</div><div class="line">    // 双峰驼命名格式</div><div class="line">    "camelcase": 2,</div><div class="line">    // 数组和对象键值对最后一个逗号， never参数：不能带末尾的逗号, always参数：必须带末尾的逗号，</div><div class="line">    // always-multiline：多行模式必须带逗号，单行模式不能带逗号</div><div class="line">    "comma-dangle": [2, "never"],</div><div class="line">    // 控制逗号前后的空格</div><div class="line">    "comma-spacing": [2, &#123; "before": false, "after": true &#125;],</div><div class="line">    // 控制逗号在行尾出现还是在行首出现</div><div class="line">    // http://eslint.org/docs/rules/comma-style</div><div class="line">    "comma-style": [2, "last"],</div><div class="line">    // 圈复杂度</div><div class="line">    "complexity": [2, 9],</div><div class="line">    // 以方括号取对象属性时，[ 后面和 ] 前面是否需要空格, 可选参数 never, always</div><div class="line">    "computed-property-spacing": [2,"never"],</div><div class="line">    // 强制方法必须返回值，TypeScript强类型，不配置</div><div class="line">    "consistent-return": 0,</div><div class="line">    // 用于指统一在回调函数中指向this的变量名，箭头函数中的this已经可以指向外层调用者，应该没卵用了</div><div class="line">    // e.g [0,"that"] 指定只能 var that = this. that不能指向其他任何值，this也不能赋值给that以外的其他值</div><div class="line">    "consistent-this": 0,</div><div class="line">    // 强制在子类构造函数中用super()调用父类构造函数，TypeScrip的编译器也会提示</div><div class="line">    "constructor-super": 0,</div><div class="line">    // if else while for do后面的代码块是否需要&#123; &#125;包围，参数：</div><div class="line">    //    multi  只有块中有多行语句时才需要&#123; &#125;包围</div><div class="line">    //    multi-line  只有块中有多行语句时才需要&#123; &#125;包围, 但是块中的执行语句只有一行时，</div><div class="line">    //                   块中的语句只能跟和if语句在同一行。if (foo) foo++; else doSomething();</div><div class="line">    //    multi-or-nest 只有块中有多行语句时才需要&#123; &#125;包围, 如果块中的执行语句只有一行，执行语句可以零另起一行也可以跟在if语句后面</div><div class="line">    //    [2, "multi", "consistent"] 保持前后语句的&#123; &#125;一致</div><div class="line">    //    default: [2, "all"] 全都需要&#123; &#125;包围</div><div class="line">    "curly": [2, "all"],</div><div class="line">    // switch语句强制default分支，也可添加 // no default 注释取消此次警告</div><div class="line">    "default-case": 2,</div><div class="line">    // 强制object.key 中 . 的位置，参数:</div><div class="line">    //      property，'.'号应与属性在同一行</div><div class="line">    //      object, '.' 号应与对象名在同一行</div><div class="line">    "dot-location": [2, "property"],</div><div class="line">    // 强制使用.号取属性</div><div class="line">    //    参数： allowKeywords：true 使用保留字做属性名时，只能使用.方式取属性</div><div class="line">    //                          false 使用保留字做属性名时, 只能使用[]方式取属性 e.g [2, &#123;"allowKeywords": false&#125;]</div><div class="line">    //           allowPattern:  当属性名匹配提供的正则表达式时，允许使用[]方式取值,否则只能用.号取值 e.g [2, &#123;"allowPattern": "^[a-z]+(_[a-z]+)+$"&#125;]</div><div class="line">    "dot-notation": [2, &#123;"allowKeywords": true&#125;],</div><div class="line">    // 文件末尾强制换行</div><div class="line">    "eol-last": 2,</div><div class="line">    // 使用 === 替代 ==</div><div class="line">    "eqeqeq": [2, "allow-null"],</div><div class="line">    // 方法表达式是否需要命名</div><div class="line">    "func-names": 0,</div><div class="line">    // 方法定义风格，参数：</div><div class="line">    //    declaration: 强制使用方法声明的方式，function f()&#123;&#125; e.g [2, "declaration"]</div><div class="line">    //    expression：强制使用方法表达式的方式，var f = function() &#123;&#125;  e.g [2, "expression"]</div><div class="line">    //    allowArrowFunctions: declaration风格中允许箭头函数。 e.g [2, "declaration", &#123; "allowArrowFunctions": true &#125;]</div><div class="line">    "func-style": 0,</div><div class="line">    "generator-star-spacing": [2, &#123; "before": true, "after": true &#125;],</div><div class="line">    "guard-for-in": 0,</div><div class="line">    "handle-callback-err": [2, "^(err|error)$" ],</div><div class="line">    "indent": [2, 2, &#123; "SwitchCase": 1 &#125;],</div><div class="line">    "key-spacing": [2, &#123; "beforeColon": false, "afterColon": true &#125;],</div><div class="line">    "linebreak-style": 0,</div><div class="line">    "lines-around-comment": 0,</div><div class="line">    "max-nested-callbacks": 0,</div><div class="line">    "new-cap": [2, &#123; "newIsCap": true, "capIsNew": false &#125;],</div><div class="line">    "new-parens": 2,</div><div class="line">    "newline-after-var": 0,</div><div class="line">    "no-alert": 0,</div><div class="line">    "no-array-constructor": 2,</div><div class="line">    "no-caller": 2,</div><div class="line">    "no-catch-shadow": 0,</div><div class="line">    "no-cond-assign": 2,</div><div class="line">    "no-console": 0,</div><div class="line">    "no-constant-condition": 0,</div><div class="line">    "no-continue": 0,</div><div class="line">    "no-control-regex": 2,</div><div class="line">    "no-debugger": 2,</div><div class="line">    "no-delete-var": 2,</div><div class="line">    "no-div-regex": 0,</div><div class="line">    "no-dupe-args": 2,</div><div class="line">    "no-dupe-keys": 2,</div><div class="line">    "no-duplicate-case": 2,</div><div class="line">    "no-else-return": 0,</div><div class="line">    "no-empty": 0,</div><div class="line">    "no-empty-character-class": 2,</div><div class="line">    "no-empty-label": 2,</div><div class="line">    "no-eq-null": 0,</div><div class="line">    "no-eval": 2,</div><div class="line">    "no-ex-assign": 2,</div><div class="line">    "no-extend-native": 2,</div><div class="line">    "no-extra-bind": 2,</div><div class="line">    "no-extra-boolean-cast": 2,</div><div class="line">    "no-extra-parens": 0,</div><div class="line">    "no-extra-semi": 0,</div><div class="line">    "no-fallthrough": 2,</div><div class="line">    "no-floating-decimal": 2,</div><div class="line">    "no-func-assign": 2,</div><div class="line">    "no-implied-eval": 2,</div><div class="line">    "no-inline-comments": 0,</div><div class="line">    "no-inner-declarations": [2, "functions"],</div><div class="line">    "no-invalid-regexp": 2,</div><div class="line">    "no-irregular-whitespace": 2,</div><div class="line">    "no-iterator": 2,</div><div class="line">    "no-label-var": 2,</div><div class="line">    "no-labels": 2,</div><div class="line">    "no-lone-blocks": 2,</div><div class="line">    "no-lonely-if": 0,</div><div class="line">    "no-loop-func": 0,</div><div class="line">    "no-mixed-requires": 0,</div><div class="line">    "no-mixed-spaces-and-tabs": 2,</div><div class="line">    "no-multi-spaces": 2,</div><div class="line">    "no-multi-str": 2,</div><div class="line">    "no-multiple-empty-lines": [2, &#123; "max": 1 &#125;],</div><div class="line">    "no-native-reassign": 2,</div><div class="line">    "no-negated-in-lhs": 2,</div><div class="line">    "no-nested-ternary": 0,</div><div class="line">    "no-new": 2,</div><div class="line">    "no-new-func": 0,</div><div class="line">    "no-new-object": 2,</div><div class="line">    "no-new-require": 2,</div><div class="line">    "no-new-wrappers": 2,</div><div class="line">    "no-obj-calls": 2,</div><div class="line">    "no-octal": 2,</div><div class="line">    "no-octal-escape": 2,</div><div class="line">    "no-param-reassign": 0,</div><div class="line">    "no-path-concat": 0,</div><div class="line">    "no-process-env": 0,</div><div class="line">    "no-process-exit": 0,</div><div class="line">    "no-proto": 0,</div><div class="line">    "no-redeclare": 2,</div><div class="line">    "no-regex-spaces": 2,</div><div class="line">    "no-restricted-modules": 0,</div><div class="line">    "no-return-assign": 2,</div><div class="line">    "no-script-url": 0,</div><div class="line">    "no-self-compare": 2,</div><div class="line">    "no-sequences": 2,</div><div class="line">    "no-shadow": 0,</div><div class="line">    "no-shadow-restricted-names": 2,</div><div class="line">    "no-spaced-func": 2,</div><div class="line">    "no-sparse-arrays": 2,</div><div class="line">    "no-sync": 0,</div><div class="line">    "no-ternary": 0,</div><div class="line">    "no-this-before-super": 2,</div><div class="line">    "no-throw-literal": 2,</div><div class="line">    "no-trailing-spaces": 2,</div><div class="line">    "no-undef": 2,</div><div class="line">    "no-undef-init": 2,</div><div class="line">    "no-undefined": 0,</div><div class="line">    "no-underscore-dangle": 0,</div><div class="line">    "no-unexpected-multiline": 2,</div><div class="line">    "no-unneeded-ternary": 2,</div><div class="line">    "no-unreachable": 2,</div><div class="line">    "no-unused-expressions": 0,</div><div class="line">    "no-unused-vars": [2, &#123; "vars": "all", "args": "none" &#125;],</div><div class="line">    "no-use-before-define": 0,</div><div class="line">    "no-var": 0,</div><div class="line">    "no-void": 0,</div><div class="line">    "no-warning-comments": 0,</div><div class="line">    "no-with": 2,</div><div class="line">    "object-curly-spacing": 0,</div><div class="line">    "object-shorthand": 0,</div><div class="line">    "one-var": [2, &#123; "initialized": "never" &#125;],</div><div class="line">    "operator-assignment": 0,</div><div class="line">    "operator-linebreak": [2, "after", &#123; "overrides": &#123; "?": "before", ":": "before" &#125; &#125;],</div><div class="line">    "padded-blocks": 0,</div><div class="line">    "prefer-const": 0,</div><div class="line">    "quote-props": 0,</div><div class="line">    "quotes": [2, "single", "avoid-escape"],</div><div class="line">    "radix": 2,</div><div class="line">    "semi": [2, "never"],</div><div class="line">    "semi-spacing": 0,</div><div class="line">    "sort-vars": 0,</div><div class="line">    "space-after-keywords": [2, "always"],</div><div class="line">    "space-before-blocks": [2, "always"],</div><div class="line">    "space-before-function-paren": [2, "always"],</div><div class="line">    "space-in-parens": [2, "never"],</div><div class="line">    "space-infix-ops": 2,</div><div class="line">    "space-return-throw-case": 2,</div><div class="line">    "space-unary-ops": [2, &#123; "words": true, "nonwords": false &#125;],</div><div class="line">    "spaced-comment": [2, "always", &#123; "markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!"] &#125;],</div><div class="line">    "strict": 0,</div><div class="line">    "use-isnan": 2,</div><div class="line">    "valid-jsdoc": 0,</div><div class="line">    "valid-typeof": 2,</div><div class="line">    "vars-on-top": 0,</div><div class="line">    "wrap-iife": [2, "any"],</div><div class="line">    "wrap-regex": 0,</div><div class="line">    "yoda": [2, "never"]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
+      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://myronliu.com/2016/04/05/editorconfig和Eslint规范代码编辑/" data-id="cj7fx25kx0001oe77or9n5tnq" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/editorconfig/">editorconfig</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/">eslint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工具/">前端工具</a></li></ul>
-
-    </footer>
+    
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/04/05/editorconfig和Eslint规范代码编辑/">editorconfig和Eslint规范代码编辑</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Myron 的个人博客">Myron</a></p>
+        <p><span>发布时间:</span>2016年04月05日 - 19时00分</p>
+        <p><span>最后更新:</span>2016年04月05日 - 19时01分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/05/editorconfig和Eslint规范代码编辑/" title="editorconfig和Eslint规范代码编辑">http://myronliu.com/2016/04/05/editorconfig和Eslint规范代码编辑/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://myronliu.com/2016/04/05/editorconfig和Eslint规范代码编辑/　　作者: Myron" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
 <nav id="article-nav">
   
     <a href="/2016/04/09/前端工具/atom这个IDE有点酷/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
+      <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
           atom这个IDE有点酷
@@ -159,8 +329,8 @@
   
   
     <a href="/2016/03/30/javscript/javascript作用域和闭包/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">javascript作用域与闭包</div>
+      <strong class="article-nav-caption">></strong>
     </a>
   
 </nav>
@@ -168,153 +338,194 @@
   
 </article>
 
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    <div class="widget-wrap">
-  <h3 class="widget-title"></h3>
-  <div class="widget">
-    <h1 class="blog-title">精神病聚集地</h1>
-    <h2 class="blog-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</h2>
-    <ul class="blog-link">
-     
-          <a href="/" title="Home">
-            <li>主页</li>
-          </a>
-        
-          <a href="/archives" title="Archives">
-            <li>归档</li>
-          </a>
-        
-          <a href="/categories" title="Categories">
-            <li>分类</li>
-          </a>
-        
-          <a href="/tags/vue" title="Tags">
-            <li>标签</li>
-          </a>
-        
-    </ul>
-  </div>
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#editorconfig"><span class="toc-number">1.</span> <span class="toc-text">editorconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eslint"><span class="toc-number">2.</span> <span class="toc-text">eslint</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装方法"><span class="toc-number">2.1.</span> <span class="toc-text">安装方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.2.</span> <span class="toc-text">配置</span></a></li></ol></li></ol>
 </div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
-  
-    <div class="widget-wrap">
-  <h3 class="widget-title"></h3>
-  <div class="widget">
-    <img class="avatar" src="/images/uicon.jpg">
-    <h2 class="author">myron</h2>
-    <h3 class="description">一只疯了的前端🐶</h3>
-    <div class="count-box">
-      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags/vue"><div><strong>25</strong><br>标签</div></a>
-    </div>
-
-
-
-    <div class="social-link">
-      
-        <a class="hvr-bounce-in" href="http://github.com/myronliu347" target="_blank" title="github">
-          github
-        </a>
-      
-        <a class="hvr-bounce-in" href="mailto:myronliu347@gmail.com" target="_blank" title="email">
-          email
-        </a>
-      
-    </div>
-
-    <div class="friend-link">
-      <h2>友情链接</h2>
-      
-        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
-          ShanaMaid
-        </a>
-      
-    </div>
-  </div>
-</div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy;2016 - 2017 myron<br>
-      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
-      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
-      
-    </div>
-    
-  </div>
-</footer>
-    </div>
-    
-
-<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script>
-new WOW().init();
-</script>   
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
-
-  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
-  <script src="/plugin/galmenu/GalMenu.js"></script>
-  <div class="GalMenu GalDropDown">
-      <div class="circle" id="gal">
-        <div class="ring">
-          
-            <a href="/" title="" class="menuItem">首页</a>
-          
-            <a href="/tags/vue" title="" class="menuItem">标签</a>
-          
-            <a href="/archives" title="" class="menuItem">归档</a>
-          
-        </div>
-        
-          <audio id="audio" src="#"></audio>
-        
-      </div> 
-</div>
-<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
-  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
-    for (var i = 0,
-    l = items.length; i < l; i++) {
-      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
-      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
-    }</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('body').GalMenu({
-      'menu': 'GalDropDown'
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
     })
-  });
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
 </script>
 
-  <section class="hidden-xs"> 
-  <ul class="cb-slideshow"> 
-    <li><span>苟利</span></li> 
-    <li><span>国家</span></li> 
-    <li><span>生死以</span></li> 
-    <li><span>岂能</span></li> 
-    <li><span>祸福</span></li> 
-    <li><span>趋避之</span></li> 
-  </ul>
-</section>
-<script src="/js/script.js"></script>
 
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script src="http://v2.uyan.cc/code/uyan.js?uid=2144634"></script>
+</section>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/04/09/前端工具/atom这个IDE有点酷/" title="上一篇: atom这个IDE有点酷">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/03/30/javscript/javascript作用域和闭包/" title="下一篇: javascript作用域与闭包">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/移动web/runtime/">移动端页面多环境运行解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/移动web/css_harline/">移动web 1px边框解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/随笔/拖延症/">关于拖延症的一些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/vue/vue_webpack_boilerplate/">Vue webpack boilerplate 的一些捣腾</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/vue/vue_mixins_directive/">关于 Vue Mixin 和 Directive 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/29/随笔/2016/">不断折腾的2016 | 掘金技术征文</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/12/vue/muse_ui/">Muse UI — Vue2.0 和 Material Design 结合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/wechat/wechat_start/">微信小程序开发初体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/vue/vue_ripple/">vue 开发波纹点击特效组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/vue/vue_layer/">关于 vue 弹窗组件的一些感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/移动web/mobile_css/">移动web开发中有用的css片段</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/21/javscript/ES6的二三事(二)－模块化/">ES6的二三事(二)-模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/javscript/ES6的二三事(一)/">ES6的二三事(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/前端工具/node_npm_update/">node 和 npm 版本升级</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/10/前端工具/javascript_unit/">javascript单元测试实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/09/前端工具/2016-08-09/">npm 发布一个自己的包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/07/前端工具/2016-08-07/">使用 rollup 打包你的 ES6 代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/react-native/react-native_launch/">react-native 给android端设置启动图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/17/react-native/react-native start/">react-native 开始走向mobile开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/html5/html5网络连接/">html5网络连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/html5/html5设备api/">html5设备api</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/30/html5/html5离线存储/">html5离线存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/html5/html5语义化标签/">HTML5 语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/webapp/webapp_dev2/">webapp 性能优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/webapp/webapp_dev1/">最简单的webapp开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/webapp/webapp_mobile_page/">关于webapp开发——移动端页面</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/js缓存封装/">js缓存封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/09/前端工具/atom这个IDE有点酷/">atom这个IDE有点酷</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/editorconfig和Eslint规范代码编辑/">editorconfig和Eslint规范代码编辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/javscript/javascript作用域和闭包/">javascript作用域与闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/javscript/如何写一个完善的jquery ui组件/">如何写一个完善的jquery ui组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/29/javscript/javascript数据驱动页面/">javascript数据驱动页面</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/hexo-coding搭建自己的博客/">hexo+coding搭建自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/javscript/javascript面向对象编程/">javascript面向对象编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/21/javscript/javascript模块化编程(二)--commonjs,AMD,CMD/">javascript模块化编程(二)--commonjs,AMD,CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/21/javscript/javascript模块化编程(一)/">javascript模块化编程(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/css/css布局-BFC和IFC/">css布局-BFC和IFC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/css/css布局-盒模型，定位和浮动/">css布局-盒模型，定位和浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/06/javscript/javascript类工厂构建/">javascript类工厂构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/24/移动web/前端seo优化/">前端seo优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/24/移动web/Yahoo军规/">前端代码规范(YaHoo军规)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/16/前端工具/sublime常用的插件介绍/">sublime常用的插件介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/15/javscript/javascript异步处理/">javascript异步处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/15/前端工具/sublime自定义代码提示/">sublime自定义代码提示</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/14/前端工具/sublime功能介绍/">sublime功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/14/前端工具/sublime常用快捷键/">sublime常用快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/09/javscript/javascript类型判断/">javascript类型判断</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/13/移动web/移动web开发准备工作/">移动web开发准备工作</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Myron
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
 
 
   </div>
