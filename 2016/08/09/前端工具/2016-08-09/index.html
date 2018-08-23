@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>npm 发布一个自己的包 | ω锦鲤ω</title>
+  <title>npm 发布一个自己的包 | flitrue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="NPM 是 node 自带的包管理工具, 我们在平时项目提炼出许多重用性比较强的代码，把这些代码整合成一个模块发布到npm社区，可以让自己模块做更好版本管理(不会因为自己某天改了一行代码就导致所有依赖项目歇菜)，新建项目的时候也不用copy代码这种粗糙的方法引入。 最近在npm上发布了两个包 si-log, si-store">
 <meta name="keywords" content="前端工具,npm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="npm 发布一个自己的包">
 <meta property="og:url" content="http://myronliu.com/2016/08/09/前端工具/2016-08-09/index.html">
-<meta property="og:site_name" content="ω锦鲤ω">
+<meta property="og:site_name" content="flitrue">
 <meta property="og:description" content="NPM 是 node 自带的包管理工具, 我们在平时项目提炼出许多重用性比较强的代码，把这些代码整合成一个模块发布到npm社区，可以让自己模块做更好版本管理(不会因为自己某天改了一行代码就导致所有依赖项目歇菜)，新建项目的时候也不用copy代码这种粗糙的方法引入。 最近在npm上发布了两个包 si-log, si-store">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-09T09:29:53.000Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="npm 发布一个自己的包">
 <meta name="twitter:description" content="NPM 是 node 自带的包管理工具, 我们在平时项目提炼出许多重用性比较强的代码，把这些代码整合成一个模块发布到npm社区，可以让自己模块做更好版本管理(不会因为自己某天改了一行代码就导致所有依赖项目歇菜)，新建项目的时候也不用copy代码这种粗糙的方法引入。 最近在npm上发布了两个包 si-log, si-store">
   
-    <link rel="alternative" href="/atom.xml" title="ω锦鲤ω" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="flitrue" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/uicon.jpg">
@@ -63,7 +63,7 @@
         </a>
 
         <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">Myron</a></h1>
+          <h1 class="header-author"><a href="/" title="Hi Mate">flitrue</a></h1>
         </hgroup>
 
         
@@ -177,7 +177,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Myron</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">flitrue</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -187,7 +187,7 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">Myron</a></h1>
+              <h1 class="header-author"><a href="/" title="Me">flitrue</a></h1>
             </hgroup>
             
             <p class="header-subtitle">低头努力，剩下的交给时光</p>
@@ -260,7 +260,7 @@
 <p>最近在npm上发布了两个包 <a href="https://www.npmjs.com/package/si-log" target="_blank" rel="external">si-log</a>, <a href="https://www.npmjs.com/package/si-store" target="_blank" rel="external">si-store</a></p>
 <a id="more"></a>
 <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>要发布自己的包，需要有 package.json 文件(现在的项目应该都有了吧), 如果没有需要在项目目录下执行 <code>npm init</code> ，初始化完成后，会看到 package.json 文件内容像这样</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;si-store&quot;,                      // 包的名称</div><div class="line">  &quot;version&quot;: &quot;0.1.1&quot;,                      // 版本</div><div class="line">  &quot;description&quot;: &quot;基于Web Storage的缓存库&quot;,  // 介绍</div><div class="line">  &quot;main&quot;: &quot;dist/si-store-common.js&quot;,       // 入口文件</div><div class="line">  // 代码托管信息 (目前是在github下)</div><div class="line">  &quot;repository&quot;: &#123;</div><div class="line">    &quot;type&quot;: &quot;git&quot;,</div><div class="line">    &quot;url&quot;: &quot;git+https://github.com/aa953788477/store.js.git&quot;</div><div class="line">  &#125;,</div><div class="line">  // 关键字， 便于搜索</div><div class="line">  &quot;keywords&quot;: [</div><div class="line">    &quot;store&quot;</div><div class="line">  ],</div><div class="line">  // 作者 </div><div class="line">  &quot;author&quot;: &quot;Myron Liu&quot;,</div><div class="line">  //开源协议</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;,</div><div class="line">  // 提bug的页面 默认是github 的 issues</div><div class="line">  &quot;bugs&quot;: &#123;</div><div class="line">    &quot;url&quot;: &quot;https://github.com/aa953788477/store.js/issues&quot;</div><div class="line">  &#125;,</div><div class="line">  // 主页</div><div class="line">  &quot;homepage&quot;: &quot;https://github.com/aa953788477/store.js#readme&quot;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;si-store&quot;,                      // 包的名称</div><div class="line">  &quot;version&quot;: &quot;0.1.1&quot;,                      // 版本</div><div class="line">  &quot;description&quot;: &quot;基于Web Storage的缓存库&quot;,  // 介绍</div><div class="line">  &quot;main&quot;: &quot;dist/si-store-common.js&quot;,       // 入口文件</div><div class="line">  // 代码托管信息 (目前是在github下)</div><div class="line">  &quot;repository&quot;: &#123;</div><div class="line">    &quot;type&quot;: &quot;git&quot;,</div><div class="line">    &quot;url&quot;: &quot;git+https://github.com/aa953788477/store.js.git&quot;</div><div class="line">  &#125;,</div><div class="line">  // 关键字， 便于搜索</div><div class="line">  &quot;keywords&quot;: [</div><div class="line">    &quot;store&quot;</div><div class="line">  ],</div><div class="line">  // 作者 </div><div class="line">  &quot;author&quot;: &quot;flitrue Liu&quot;,</div><div class="line">  //开源协议</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;,</div><div class="line">  // 提bug的页面 默认是github 的 issues</div><div class="line">  &quot;bugs&quot;: &#123;</div><div class="line">    &quot;url&quot;: &quot;https://github.com/aa953788477/store.js/issues&quot;</div><div class="line">  &#125;,</div><div class="line">  // 主页</div><div class="line">  &quot;homepage&quot;: &quot;https://github.com/aa953788477/store.js#readme&quot;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="采用模块化方式编码"><a href="#采用模块化方式编码" class="headerlink" title="采用模块化方式编码"></a>采用模块化方式编码</h2><p>node 包使用遵循模块化方案(commonJS), 如果使用到了babel转码，也可以使用es6的语法发布</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// si-store/index.js</span></div><div class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'./Store'</span></div><div class="line"><span class="keyword">import</span> &#123;register&#125; <span class="keyword">from</span> <span class="string">'./storage/index.js'</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> store = <span class="keyword">new</span> Store()</div><div class="line"></div><div class="line">store.version = <span class="string">'0.1.1'</span></div><div class="line">store.create = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Store(options)</div><div class="line">&#125;</div><div class="line">store.register = register</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</div></pre></td></tr></table></figure>
 <h2 id="编写-README-md"><a href="#编写-README-md" class="headerlink" title="编写 README.md"></a>编写 README.md</h2><p>readme 是介绍你的包，需要介绍你的包解决了那些问题，最基本的使用方式是怎么样的，有那些api,像这样</p>
@@ -297,12 +297,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2016/08/09/前端工具/2016-08-09/">npm 发布一个自己的包</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 Myron 的个人博客">Myron</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 flitrue 的个人博客">flitrue</a></p>
         <p><span>发布时间:</span>2016年08月09日 - 08时28分</p>
         <p><span>最后更新:</span>2016年08月09日 - 17时29分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/09/前端工具/2016-08-09/" title="npm 发布一个自己的包">http://myronliu.com/2016/08/09/前端工具/2016-08-09/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://myronliu.com/2016/08/09/前端工具/2016-08-09/　　作者: Myron" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span class="copy-path" data-clipboard-text="原文: http://myronliu.com/2016/08/09/前端工具/2016-08-09/　　作者: flitrue" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -435,7 +435,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2018 Myron
+                &copy; 2018 flitrue
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman

@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于 Vue Mixin 和 Directive 的使用 | ω锦鲤ω</title>
+  <title>关于 Vue Mixin 和 Directive 的使用 | flitrue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="使用 vue 组件化开发已经很长时间，组件化的意义就是把在多个页面中共有的逻辑（显示/功能）封装，在多个页面或者多个项目中重复使用以提高开发效率。 但组件中共有的逻辑如何重用呢？例如： 我们再开发一个 popover 组件时都会有如下功能：  点击外部时关闭弹出 滚动条滚动或者窗口大小发生改变时重新定位  这里我们需要监听三个事件，一个是外部被点击事件，滚动条滚动，窗口大小发生改变，这些功能都很可">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 Vue Mixin 和 Directive 的使用">
 <meta property="og:url" content="http://myronliu.com/2017/01/31/vue/vue_mixins_directive/index.html">
-<meta property="og:site_name" content="ω锦鲤ω">
+<meta property="og:site_name" content="flitrue">
 <meta property="og:description" content="使用 vue 组件化开发已经很长时间，组件化的意义就是把在多个页面中共有的逻辑（显示/功能）封装，在多个页面或者多个项目中重复使用以提高开发效率。 但组件中共有的逻辑如何重用呢？例如： 我们再开发一个 popover 组件时都会有如下功能：  点击外部时关闭弹出 滚动条滚动或者窗口大小发生改变时重新定位  这里我们需要监听三个事件，一个是外部被点击事件，滚动条滚动，窗口大小发生改变，这些功能都很可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-01-31T03:56:33.000Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="关于 Vue Mixin 和 Directive 的使用">
 <meta name="twitter:description" content="使用 vue 组件化开发已经很长时间，组件化的意义就是把在多个页面中共有的逻辑（显示/功能）封装，在多个页面或者多个项目中重复使用以提高开发效率。 但组件中共有的逻辑如何重用呢？例如： 我们再开发一个 popover 组件时都会有如下功能：  点击外部时关闭弹出 滚动条滚动或者窗口大小发生改变时重新定位  这里我们需要监听三个事件，一个是外部被点击事件，滚动条滚动，窗口大小发生改变，这些功能都很可">
   
-    <link rel="alternative" href="/atom.xml" title="ω锦鲤ω" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="flitrue" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/uicon.jpg">
@@ -63,7 +63,7 @@
         </a>
 
         <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">Myron</a></h1>
+          <h1 class="header-author"><a href="/" title="Hi Mate">flitrue</a></h1>
         </hgroup>
 
         
@@ -177,7 +177,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Myron</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">flitrue</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -187,7 +187,7 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">Myron</a></h1>
+              <h1 class="header-author"><a href="/" title="Me">flitrue</a></h1>
             </hgroup>
             
             <p class="header-subtitle">低头努力，剩下的交给时光</p>
@@ -325,12 +325,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2017/01/31/vue/vue_mixins_directive/">关于 Vue Mixin 和 Directive 的使用</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 Myron 的个人博客">Myron</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 flitrue 的个人博客">flitrue</a></p>
         <p><span>发布时间:</span>2017年01月31日 - 09时35分</p>
         <p><span>最后更新:</span>2017年01月31日 - 11时56分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/01/31/vue/vue_mixins_directive/" title="关于 Vue Mixin 和 Directive 的使用">http://myronliu.com/2017/01/31/vue/vue_mixins_directive/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://myronliu.com/2017/01/31/vue/vue_mixins_directive/　　作者: Myron" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span class="copy-path" data-clipboard-text="原文: http://myronliu.com/2017/01/31/vue/vue_mixins_directive/　　作者: flitrue" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -463,7 +463,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2018 Myron
+                &copy; 2018 flitrue
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
