@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="flitrue" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/uicon.jpg">
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/15258895?s=460&v=4">
   
   
       <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
@@ -61,7 +61,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/uicon.jpg" class="js-avatar">
+            <img lazy-src="https://avatars2.githubusercontent.com/u/15258895?s=460&v=4" class="js-avatar">
             
         </a>
 
@@ -70,7 +70,7 @@
         </hgroup>
 
         
-        <p class="header-subtitle">低头努力，剩下的交给时光</p>
+        <p class="header-subtitle">不抱怨 要努力</p>
         
         
         
@@ -132,11 +132,11 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fl mail" target="_blank" href="mailto:myronliu347@gmail.com" title="mail">mail</a>
+                                <a class="fl mail" target="_blank" href="mailto:812863096@qq.com" title="mail">mail</a>
                             
-                                <a class="fl github" target="_blank" href="https://github.com/myronliu347" title="github">github</a>
+                                <a class="fl github" target="_blank" href="https://github.com/flitrue" title="github">github</a>
                             
-                                <a class="fl weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/wenxuanbingo" title="weibo">weibo</a>
                             
                         </ul>
                     </nav>
@@ -186,14 +186,14 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/uicon.jpg" class="js-avatar">
+                    <img lazy-src="https://avatars2.githubusercontent.com/u/15258895?s=460&v=4" class="js-avatar">
                 
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="Me">flitrue</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">低头努力，剩下的交给时光</p>
+            <p class="header-subtitle">不抱怨 要努力</p>
             
             <nav class="header-menu">
                 <ul>
@@ -210,11 +210,11 @@
             <nav class="header-nav">
                 <div class="social">
                     
-                        <a class="mail" target="_blank" href="mailto:myronliu347@gmail.com" title="mail">mail</a>
+                        <a class="mail" target="_blank" href="mailto:812863096@qq.com" title="mail">mail</a>
                     
-                        <a class="github" target="_blank" href="https://github.com/myronliu347" title="github">github</a>
+                        <a class="github" target="_blank" href="https://github.com/flitrue" title="github">github</a>
                     
-                        <a class="weibo" target="_blank" href="http://weibo.com/5837600189/info" title="weibo">weibo</a>
+                        <a class="weibo" target="_blank" href="http://weibo.com/wenxuanbingo" title="weibo">weibo</a>
                     
                 </div>
             </nav>
@@ -263,7 +263,7 @@
 <p><img src="https://vuex.vuejs.org/vuex.png" alt=""></p>
 <p>事实上，在实际的使用中 vuex 可以说是相当繁琐的，每一次的需求增加需要增加 <code>Mutations-Type</code> 、<code>Action</code> 和 <code>Mutations</code>, 为了简化这一操作，我们可以将 mutations 和 action 合并，简化流程如下：</p>
 <p><img src="https://vuex.vuejs.org/flow.png" alt=""></p>
-<p>在此种思想的引导下, <a href="https://github.com/myronliu347/muse-model" target="_blank" rel="external">muse-model</a> 诞生了，以简单优雅的方式完成整个项目的状态管理。<br><a id="more"></a></p>
+<p>在此种思想的引导下, <a href="https://github.com/flitrue/muse-model" target="_blank" rel="external">muse-model</a> 诞生了，以简单优雅的方式完成整个项目的状态管理。<br><a id="more"></a></p>
 <h2 id="什么是-muse-model"><a href="#什么是-muse-model" class="headerlink" title="什么是 muse-model"></a>什么是 muse-model</h2><p><code>muse-model</code> 并不是一个全新的状态管理工具， 它是基于 <code>vuex</code> 开发，可以说是 <code>vuex</code> 的一个辅助工具，在使用 <code>muse-model</code> 过程中，vuex 的一切 API 都是可以用的，这也方便了vuex 的用户进行过度。在初始化 <code>muse-model</code> 是也是需要传入 <code>store</code> 对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// model.js</span></div><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</div><div class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</div><div class="line"><span class="keyword">import</span> MuseModel <span class="keyword">from</span> <span class="string">'muse-model'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> store = Vuex.Store(&#123;</div><div class="line">  <span class="attr">strict</span>: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> MuseModel(store);</div></pre></td></tr></table></figure>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>我们将以一个计数器的例子来演示 <code>muse-model</code> 的使用。</p>
@@ -286,7 +286,7 @@
     }
 }
 </code></pre>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>muse-model 地址：<a href="https://github.com/myronliu347/muse-model" target="_blank" rel="external">https://github.com/myronliu347/muse-model</a></p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>muse-model 地址：<a href="https://github.com/flitrue/muse-model" target="_blank" rel="external">https://github.com/flitrue/muse-model</a></p>
 
       
       
